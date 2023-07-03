@@ -1,7 +1,12 @@
+import {AiFillHome} from "react-icons/ai";
+import { FiSave } from "react-icons/fi";
+
 const NavigationBar = () => {
+
+
   return (
     <div>
-      <h1>This is navigation bar</h1>
+  
     </div>
   );
 };
