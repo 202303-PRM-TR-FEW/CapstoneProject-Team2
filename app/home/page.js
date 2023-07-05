@@ -1,9 +1,7 @@
-import Link from "next/link";
-
 const page = () => {
-  return (
+   return (
     <div>
-   
+
     </div>
   );
 };
