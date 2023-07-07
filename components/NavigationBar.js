@@ -34,6 +34,10 @@ const NavigationBar = () => {
         <CgProfile size={30} />
         <p>Profile</p>
       </Link>
+      <Link href="statistics" className={style.button}>
+        <CgProfile size={30} />
+        <p>Statistics</p>
+      </Link>
     </div>
   );
 };
