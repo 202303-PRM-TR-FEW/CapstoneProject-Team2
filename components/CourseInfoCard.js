@@ -8,7 +8,7 @@ const CourseInfoCard = () => {
     courseInfoCard: `flex flex-col rounded-2xl bg-white m-2 w-full`,
     courseImg: `rounded-2xl m-2 bg-contain`,
     infoBox: `flex flex-col  justify-between m-2 py-4`,
-    teacher: `flex text-sm items-center text-slate-500 my-4 p-2 rounded-full shadow-lg`,
+    teacher: `flex text-sm items-center text-slate-500 my-4 p-2 rounded-full shadow-lg w-fit`,
     teacherImg: `rounded-full mr-4`,
     descBox: `text-sm text-slate-600`,
     descLine: `my-2`,
