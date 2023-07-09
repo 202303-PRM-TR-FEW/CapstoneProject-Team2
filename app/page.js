@@ -58,7 +58,7 @@ const page = () => {
         </div>
       </div>
       <div className="flex w-1/2 h-screen items-center rounded-full ">
-        <Image src={home} alt="home-image" />
+        <Image src={home} priority={true} alt="home-image" />
       </div>
     </div>
   );
