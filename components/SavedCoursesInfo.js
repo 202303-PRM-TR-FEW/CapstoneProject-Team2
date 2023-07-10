@@ -57,8 +57,8 @@ const SavedCoursesInfo = () => {
             </div>
             <h1 className={style.description}>Course Description</h1>
             <p className={style.descLine}>
-              This course is sooo good, you gotta purchase it and you'&apos;ll
-              be best photographer ever!
+              This course is sooo good, you gotta purchase it and you will be
+              best photographer ever!
             </p>
           </div>
           <div className={style.btnDiv}>
