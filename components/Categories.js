@@ -5,11 +5,14 @@ import {MdOutlineDraw} from "react-icons/md";
 import {FaTable} from "react-icons/fa";
 import {MdDesignServices} from "react-icons/md";
 import {BsStars} from "react-icons/bs";
+import {BiSolidBulb} from "react-icons/bi";
 
 const style = {
-  // icon : `text-gray-400 mb-1`,
-  oneBox : `flex hover:bg-blue-100 justify-center items-center bg-white w-36 rounded-xl px-10 p-2 flex-col text-gray-600 hover:text-blue-500`,
-  container : `flex gap-4`
+  icon : `text-gray-400 mb-1 group-hover:text-blue-500`,
+  oneBox : `flex hover:bg-blue-100 hover:cursor-pointer border
+   hover:border-blue-500 justify-center items-center bg-white w-36 
+   rounded-xl px-10 p-2 flex-col text-gray-600 group hover:text-blue-500 `,
+  container : `flex gap-4`,
 }
 
 const Categories = () => {
@@ -34,6 +37,10 @@ const Categories = () => {
       <div className={style.oneBox}>
         <MdDesignServices size={30} className={style.icon}/>
         <h3>Design</h3>
+      </div>
+      <div className={style.oneBox}>
+        <BiSolidBulb size={30} className={style.icon}/>
+        <h3>Marketing</h3>
       </div>
       <div className={style.oneBox}>
         <BsStars size={30} className={style.icon}/>
