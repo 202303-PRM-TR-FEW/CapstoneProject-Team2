@@ -43,8 +43,8 @@ const CourseInfoCard = () => {
             <p className={style.descLine}>45 min</p>
             <p className={style.descLine}>4.7/5.0</p>
             <p className={style.descLine}>
-              This course is crazy good, you gotta purchase it and you'll be
-              best photographer ever!
+              This course is crazy good, you gotta purchase it and you'&apos;ll
+              be best photographer ever!
             </p>
           </div>
         </div>
