@@ -25,6 +25,7 @@ const CourseCard = () => {
         height={150}
         alt="cover image of course"
         className={style.coverImg}
+        priority={true}
       />
       <div className={style.infoSide}>
         <div>
@@ -35,14 +36,15 @@ const CourseCard = () => {
               width={25}
               height={25}
               alt="bookmark icon"
+              priority={true}
             />
           </div>
 
           <p className={style.teacher}>Clara Manning</p>
         </div>
         <div>
-          <div class={style.progressBar}>
-            <div class={style.progress}></div>
+          <div className={style.progressBar}>
+            <div className={style.progress}></div>
           </div>
           <p className={style.progressInfo}>Completed: 60%</p>
         </div>

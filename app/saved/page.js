@@ -4,14 +4,14 @@ import SavedCourses from "@/components/SavedCourses";
 import SavedCoursesInfo from "@/components/SavedCoursesInfo";
 
 const style = {
-  container : `flex flex-row ml-24 gap-10`,
-  card : `w-fit`,
-  title : `ml-24 font-bold text-2xl`
-}
+  container: `flex flex-col md:flex-row gap-10 w-full p-4`,
+  card: `w-1/2`,
+  title: `text-center font-bold text-2xl`,
+};
 
 const page = () => {
   return (
-    <>
+    <div>
       <h1 className={style.title}>Saved Courses</h1>
       <div className={style.container}>
         <div>
@@ -23,7 +23,7 @@ const page = () => {
           <SavedCoursesInfo />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

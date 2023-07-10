@@ -5,15 +5,15 @@ import coverimg from "../public/assets/course-cover.png";
 import saveIconFull from "../public/assets/save-icon-full.png";
 
 const style = {
-    courseCard: `flex rounded-2xl bg-white m-2 shadow-lg`,
-    coverImg: `rounded-2xl m-2`,
-    infoSide: `flex flex-col justify-between m-2 py-4`,
-    courseName: `flex items-center`,
-    teacher: `text-sm text-slate-500`,
-    progressBar: `w-full bg-slate-200 rounded-full h-2.5`,
-    progress: `bg-blue-600 h-2.5 rounded-full w-3/5`,
-    progressInfo: `text-sm text-slate-500`,
-    button: `bg-blue-500 rounded-2xl p-1 text-xs w-min px-4 text-white`
+  courseCard: `flex rounded-2xl bg-white m-2 shadow-lg`,
+  coverImg: `rounded-2xl m-2`,
+  infoSide: `flex flex-col justify-between m-2 py-4`,
+  courseName: `flex items-center`,
+  teacher: `text-sm text-slate-500`,
+  progressBar: `w-full bg-slate-200 rounded-full h-2.5`,
+  progress: `bg-blue-600 h-2.5 rounded-full w-3/5`,
+  progressInfo: `text-sm text-slate-500`,
+  button: `bg-blue-500 rounded-2xl p-1 text-xs w-min px-4 text-white`,
 };
 
 const SavedCourses = () => {
@@ -25,6 +25,7 @@ const SavedCourses = () => {
         height={150}
         alt="cover image of course"
         className={style.coverImg}
+        priority={true}
       />
       <div className={style.infoSide}>
         <div>
@@ -35,6 +36,7 @@ const SavedCourses = () => {
               width={25}
               height={25}
               alt="bookmark icon"
+              priority={true}
             />
           </div>
 
