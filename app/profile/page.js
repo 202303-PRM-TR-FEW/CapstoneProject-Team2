@@ -8,13 +8,13 @@ import { GiTrophyCup } from "react-icons/gi";
 
 const page = () => {
   return (
-    <div className="flex bg-slate-100 gap-8 ">
-      <div className=" flex flex-col  ml-16 h-screen">
+    <div className=" md:flex md:flex-row md:items-center md:justify-center mx-[5rem] flex flex-col items-center bg-slate-100 gap-12   ">
+      <div className=" flex flex-col   ">
         <div className="flex ml-4  ">
           <div className=" mt-8">
             <Image src={profile} alt="profile" priority={true} />
           </div>
-          <div className=" flex flex-col ml-4 gap-4">
+          <div className=" flex flex-col ml-4 gap-8">
             <div className=" mt-8">
               <h1 className=" text-2xl font-semibold">Sally Robins</h1>
               <div className=" flex gap-2 items-center">
@@ -41,7 +41,7 @@ const page = () => {
           </div>
         </div>
         <h1 className=" mt-4 text-xl font-semibold ml-4">Total Statistics</h1>
-        <div className=" flex ">
+        <div className=" flex  ">
           <div className=" ml-4 mt-4  ">
             <div className=" flex flex-col gap-2 justify-center items-center text-center bg-white rounded-xl w-32  h-28">
               <div className=" flex  justify-center items-center w-28 h-8 rounded-xl bg-yellow-400">
@@ -77,7 +77,7 @@ const page = () => {
           </div>
         </div>
         <h1 className="text-xl font-semibold mt-4 ml-4">Achievements</h1>
-        <div className=" flex gap-4 bg-white w-[26rem] rounded-xl ml-4 mt-4 p-2">
+        <div className=" flex gap-4  bg-white w-[26rem] rounded-xl ml-4 mt-4 p-2">
           <div className=" flex items-center justify-center rounded-xl ml-2  w-24 h-20 bg-red-100">
             <GiSandsOfTime size={30} color="blue" />
           </div>
@@ -89,7 +89,7 @@ const page = () => {
             <p className=" text-xs opacity-50">Reach a 3 day streak</p>
           </div>
         </div>
-        <div className=" flex gap-4 bg-white w-[26rem] rounded-xl ml-4 mt-4 p-2">
+        <div className=" flex gap-4  bg-white w-[26rem] rounded-xl ml-4 mt-4 p-2">
           <div className=" flex items-center justify-center rounded-xl ml-2  w-24 h-20 bg-red-100">
             <GiTrophyCup size={30} color="blue" />
           </div>
@@ -103,7 +103,7 @@ const page = () => {
         </div>
       </div>
 
-      <div className=" mt-8">
+      <div className=" flex flex-col mt-8">
         <h1 className="font-bold ">Friend Suggestions</h1>
         <div className=" mt-8  bg-white w-[26rem] p-4 h-40 rounded-xl">
           <div className="flex   justify-around">
@@ -188,7 +188,7 @@ const page = () => {
           </div>
           <hr className=" mt-4" />
         </div>
-        <div className="flex gap-4 mt-8  justify-between">
+        <div className="flex gap-4 mt-8">
           <button className=" bg-red-300 rounded-xl w-[12rem] p-1 text-white ">
             FIND FRIENDS
           </button>
