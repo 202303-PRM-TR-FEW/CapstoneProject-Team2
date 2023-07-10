@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import coverimg from "../public/assets/course-cover.png";
-import {BiSolidTimeFive} from "react-icons/bi";
-import {AiFillStar} from "react-icons/ai";
+import { BiSolidTimeFive } from "react-icons/bi";
+import { AiFillStar } from "react-icons/ai";
 
 const SavedCoursesInfo = () => {
   const style = {
@@ -17,9 +17,9 @@ const SavedCoursesInfo = () => {
     info: `flex flex-row mb-3`,
     iconColor: `text-gray-400`,
     description: `font-bold text-l mb-3`,
-    preview: `bg-white border border-blue-500 rounded-xl text-blue-500 uppercase p-1 px-20 mr-4`,
-    buy: `bg-blue-500 rounded-xl text-white uppercase p-1 px-20`,
-    btnDiv : `flex justify-center mt-4`
+    preview: `bg-white border border-blue-500 rounded-xl text-blue-500 uppercase p-1 px:12 md:px-20 mr:2 mr-4`,
+    buy: `bg-blue-500 rounded-xl text-white uppercase p-1 px:12 md:px-20`,
+    btnDiv: `flex justify-center mt-4`,
   };
   return (
     <div className={style.courseInfoCard}>
@@ -30,6 +30,7 @@ const SavedCoursesInfo = () => {
         style={{ width: "90%", height: "300px", objectFit: "cover" }}
         alt="cover image of course"
         className={style.courseImg}
+        priority={true}
       />
       <div className={style.infoBox}>
         <div>
@@ -41,30 +42,31 @@ const SavedCoursesInfo = () => {
               height={30}
               alt="image of trainer"
               className={style.teacherImg}
+              priority={true}
             />
             <p>Clara Manning</p>
           </div>
           <div className={style.descBox}>
             <div className={style.info}>
-                <BiSolidTimeFive className={style.iconColor}/>
-                <p className={style.descLine}>45 min</p>
+              <BiSolidTimeFive className={style.iconColor} />
+              <p className={style.descLine}>45 min</p>
             </div>
             <div className={style.info}>
-                <AiFillStar className={style.iconColor}/>
-                <p className={style.descLine}>4.7/5.0</p>
+              <AiFillStar className={style.iconColor} />
+              <p className={style.descLine}>4.7/5.0</p>
             </div>
             <h1 className={style.description}>Course Description</h1>
             <p className={style.descLine}>
-              This course is crazy good, you gotta purchase it and you'll be
-              best photographer ever!
+              This course is sooo good, you gotta purchase it and you'll be best
+              photographer ever!
             </p>
-           </div>
-           <div className={style.btnDiv}>
+          </div>
+          <div className={style.btnDiv}>
             <button className={style.preview}>preview</button>
             <button className={style.buy}>buy now</button>
-           </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 };

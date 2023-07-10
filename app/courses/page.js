@@ -5,9 +5,9 @@ import CourseInfoCard from "@/components/CourseInfoCard";
 
 const page = () => {
   const style = {
-    coursesDiv: `flex w-full md:ml-[4rem] flex-center`,
+    coursesDiv: `flex w-full  flex-center`,
     leftDiv: `w-full md:w-1/2 flex flex-col items-center bg-slate-100`,
-    rightDiv: `flex-col hidden md:w-1/2 md:flex justify-start items-center`,
+    rightDiv: `flex-col hidden md:mt-16 md:w-1/2 md:flex justify-start items-center`,
     heading: `p-4 text-lg text-slate-500 font-semibold`,
     cardList: `flex flex-col justify-center items-center`,
     btnDiv: `flex w-full justify-around mt-8`,

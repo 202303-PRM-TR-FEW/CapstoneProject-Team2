@@ -49,8 +49,8 @@ const CourseInfoCard = () => {
           </div>
         </div>
         <div>
-          <div class={style.progressBar}>
-            <div class={style.progress}></div>
+          <div className={style.progressBar}>
+            <div className={style.progress}></div>
           </div>
           <p className={style.progressInfo}>Completed: 60%</p>
         </div>
