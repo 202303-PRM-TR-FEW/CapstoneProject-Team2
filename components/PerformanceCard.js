@@ -6,10 +6,10 @@ export default function PerformanceCard({ title, statistics, icon: Icon, bgColor
   iconColor = `${iconColor} w-10 h-12`;
 
   return (
-    <div className="flex justify-center mt-3 h-26">
-      <Card className="w-56 rounded-lg mx-3">
+    <div className="flex justify-center mt-3 h-26 mt-4">
+      <Card className="w-full rounded-lg mx-3">
         <CardBody className="flex flex-col items-center justify-center p-3">
-          <div className="w-28 h-16 flex items-center justify-center rounded-lg bg-gray-100 mb-2">
+          <div className="w-28 h-8 flex items-center justify-center rounded-lg bg-gray-100 mb-2">
             <Icon className={iconColor} />
           </div>
           <div className="w-full text-center">
