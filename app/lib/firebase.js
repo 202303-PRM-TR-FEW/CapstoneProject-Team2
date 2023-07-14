@@ -1,12 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCmWP991M7sQ5n-wt8oW9CSEKIa2ChuEM4",
+  apiKey: process.env.api_Key,
   authDomain: "learndemy-2d86f.firebaseapp.com",
   projectId: "learndemy-2d86f",
   storageBucket: "learndemy-2d86f.appspot.com",
