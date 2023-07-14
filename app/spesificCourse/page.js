@@ -4,7 +4,7 @@ import Image from "next/image";
 import teacherImg from "@/public/assets/alper-yazagan.jpg";
 //import Youtube from "react-youtube";
 //import LiteYouTubeEmbed from "react-lite-youtube-embed";
-import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+//import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 /* Note: install/delete react-youtube / react-lite-youtube-embed libraries */
 
