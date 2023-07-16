@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import {BsFillMoonFill} from 'react-icons/bs';
 import {BsFillSunFill} from 'react-icons/bs';
@@ -10,8 +10,11 @@ const ThemeSwitcher = () => {
 
     const currentTheme = theme === 'system' ? systemTheme : theme;
 
-    if (!mounted) {
+    useEffect(() => {
         setMounted(true);
+    }, []);
+
+    if (!mounted){
         return null;
     }
 
