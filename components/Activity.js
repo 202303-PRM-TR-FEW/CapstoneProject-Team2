@@ -10,9 +10,9 @@ import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 
 export default function Activity({title, name}) {
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-slate-800 ">
   <div>
-    <Card className="flex-row w-full max-w-[36rem] shadow-none">
+    <Card className="flex-row w-full max-w-[36rem] shadow-none dark:bg-slate-800">
       <div className="mb-2">
         <div className="flex items-center mt-2">
           <img 

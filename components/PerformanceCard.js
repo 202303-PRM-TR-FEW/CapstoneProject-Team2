@@ -7,13 +7,13 @@ export default function PerformanceCard({ title, statistics, icon: Icon, bgColor
 
   return (
     <div className="flex justify-center mt-3 h-26 mt-4">
-      <Card className="w-full rounded-lg mx-3">
+      <Card className="w-full rounded-lg mx-3 dark:bg-slate-800">
         <CardBody className="flex flex-col items-center justify-center p-3">
-          <div className="w-28 h-8 flex items-center justify-center rounded-lg bg-gray-100 mb-2">
+          <div className="w-28 h-8 flex items-center justify-center rounded-lg bg-gray-100 mb-2 dark:bg-slate-600">
             <Icon className={iconColor} />
           </div>
           <div className="w-full text-center">
-            <Typography className="text-xs font-bold text-gray-500">{title}</Typography>
+            <Typography className="text-xs font-bold text-gray-500 dark:text-gray-300">{title}</Typography>
             <Typography className="text-sm font-bold text-black">{statistics}</Typography>
           </div>
         </CardBody>

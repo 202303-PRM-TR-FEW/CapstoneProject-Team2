@@ -4,7 +4,7 @@ const AchievementCard = () => {
   return (
     <div>
       <h1 className="text-xl font-semibold mt-4 ml-4">Achievements</h1>
-      <div className="flex flex-col gap-4 bg-white w-[26rem] rounded-xl ml-4 mt-4 p-2">
+      <div className="flex flex-col gap-4 bg-white w-[26rem] rounded-xl ml-4 mt-4 p-2 dark:bg-slate-800">
         <div className="flex items-center justify-center rounded-xl ml-2 w-24 h-20 bg-red-100">
           <GiSandsOfTime size={30} color="blue" />
         </div>
@@ -16,7 +16,7 @@ const AchievementCard = () => {
           <p className="text-xs opacity-50">Reach a 3 day streak</p>
         </div>
       </div>
-      <div className="flex flex-col gap-4 bg-white w-[26rem] rounded-xl ml-4 mt-4 p-2">
+      <div className="flex flex-col gap-4 bg-white w-[26rem] rounded-xl ml-4 mt-4 p-2 dark:bg-slate-800">
         <div className="flex items-center justify-center rounded-xl ml-2 w-24 h-20 bg-red-100">
           <GiTrophyCup size={30} color="blue" />
         </div>

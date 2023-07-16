@@ -6,10 +6,12 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import ThemeSwitcher from "@/darkMode/ThemeSwitcher";
+import Providers from "@/darkMode/providers";
 
 const NavigationBar = () => {
   const style = {
-    navbar: `z-[2] md:bg-slate-100 backdrop-blur-md flex justify-center items-center sticky left-0 bottom-0 gap-6 w-full h-16 md:flex-col md:w-[4rem] md:h-screen`,
+    navbar: `z-[2] md:bg-slate-100 backdrop-blur-md flex justify-center items-center sticky left-0 bottom-0 gap-6 w-full h-16 md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700`,
     button: `flex flex-col items-center text-gray-400 hover:text-pink-400`,
     animation: `animate-pulse`,
   };
@@ -44,6 +46,9 @@ const NavigationBar = () => {
         <CgProfile size={30} />
         <p>Profile</p>
       </Link>
+      <Providers>
+        <ThemeSwitcher/>
+      </Providers>
     </div>
   );
 };

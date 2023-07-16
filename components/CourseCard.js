@@ -7,7 +7,7 @@ import saveIconFull from "../public/assets/save-icon-full.png";
 
 const CourseCard = () => {
   const style = {
-    courseCard: `flex rounded-2xl bg-white m-2 shadow-lg`,
+    courseCard: `flex rounded-2xl bg-white m-2 shadow-lg dark:bg-slate-800`,
     coverImg: `rounded-2xl m-2`,
     infoSide: `flex flex-col justify-between m-2 py-4`,
     courseName: `flex items-center`,

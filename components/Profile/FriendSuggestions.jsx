@@ -5,7 +5,7 @@ const FriendSuggestions = () => {
     return (
       <div className="">
         <h1 className="font-bold mt-8">Friend Suggestions</h1>
-        <div className="mt-8 bg-white w-[26rem] p-4 h-40 rounded-xl">
+        <div className="mt-8 bg-white w-[26rem] p-4 h-40 rounded-xl dark:bg-slate-800">
           <div className="flex justify-around">
             <div className="flex gap-2">
               <Image
