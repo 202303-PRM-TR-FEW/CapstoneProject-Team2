@@ -7,7 +7,7 @@ import FriendsList from "../../components/profile/FriendsList";
 
 const page = () => {
   return (
-    <div className="md:flex md:flex-row  md:items-center md:justify-center mx-[5rem] flex flex-col items-center bg-slate-100 gap-12">
+    <div className="md:flex md:flex-row  md:items-center md:justify-center mx-[5rem] flex flex-col items-center gap-12">
       <div>
       <ProfileCard />
       <StatisticsCard />

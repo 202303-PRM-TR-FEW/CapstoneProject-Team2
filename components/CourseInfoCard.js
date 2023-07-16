@@ -5,11 +5,11 @@ import coverimg from "../public/assets/course-cover.png";
 
 const CourseInfoCard = () => {
   const style = {
-    courseInfoCard: `flex flex-col rounded-2xl bg-white m-2 w-full`,
+    courseInfoCard: `flex flex-col rounded-2xl bg-white m-2 w-full dark:bg-slate-800`,
     courseImg: `rounded-2xl m-2 bg-contain`,
     infoBox: `flex flex-col  justify-between m-2 py-4`,
-    teacher: `flex text-sm items-center text-slate-500 my-4 p-2 rounded-full shadow-lg w-fit`,
-    teacherImg: `rounded-full mr-4`,
+    teacher: `flex text-sm items-center my-4 p-1 pr-3 rounded-full shadow-lg w-fit dark:bg-slate-600 ml-2`,
+    teacherImg: `rounded-full mr-2`,
     descBox: `text-sm text-slate-600`,
     descLine: `my-2`,
     progressBar: `w-full bg-slate-200 rounded-full h-2.5`,

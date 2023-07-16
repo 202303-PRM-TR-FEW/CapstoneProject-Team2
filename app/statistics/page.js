@@ -51,7 +51,7 @@ const page = () => {
     <div className="flex flex-col ml-8 w-[30em]">
   <div>
     <h2 className="text-lg font-medium mt-4">My Activity</h2>
-    <div className="p-6 gap-y-6 bg-white my-4 rounded-md">
+    <div className="p-6 gap-y-6 bg-white my-4 rounded-md dark:bg-slate-800">
       <h3 className="text-sm font-medium">Monday</h3>
       <Activity title="Becoming a Photographer" name="Clara Manning" />
       <Activity title="Design Thinking 2.0" name="Chris Kinley" />
@@ -67,7 +67,7 @@ const page = () => {
 
   <div className="mt-1 sm:mt-2"> {/* Adjusted margin-top value */}
     <h2 className="text-lg font-medium ">Last Year Comparison</h2>
-    <div className="bg-white mt-2 rounded-md">
+    <div className="bg-white mt-2 rounded-md dark:bg-slate-800">
       <Comparison label="STUDY TIME" value={25} />
       <Comparison label="HOURS LEARNED" value={50} />
       <Comparison label="FINISHED COURSES" value={75} />

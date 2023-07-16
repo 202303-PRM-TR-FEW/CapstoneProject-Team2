@@ -7,7 +7,7 @@ export default function ThisWeek() {
   return (
     <div className="mt-4">
   <h1 className="text-xl font-medium mb-4">This Week</h1>
-  <div className="p-4 bg-white rounded-lg w-full md:w-200">
+  <div className="p-4 bg-white rounded-lg w-full md:w-200 dark:bg-slate-800">
     <div className="mt-4">
       <div className="flex">
         <div className="flex flex-col items-start">
@@ -29,7 +29,7 @@ export default function ThisWeek() {
     </div>
   </div>
   <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-4">
-    <div className="bg-white rounded-lg p-4 flex flex-col items-center justify-center w-full">
+    <div className="bg-white rounded-lg p-4 flex flex-col items-center justify-center w-full dark:bg-slate-800">
       <div className="flex items-center">
         <Bs0Circle className="h-6 w-6 mr-2" />
         <p className="text-lg font-medium">Goal</p>
@@ -38,7 +38,7 @@ export default function ThisWeek() {
         <p className="text-lg text-center font-medium">2/3 days</p>
       </div>
     </div>
-    <div className="bg-white rounded-lg p-4 flex flex-col items-center justify-center w-full">
+    <div className="bg-white rounded-lg p-4 flex flex-col items-center justify-center w-full dark:bg-slate-800">
       <div className="flex items-center">
         <Bs0Circle className="h-6 w-6 mr-2" />
         <p className="text-lg font-medium">Streak</p>
