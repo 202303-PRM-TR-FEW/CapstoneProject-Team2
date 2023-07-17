@@ -18,7 +18,7 @@ const FriendSuggestions = () => {
             </div>
             <div className="flex gap-4">
               <button className="bg-indigo-400 rounded-xl p-1 text-white">
-                Follow
+               Add Friend
               </button>
               <button className="bg-indigo-400 rounded-xl p-1 text-white">
                 Message
