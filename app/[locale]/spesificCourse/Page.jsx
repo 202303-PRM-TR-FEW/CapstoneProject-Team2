@@ -8,7 +8,7 @@ import teacherImg from "@/public/assets/alper-yazagan.jpg";
 
 /* Note: install/delete react-youtube / react-lite-youtube-embed libraries */
 
-const page = () => {
+const Page = () => {
   const t = useTranslations("Spesific_Course_Page");
   //temporary mock course data
   const courseData = {

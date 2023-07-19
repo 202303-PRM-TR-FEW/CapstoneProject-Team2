@@ -10,7 +10,7 @@ const style = {
   title: `text-center font-bold text-2xl`,
 };
 
-const page = () => {
+const Page = () => {
   const t = useTranslations("Saved_Courses_Page");
   return (
     <div>

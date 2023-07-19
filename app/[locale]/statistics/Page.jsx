@@ -11,7 +11,7 @@ import {
   CheckIcon,
 } from "@heroicons/react/24/solid";
 
-const page = () => {
+const Page = () => {
   const t = useTranslations("Statistics_Page");
   return (
     <div className="flex justify-center ml-8">

@@ -13,7 +13,7 @@ const style = {
   container: "p-4",
 };
 
-const page = () => {
+const Page = () => {
   const t = useTranslations("Home_Page");
 
   return (
