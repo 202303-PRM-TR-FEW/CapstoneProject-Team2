@@ -23,7 +23,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
 
   return (
     <html lang={locale}>
-      <body className="flex flex-col md:flex-row bg-slate-100 dark:bg-slate-700">
+      <body className="flex flex-col-reverse md:flex-row bg-slate-100 dark:bg-slate-700">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ReduxProvider>
             <NavigationBar />
