@@ -2,6 +2,7 @@
 
 import SavedCourses from "@/components/SavedCourses";
 import SavedCoursesInfo from "@/components/SavedCoursesInfo";
+import { useTranslations } from "next-intl";
 
 const style = {
   container: `flex flex-col md:flex-row gap-10 w-full p-4`,
@@ -10,9 +11,10 @@ const style = {
 };
 
 const page = () => {
+  const t = useTranslations("Saved_Courses_Page");
   return (
     <div>
-      <h1 className={style.title}>Saved Courses</h1>
+      <h1 className={style.title}>{t("Saved Courses")}</h1>
       <div className={style.container}>
         <div className={style.leftDiv}>
           <SavedCourses />

@@ -1,5 +1,5 @@
 "use client";
-
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import coverimg from "../public/assets/course-cover.png";
 import saveIconEmpty from "../public/assets/save-icon-empty.png";
@@ -16,6 +16,8 @@ const CourseCard = () => {
     progress: `bg-blue-600 h-2.5 rounded-full w-3/5`,
     progressInfo: `text-sm text-slate-500`,
   };
+
+  const t = useTranslations("Components");
 
   return (
     <div className={style.courseCard}>
@@ -46,7 +48,7 @@ const CourseCard = () => {
           <div className={style.progressBar}>
             <div className={style.progress}></div>
           </div>
-          <p className={style.progressInfo}>Completed: 60%</p>
+          <p className={style.progressInfo}>{t("Completed")}: 60%</p>
         </div>
       </div>
     </div>

@@ -1,13 +1,12 @@
-'use client'
-import { AiFillHome } from "react-icons/ai";
+"use client";
+import { AiFillHome, AiOutlineSearch, AiFillPlayCircle } from "react-icons/ai";
 import { FiSave } from "react-icons/fi";
-import { AiOutlineSearch } from "react-icons/ai";
-import { AiFillPlayCircle } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ThemeSwitcher from "@/darkMode/ThemeSwitcher";
 import Providers from "@/darkMode/providers";
+import { useTranslations } from "next-intl";
 
 const NavigationBar = () => {
   const style = {
@@ -16,38 +15,38 @@ const NavigationBar = () => {
     animation: `animate-pulse`,
   };
 
- const pathname = usePathname();
+  const t = useTranslations("Components");
 
- if (pathname === "/") {
-   return null;
+  const pathname = usePathname();
+
+  if (pathname === "/") {
+    return null;
   }
-
-
 
   return (
     <div className={style.navbar}>
       <Link href="home" className={style.button}>
         <AiFillHome size={30} />
-        <p>Home</p>
+        <p>{t("Home")}</p>
       </Link>
       <Link href="search" className={style.button}>
         <AiOutlineSearch size={30} />
-        <p>Search</p>
+        <p>{t("Search")}</p>
       </Link>
       <Link href="courses" className={style.button}>
         <AiFillPlayCircle size={30} />
-        <p>Courses</p>
+        <p>{t("Courses")}</p>
       </Link>
       <Link href="saved" className={style.button}>
         <FiSave size={30} />
-        <p>Saved</p>
+        <p>{t("Saved")}</p>
       </Link>
       <Link href="profile" className={style.button}>
         <CgProfile size={30} />
-        <p>Profile</p>
+        <p>{t("Profile")}</p>
       </Link>
       <Providers>
-        <ThemeSwitcher/>
+        <ThemeSwitcher />
       </Providers>
     </div>
   );

@@ -2,6 +2,7 @@
 import CourseCard from "@/components/CourseCard";
 import FeaturedCourses from "@/components/FeaturedCourses";
 import Categories from "@/components/Categories";
+import { useTranslations } from "next-intl";
 
 const style = {
   featuredContainer: "flex gap-4",
@@ -13,24 +14,26 @@ const style = {
 };
 
 const page = () => {
+  const t = useTranslations("Home_Page");
+
   return (
     <div className={style.container}>
-      <h1 className={style.title}>Featured Courses</h1>
+      <h1 className={style.title}>{t("Featured_Courses")}</h1>
       <div className={style.featuredContainer}>
         <FeaturedCourses />
         <FeaturedCourses />
         <FeaturedCourses />
         <FeaturedCourses />
       </div>
-      <h1 className={style.title}>Categories</h1>
+      <h1 className={style.title}>{t("Categories")}</h1>
       <Categories />
-      <h1 className={style.title}>My Learning</h1>
+      <h1 className={style.title}>{t("My_Learning")}</h1>
       <div className={style.myLearning}>
         <CourseCard />
         <CourseCard />
       </div>
       <div className={style.btnDiv}>
-        <button className={style.btn}>see all</button>
+        <button className={style.btn}>{t("See_All")}</button>
       </div>
     </div>
   );
