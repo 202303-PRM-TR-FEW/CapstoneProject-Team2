@@ -38,7 +38,7 @@ const Page = () => {
             onClick={handleOpenForm}
             className=" text-white bg-blue-500 p-2 rounded-2xl"
           >
-            {/* <Link href="home">Get Started</Link>  */} Get Started
+            {/* <Link href="home">Get Started</Link>  */} Sign Up 
           </button>
           <button
             onClick={handleOpenLogin}
