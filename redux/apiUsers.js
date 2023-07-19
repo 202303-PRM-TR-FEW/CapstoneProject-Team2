@@ -19,4 +19,5 @@ export const fetchUsers = createAsyncThunk(
 
 export const addSelectedProfile = createAction("users/addSelectedProfile");
 export const removeUser = createAction("users/removeUser");
+export const removeSelectedProfile = createAction("users/removeSelectedProfile");
 

@@ -22,6 +22,13 @@ const usersSlice = createSlice({
       const { id } = action.payload;
       state.users = state.users.filter((user) => user.id !== id);
     },
+
+    removeSelectedProfile(state, action) {
+      const { id } = action.payload;
+      state.selectedProfiles = state.selectedProfiles.filter(
+        (user) => user.id !== id
+      );
+    }
   },
   extraReducers: (builder) => {
     builder

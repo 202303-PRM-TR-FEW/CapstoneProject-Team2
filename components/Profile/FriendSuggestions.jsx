@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addSelectedProfile, removeUser } from "../../redux/apiUsers";
 import { useState } from "react";
 import EmailForm from "./EmailForm";
-import Link from "next/link";
+
 
 const FriendSuggestions = () => {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const FriendSuggestions = () => {
           >
             <div className="flex gap-2">
               <img
-                className="w-8 rounded-full w-20 h-20 "
+                className="w-8 rounded-full  w-[90px] h-[90px]  "
                 src={user.image}
                 alt="profile"
                 size={50}

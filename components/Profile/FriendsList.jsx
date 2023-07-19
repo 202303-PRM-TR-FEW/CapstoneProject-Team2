@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { fetchUsers } from "../../redux/apiUsers";
 import { useSelector, useDispatch } from "react-redux";
+import {  removeSelectedProfile } from "../../redux/apiUsers";
 import { useEffect } from "react";
 
 const FriendsList = () => {
@@ -15,6 +16,11 @@ const FriendsList = () => {
     dispatch(fetchUsers());
   }, []);
 
+  const handleDeleteButtonClick = (selectedProfile) => {
+    dispatch(removeSelectedProfile(selectedProfile));
+  };
+
+
 
 
   return (
@@ -25,9 +31,9 @@ const FriendsList = () => {
 
         {selectedProfiles.map((selectedProfile) => (
          <div key={selectedProfile.id} className=" items-center flex justify-around gap-2">
-         <div className="flex gap-2">
+         <div className="flex gap-2 ">
            <img
-             className="w-8 rounded-full w-20 h-20 "
+             className="w-8 rounded-full  w-[90px] h-[90px]  "
              src={selectedProfile.image}
              alt="profile"
            
@@ -41,7 +47,7 @@ const FriendsList = () => {
            </div>
          <div className="flex gap-4">
            <button
-             onClick={() => handleAddButtonClick(user)}
+             onClick={() => handleDeleteButtonClick(selectedProfile)}
              className="bg-indigo-400 h-16 rounded-xl p-1 text-white"
            >
              Delete
