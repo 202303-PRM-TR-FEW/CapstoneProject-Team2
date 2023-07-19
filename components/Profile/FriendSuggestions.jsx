@@ -4,31 +4,19 @@ import profile from "../../public/assets/alper-yazagan.jpg";
 import { useSelector, useDispatch } from "react-redux";
 import { addSelectedProfile, removeUser } from "../../redux/apiUsers";
 
-
-
-
 const FriendSuggestions = () => {
-
- 
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.users);
 
-
   const handleAddButtonClick = (selectedProfile) => {
     dispatch(addSelectedProfile(selectedProfile));
-    dispatch(removeUser({id: selectedProfile.id}));
-
+    dispatch(removeUser({ id: selectedProfile.id }));
   };
-
-
-  
-
 
   return (
     <div className="">
       <h1 className="font-bold mt-8">Friend Suggestions</h1>
       <div className=" flex flex-col gap-2 mt-8 bg-white w-[26rem] p-4  rounded-xl">
-        {/* Render the list of users */}
         {users.slice(0, 2).map((user) => (
           <div key={user.id} className="  flex justify-around gap-2">
             <div className="flex gap-2">
@@ -44,7 +32,6 @@ const FriendSuggestions = () => {
               </div>
             </div>
             <div className="flex gap-4">
-              {/* Call handleAddButtonClick with the selected user */}
               <button
                 onClick={() => handleAddButtonClick(user)}
                 className="bg-indigo-400 w-16 rounded-xl p-1 text-white"

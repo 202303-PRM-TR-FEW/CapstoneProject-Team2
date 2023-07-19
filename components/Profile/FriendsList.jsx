@@ -1,12 +1,10 @@
 "use client";
 
-
 import Image from "next/image";
 import profile from "../../public/assets/alper-yazagan.jpg";
 import { fetchUsers } from "../../redux/apiUsers";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-
 
 const FriendsList = () => {
   const dispatch = useDispatch();
@@ -21,7 +19,6 @@ const FriendsList = () => {
     <div className=" mt-12">
       <h1 className="font-bold mt-8">Friend </h1>
       <div className="flex flex-col gap-4 bg-white w-[26rem] h-[20] p-4  rounded-xl mt-8">
-        {/* Render the list of users */}
         {users.slice(0, 2).map((user) => (
           <div key={user.id} className="flex justify-around gap-2">
             <div className="flex gap-2">
@@ -48,7 +45,6 @@ const FriendsList = () => {
           </div>
         ))}
 
-        {/* Render the selected profiles */}
         {selectedProfiles.map((selectedProfile) => (
           <div key={selectedProfile.id} className="flex justify-around gap-2">
             <div className="flex gap-2">
@@ -69,7 +65,5 @@ const FriendsList = () => {
     </div>
   );
 };
-
-
 
 export default FriendsList;

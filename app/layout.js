@@ -1,6 +1,6 @@
 import "./globals.css";
 import NavigationBar from "@/components/NavigationBar";
-import ReduxProvider  from "../redux/provider";
+import ReduxProvider from "../redux/provider";
 
 export const metadata = {
   title: "Mudemy",
@@ -11,9 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="flex flex-col md:flex-row bg-slate-100 dark:bg-slate-700">
-        <ReduxProvider> 
-            <NavigationBar />
-            {children}
+        <ReduxProvider>
+          <NavigationBar />
+          {children}
         </ReduxProvider>
       </body>
     </html>
