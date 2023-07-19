@@ -1,10 +1,12 @@
 import { useState } from "react";
 
-const EmailForm = ({ user }) => {
+import { AiFillCloseCircle } from "react-icons/ai";
+const EmailForm = ({ user, onClose }) => {
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
 
-  const handleSendEmail = () => {
+  const handleSendEmail = (e) => {
+    e.preventDefault();
     const mailtoLink = `mailto:${user.email}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
@@ -13,7 +15,12 @@ const EmailForm = ({ user }) => {
 
   return (
     <div className="flex items-center justify-center fixed top-0 left-0 bg-[#00000099] right-0 bottom-0">
+           <AiFillCloseCircle 
+        onClick={onClose}
+        className="absolute z-20 top-0 right-0 text-white text-4xl cursor-pointer"
+        />
       <form className=" animate-jump-in flex flex-col bg-white justify-center items-center gap-6 w-64 h-[18rem] rounded-2xl">
+
         <h1 className="font-bold ">
           Message to {user.first} {user.last}
         </h1>

@@ -20,9 +20,11 @@ const FriendSuggestions = () => {
     setSelectedUser(user);
   };
 
-  if (selectedUser) {
-    return <EmailForm user={selectedUser} />;
-  }
+  const handleCloseEmailForm = () => {
+    setSelectedUser(null);
+  };
+
+
 
   return (
     <div className="">
@@ -63,6 +65,7 @@ const FriendSuggestions = () => {
           </div>
         ))}
       </div>
+      {selectedUser && <EmailForm user={selectedUser} onClose={handleCloseEmailForm} />}
     </div>
   );
 };
