@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import profile from "../../public/assets/alper-yazagan.jpg";
+
 import { fetchUsers } from "../../redux/apiUsers";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -15,51 +15,42 @@ const FriendsList = () => {
     dispatch(fetchUsers());
   }, []);
 
+
+
   return (
     <div className=" mt-12">
-      <h1 className="font-bold mt-8">Friend </h1>
+      <h1 className="font-bold mt-8">Friends</h1>
       <div className="flex flex-col gap-4 bg-white w-[26rem] h-[20] p-4  rounded-xl mt-8">
-        {users.slice(0, 2).map((user) => (
-          <div key={user.id} className="flex justify-around gap-2">
-            <div className="flex gap-2">
-              <Image
-                className="w-8 rounded-full"
-                src={profile}
-                alt="profile"
-                priority={true}
-              />
-              <div className=" w-16">
-                <h1>{user.first}</h1>
-                <h1>{user.last}</h1>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <button className="bg-indigo-400 rounded-xl p-1 text-white">
-                Delete
-              </button>
-
-              <button className="bg-indigo-400 rounded-xl p-1 text-white">
-                View
-              </button>
-            </div>
-          </div>
-        ))}
+      
 
         {selectedProfiles.map((selectedProfile) => (
-          <div key={selectedProfile.id} className="flex justify-around gap-2">
-            <div className="flex gap-2">
-              <Image
-                className="w-8 rounded-full"
-                src={profile}
-                alt="profile"
-                priority={true}
-              />
-              <div className=" w-16">
-                <h1>{selectedProfile.first}</h1>
-                <h1>{selectedProfile.last}</h1>
-              </div>
-            </div>
-          </div>
+         <div key={selectedProfile.id} className=" items-center flex justify-around gap-2">
+         <div className="flex gap-2">
+           <img
+             className="w-8 rounded-full w-20 h-20 "
+             src={selectedProfile.image}
+             alt="profile"
+           
+           
+           />
+          
+         </div>
+         <div className=" w-16">
+             <h1>{selectedProfile.first}</h1>
+             <h1>{selectedProfile.last}</h1>
+           </div>
+         <div className="flex gap-4">
+           <button
+             onClick={() => handleAddButtonClick(user)}
+             className="bg-indigo-400 h-16 rounded-xl p-1 text-white"
+           >
+             Delete
+           </button>
+           <button className="bg-indigo-400 h-16 rounded-xl p-1 text-white">
+             View
+           </button>
+         </div>
+       </div>
         ))}
       </div>
     </div>
