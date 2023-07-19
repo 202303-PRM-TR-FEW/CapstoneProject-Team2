@@ -20,7 +20,6 @@ const Page = () => {
     setOpenLogin(!openLogin);
   };
 
-
   return (
     <div className="sm:flex  ">
       <div className=" flex md:w-1/2 h-screen  w-full bg-gray-200 items-center justify-center ">
@@ -41,7 +40,10 @@ const Page = () => {
           >
             {/* <Link href="home">Get Started</Link>  */} Get Started
           </button>
-          <button onClick={handleOpenLogin} className="text-white bg-blue-500 p-2 w-28 rounded-2xl">
+          <button
+            onClick={handleOpenLogin}
+            className="text-white bg-blue-500 p-2 w-28 rounded-2xl"
+          >
             Login
           </button>
         </div>

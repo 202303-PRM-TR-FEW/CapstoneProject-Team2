@@ -22,7 +22,7 @@ export default function Form({ handleOpenLogin}) {
           size={30}
         />
         <form
-          className="  animate-jump-in flex flex-col bg-white justify-center items-center gap-12 w-64 h-[40rem] rounded-2xl"
+          className="  animate-jump-in flex flex-col bg-white justify-center items-center gap-12 w-64 h-[20rem] rounded-2xl"
           onSubmit={handleSubmit(onSubmit)}
         >
    

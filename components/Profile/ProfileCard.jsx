@@ -6,8 +6,8 @@ import profile from "../../public/assets/alper-yazagan.jpg";
 const ProfileCard = () => {
     return (
       <div className="flex ml-4">
-        <div className="mt-8">
-          <Image src={profile} alt="profile" priority={true} />
+        <div className="mt-8 ">
+          <Image className="rounded-full" src={profile} alt="profile" priority={true} />
         </div>
         <div className="flex flex-col ml-4 gap-8">
           <div className="mt-8">

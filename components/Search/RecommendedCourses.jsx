@@ -1,21 +1,19 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 
 import { useSelector, useDispatch } from "react-redux";
-import {  useEffect } from "react";
+import { useEffect } from "react";
 import { fetchCourses } from "../../redux/api";
 import Course from "./Course";
 
-const RecommendedCourses = ( { searchTerm } ) => {
+const RecommendedCourses = ({ searchTerm }) => {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses.courses);
 
   useEffect(() => {
     dispatch(fetchCourses());
   }, []);
-
-
 
   return (
     <div>
