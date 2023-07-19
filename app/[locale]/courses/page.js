@@ -15,13 +15,13 @@ const page = () => {
     button: `bg-blue-500 rounded-full mx-2 p-2 text-xs text-white`,
   };
 
-  const t = useTranslations("Courses_Page");
+  const T = useTranslations("Courses_Page");
 
   return (
     <div className={style.coursesDiv}>
       <div className={style.leftDiv}>
         <div className={style.heading}>
-          <h1>{t("My_Courses")}</h1>
+          <h1>{T("My_Courses")}</h1>
         </div>
         <div className={style.cardList}>
           <CourseCard />
@@ -33,8 +33,8 @@ const page = () => {
       <div className={style.rightDiv}>
         <CourseInfoCard />
         <div className={style.btnDiv}>
-          <button className={style.button}>{t("Review_Course")}</button>
-          <button className={style.button}>{t("Continue_Course")}</button>
+          <button className={style.button}>{T("Review_Course")}</button>
+          <button className={style.button}>{T("Continue_Course")}</button>
         </div>
       </div>
     </div>
