@@ -45,6 +45,10 @@ const NavigationBar = () => {
         <CgProfile size={30} />
         <p>{t("Profile")}</p>
       </Link>
+      <Link href="/" locale="kr" className={style.button}>
+        <CgProfile size={30} />
+        <p>Korean</p>
+      </Link>
       <Providers>
         <ThemeSwitcher />
       </Providers>
