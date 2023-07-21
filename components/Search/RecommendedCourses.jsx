@@ -1,8 +1,17 @@
 "use client";
+<<<<<<< HEAD
 
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCourses } from "@/redux/api";
+=======
+
+import Image from "next/image";
+
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchCourses } from "../../redux/api";
+>>>>>>> main
 import Course from "./Course";
 import { useTranslations } from "next-intl";
 
