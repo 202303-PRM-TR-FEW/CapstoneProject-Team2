@@ -28,7 +28,6 @@ const ThemeSwitcher = () => {
           />
         ) : (
           <DayNightToggle
-            startInactive={false}
             size={29}
             checked={false}
             onChange={() => setTheme("dark")}

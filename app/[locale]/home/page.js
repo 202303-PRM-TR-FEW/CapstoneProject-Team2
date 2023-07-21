@@ -19,7 +19,6 @@ const Page = () => {
   return (
     <div className={style.container}>
       <h1 className={style.title}>{t("Featured_Courses")}</h1>
-      <h2>{t("blabla")}</h2>
       <div className={style.featuredContainer}>
         <FeaturedCourses />
         <FeaturedCourses />

@@ -14,7 +14,7 @@ const Page = () => {
   const t = useTranslations("Saved_Courses_Page");
   return (
     <div>
-      <h1 className={style.title}>{t("Saved Courses")}</h1>
+      <h1 className={style.title}>{t("Saved_Courses")}</h1>
       <div className={style.container}>
         <div className={style.leftDiv}>
           <SavedCourses />
