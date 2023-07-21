@@ -19,12 +19,13 @@ const UserPage = ({ params }) => {
   const user = users.find((user) => user.id === userProfile);
 
   return (
-    <div className="md:flex md:flex-row  md:items-center md:justify-center mx-[5rem] flex flex-col items-center gap-12">
-      <div>
+    
+    <div className="  md:w-screen md:flex md:flex-col md:items-center md:justify-center mx-[5rem] flex flex-col items-center gap-12">
+      
         <ProfileCard user={user}  />
          <StatisticsCard user={user} />
         <AchievementCard user={user} /> 
-      </div>
+     
     </div>
   );
 };

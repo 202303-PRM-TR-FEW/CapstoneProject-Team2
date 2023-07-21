@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 import { fetchUsers } from "../../redux/apiUsers";
 import { useSelector, useDispatch } from "react-redux";
 import { removeSelectedProfile } from "../../redux/apiUsers";
@@ -48,9 +46,9 @@ const FriendsList = () => {
               >
                 Delete
               </button>
-              <button className="bg-indigo-400 h-16 rounded-xl p-1 text-white">
-                <Link href={`/profile/${selectedProfile.id}`}>View</Link>
-              </button>
+              
+                <Link className= "flex  bg-indigo-400 h-16 rounded-xl items-center p-1 text-white" href={`/profile/${selectedProfile.id}`}>View</Link>
+              
             </div>
           </div>
         ))}

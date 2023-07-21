@@ -4,7 +4,7 @@ import { BsFillKeyFill } from "react-icons/bs";
 import login from "@/public/assets/login.png";
 import Image from "next/image";
 import { useState } from "react";
-
+import Link from "next/link";
 import Form from "../components/FormLogin/Form";
 import Login from "../components/FormLogin/Login";
 
@@ -36,9 +36,9 @@ const Page = () => {
           </p>
           <button
             onClick={handleOpenForm}
-            className=" text-white bg-blue-500 p-2 rounded-2xl"
+            className=" text-white bg-blue-500 w-28 p-2 rounded-2xl"
           >
-            {/* <Link href="home">Get Started</Link>  */} Sign Up 
+            Sign Up
           </button>
           <button
             onClick={handleOpenLogin}
@@ -46,6 +46,9 @@ const Page = () => {
           >
             Login
           </button>
+      
+            <Link className="text-white bg-blue-500 p-2 w-28 rounded-2xl" href="/home"> Continue without login</Link>
+       
         </div>
       </div>
       <div className="flex md:w-1/2 h-screen justify-center items-center  ">
