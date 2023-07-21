@@ -1,8 +1,8 @@
-import ProfileCard from "../../components/Profile/ProfileCard";
-import StatisticsCard from "../../components/Profile/StatisticsCard";
-import AchievementCard from "../../components/Profile/AchievementCard";
-import FriendSuggestions from "../../components/Profile/FriendSuggestions";
-import FriendsList from "../../components/Profile/FriendsList";
+import ProfileCard from "../../../components/Profile/ProfileCard";
+import StatisticsCard from "../../../components/Profile/StatisticsCard";
+import AchievementCard from "../../../components/Profile/AchievementCard";
+import FriendSuggestions from "../../../components/Profile/FriendSuggestions";
+import FriendsList from "../../../components/Profile/FriendsList";
 
 const page = () => {
   return (

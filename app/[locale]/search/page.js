@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import SearchBar from "../../components/Search/SearchBar";
-import TopSearches from "../../components/Search/TopSearches";
-import Categories from "../../components/Search/Categories";
-import TopRatedCourses from "../../components/Search/TopRatedCourses";
-import RecommendedCourses from "../../components/Search/RecommendedCourses";
+import SearchBar from "../../../components/Search/SearchBar";
+import TopSearches from "../../../components/Search/TopSearches";
+import Categories from "../../../components/Search/Categories";
+import TopRatedCourses from "../../../components/Search/TopRatedCourses";
+import RecommendedCourses from "../../../components/Search/RecommendedCourses";
 
 const Page = () => {
   const [searchTerm, setSearchTerm] = useState("");
