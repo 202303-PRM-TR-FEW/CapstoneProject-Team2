@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({ children }) {
+  return children;
+=======
 import "./globals.css";
 import NavigationBar from "@/components/NavigationBar";
 import ReduxProvider from "../redux/provider";
@@ -18,4 +24,5 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   );
+>>>>>>> main
 }

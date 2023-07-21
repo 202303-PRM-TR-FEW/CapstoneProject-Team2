@@ -1,5 +1,5 @@
 "use client";
-
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import teacherImg from "@/public/assets/alper-yazagan.jpg";
 //import Youtube from "react-youtube";
@@ -8,7 +8,8 @@ import teacherImg from "@/public/assets/alper-yazagan.jpg";
 
 /* Note: install/delete react-youtube / react-lite-youtube-embed libraries */
 
-const page = () => {
+const Page = () => {
+  const t = useTranslations("Spesific_Course_Page");
   //temporary mock course data
   const courseData = {
     name: "Becoming a Pro The Office Fan",
@@ -65,15 +66,19 @@ const page = () => {
             />
             <p>{courseData.teacher}</p>
           </div>
-          <p>Duration: {courseData.duration}</p>
-          <p>Rating: {courseData.rating}</p>
-          <h2 className={style.header}>Course Description</h2>
+          <p>
+            {t("Duration")} {courseData.duration}
+          </p>
+          <p>
+            {t("Rating")} {courseData.rating}
+          </p>
+          <h2 className={style.header}>{t("Course_Description")}</h2>
           <p>{courseData.description}</p>
         </div>
       </div>
       <div className={style.boxes}>
         <div className={style.info}>
-          <h2 className={style.header}>Course Overview</h2>
+          <h2 className={style.header}>{t("Course_Overview")}</h2>
           {courseData.lectures.map((lecture, id) => (
             <li key={id} className={style.lecture}>
               {lecture}
@@ -85,4 +90,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

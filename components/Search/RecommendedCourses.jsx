@@ -1,15 +1,25 @@
 "use client";
+<<<<<<< HEAD
+
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchCourses } from "@/redux/api";
+=======
 
 import Image from "next/image";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCourses } from "../../redux/api";
+>>>>>>> main
 import Course from "./Course";
+import { useTranslations } from "next-intl";
 
 const RecommendedCourses = ({ searchTerm }) => {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses.courses);
+
+  const t = useTranslations("Components");
 
   useEffect(() => {
     dispatch(fetchCourses());
@@ -17,7 +27,7 @@ const RecommendedCourses = ({ searchTerm }) => {
 
   return (
     <div>
-      <h1>Recommended Courses</h1>
+      <h1>{t("Recommended_Courses")}</h1>
       <div className="flex  text-center">
         {courses.map((course) => (
           <Course key={course.id} course={course} />
