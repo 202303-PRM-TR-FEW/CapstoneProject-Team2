@@ -42,11 +42,7 @@ const Page = () => {
             onClick={handleOpenLogin}
             className="text-white bg-blue-500 p-2 w-28 rounded-2xl"
           >
-<<<<<<< HEAD:app/[locale]/page.js
             {t("login")}
-=======
-            Login
->>>>>>> main:app/page.js
           </button>
         </div>
       </div>

@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { BsFillMoonFill } from "react-icons/bs";
-import { BsFillSunFill } from "react-icons/bs";
+import DayNightToggle from "react-day-and-night-toggle";
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
@@ -22,14 +21,17 @@ const ThemeSwitcher = () => {
     <div>
       <div>
         {currentTheme === "dark" ? (
-          <button className="p-2" onClick={() => setTheme("light")}>
-            {" "}
-            <BsFillSunFill size={25} />
-          </button>
+          <DayNightToggle
+            size={29}
+            checked={true}
+            onChange={() => setTheme("light")}
+          />
         ) : (
-          <button className="p-2" onClick={() => setTheme("dark")}>
-            <BsFillMoonFill size={25} />
-          </button>
+          <DayNightToggle
+            size={29}
+            checked={false}
+            onChange={() => setTheme("dark")}
+          />
         )}
       </div>
     </div>

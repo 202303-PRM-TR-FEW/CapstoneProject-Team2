@@ -1,3 +1,5 @@
+'use client'
+
 import ProfileCard from "@/components/Profile/ProfileCard";
 import StatisticsCard from "@/components/Profile/StatisticsCard";
 import AchievementCard from "@/components/Profile/AchievementCard";

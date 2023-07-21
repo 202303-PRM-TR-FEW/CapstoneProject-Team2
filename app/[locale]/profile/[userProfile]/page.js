@@ -3,6 +3,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers } from '@/redux/apiUsers';
+import ProfileCard from '@/components/UserProfile/ProfileCard';
+import StatisticsCard from '@/components/UserProfile/StatisticsCard';
+import AchievementCard from '@/components/UserProfile/AchievementCard';
 
 const UserPage = ({ params }) => {
   const dispatch = useDispatch();
@@ -16,15 +19,13 @@ const UserPage = ({ params }) => {
   const user = users.find((user) => user.id === userProfile);
 
   return (
-    <div>
-      <h1>User Profile</h1>
-      {user && (
-        <div>
-          <h2>{user.first} {user.last}</h2>
-          <p>{user.email}</p>
-          <p>{user.phone}</p>
-        </div>
-      )}
+    
+    <div className="  md:w-screen md:flex md:flex-col md:items-center md:justify-center mx-[5rem] flex flex-col items-center gap-12">
+      
+        <ProfileCard user={user}  />
+         <StatisticsCard user={user} />
+        <AchievementCard user={user} /> 
+     
     </div>
   );
 };
