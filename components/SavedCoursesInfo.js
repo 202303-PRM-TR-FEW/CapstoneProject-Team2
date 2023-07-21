@@ -4,8 +4,11 @@ import Image from "next/image";
 import coverimg from "../public/assets/course-cover.png";
 import { BiSolidTimeFive } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
+import { useTranslations } from "next-intl";
 
 const SavedCoursesInfo = () => {
+  const t = useTranslations("Components");
+
   const style = {
     courseInfoCard: `flex flex-col rounded-2xl bg-white m-2 w-full dark:bg-slate-800`,
     courseImg: `rounded-2xl m-2 bg-contain`,
@@ -55,15 +58,15 @@ const SavedCoursesInfo = () => {
               <AiFillStar className={style.iconColor} />
               <p className={style.descLine}>4.7/5.0</p>
             </div>
-            <h1 className={style.description}>Course Description</h1>
+            <h1 className={style.description}>{t("Course_Description")}</h1>
             <p className={style.descLine}>
               This course is sooo good, you gotta purchase it and you will be
               best photographer ever!
             </p>
           </div>
           <div className={style.btnDiv}>
-            <button className={style.preview}>preview</button>
-            <button className={style.buy}>buy now</button>
+            <button className={style.preview}>{t("Preview")}</button>
+            <button className={style.buy}>{t("Buy")}</button>
           </div>
         </div>
       </div>

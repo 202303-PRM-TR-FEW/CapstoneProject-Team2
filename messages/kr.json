@@ -1,0 +1,73 @@
+{
+  "Index": {
+    "welcome_to_Mudemy": "Mudemy에 오신 것을 환영합니다!",
+    "discover_passion": "당신의 열정을 발견하십시오",
+    "introduction_text": "관심 있는 주제를 찾고, 새로운 기술을 배우고, 비슷한 주제에 대해 열정을 가진 사람들과 연결하세요.",
+    "get_started": "시작하다",
+    "login": "로그인"
+  },
+  "Courses_Page": {
+    "My_Courses": "내 코스",
+    "Review_Course": "검토 과정",
+    "Continue_Course": "계속 과정"
+  },
+  "Home_Page": {
+    "Featured_Courses": "주요 과정",
+    "Categories": "카테고리",
+    "My_Learning": "나의 배움",
+    "See_All": "모두 보기"
+  },
+  "Saved_Courses_Page": {
+    "Saved_Courses": "저장된 과정"
+  },
+  "Search_Page": {
+    "Show_results": "결과 보여줘",
+    "Levels": "레벨"
+  },
+  "Spesific_Course_Page": {
+    "Duration": "지속",
+    "Rating": "평가",
+    "Course_Description": "과정 설명",
+    "Course_Overview": "강의 개요"
+  },
+  "Statistics_Page": {
+    "My_Performance": "내 성과",
+    "My_Activity": "내 활동",
+    "VIEW_ALL_ACTIVITY": "모든 활동 보기",
+    "Last_Year_Comparison": "작년 비교"
+  },
+  "Components": {
+    "Home": "집",
+    "Search": "찾다",
+    "Courses": "과정",
+    "Saved": "저장됨",
+    "Profile": "프로필",
+    "Sales": "매상",
+    "HR": "인사",
+    "Drawing": "그림",
+    "Big_Data": "빅 데이터",
+    "Design": "설계",
+    "Marketing": "마케팅",
+    "Astronomy": "천문학",
+    "Data": "데이터",
+    "Completed": "완전한",
+    "Course_Overview": "강의 개요",
+    "Course_Description": "과정 설명",
+    "Buy": "구입하다",
+    "Preview": "시사",
+    "This_Week": "이번 주",
+    "Time_Spent": "보낸 시간",
+    "Goal": "목표",
+    "Streak": "줄",
+    "Recommended_Courses": "추천 코스",
+    "Friends": "친구",
+    "Delete": "삭제",
+    "Find_Friends": "친구를 찾아",
+    "Invite_Friends": "친구를 초대",
+    "Friend_Suggestions": "친구 추천",
+    "Follow": "따르다",
+    "Message": "메시지",
+    "Followers": "추종자",
+    "Following": "수행원"
+  }
+}
