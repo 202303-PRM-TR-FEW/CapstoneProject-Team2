@@ -1,5 +1,4 @@
 const SearchBar = ({ searchTerm, onSearch }) => {
-    
   const handleChange = (event) => {
     onSearch(event.target.value);
   };

@@ -1,9 +1,12 @@
-
 import { AiOutlineCheck } from "react-icons/ai";
 import { GiSandsOfTime, GiTrophyCup } from "react-icons/gi";
 
 
-const StatisticsCard = () => {
+const StatisticsCard = ( { user }) => {
+    if (!user) {
+        return null;
+      } 
+    
   return (
     <div>
       <h1 className="mt-4 text-xl font-semibold ml-4">Total Statistics</h1>
@@ -16,7 +19,7 @@ const StatisticsCard = () => {
             <p className="text-xs font-semibold text-inherit">
               FINISHED COURSES
             </p>
-            <p>3</p>
+            <p>{user.statistics.finished_courses}</p>
           </div>
         </div>
         <div className="ml-4 mt-4">
@@ -25,7 +28,7 @@ const StatisticsCard = () => {
               <GiSandsOfTime size={30} color="blue" />
             </div>
             <p className="text-xs font-semibold text-inherit">HOURS LEARNED</p>
-            <p>3</p>
+            <p>{user.statistics.hours_learned}</p>
           </div>
         </div>
         <div className="ml-4 mt-4">
@@ -36,7 +39,7 @@ const StatisticsCard = () => {
             <p className="text-xs font-semibold text-inherit">
               SKILLS ACHIEVED
             </p>
-            <p>3</p>
+            <p>{user.statistics.skills_achieved}</p>
           </div>
         </div>
       </div>

@@ -3,9 +3,10 @@
 import Image from "next/image";
 import coverimg from "../public/assets/course-cover.png";
 import saveIconFull from "../public/assets/save-icon-full.png";
+import { useTranslations } from "next-intl";
 
 const style = {
-  courseCard: `flex rounded-2xl bg-white m-2 shadow-lg`,
+  courseCard: `flex rounded-2xl bg-white m-2 shadow-lg dark:bg-slate-800`,
   coverImg: `rounded-2xl m-2`,
   infoSide: `flex flex-col justify-between m-2 py-4`,
   courseName: `flex items-center`,
@@ -17,6 +18,7 @@ const style = {
 };
 
 const SavedCourses = () => {
+  const t = useTranslations("Components");
   return (
     <div className={style.courseCard}>
       <Image
@@ -42,7 +44,7 @@ const SavedCourses = () => {
 
           <p className={style.teacher}>Clara Manning</p>
         </div>
-        <button className={style.button}>BUY</button>
+        <button className={style.button}>{t("Buy")}</button>
       </div>
     </div>
   );

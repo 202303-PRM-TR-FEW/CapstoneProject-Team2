@@ -1,0 +1,73 @@
+{
+  "Index": {
+    "welcome_to_Mudemy": "Welcome to Mudemy!",
+    "discover_passion": "Discover Your Passion",
+    "introduction_text": "Find out the topics you find interesting, learn a new skill & connect with people that are passionate about similar topics.",
+    "get_started": "Get Started",
+    "login": "Login"
+  },
+  "Courses_Page": {
+    "My_Courses": "My Courses",
+    "Review_Course": "Review Course",
+    "Continue_Course": "Continue Course"
+  },
+  "Home_Page": {
+    "Featured_Courses": "Featured Courses",
+    "Categories": "Categories",
+    "My_Learning": "My Learnig",
+    "See_All": "See All"
+  },
+  "Saved_Courses_Page": {
+    "Saved_Courses": "Saved Courses"
+  },
+  "Search_Page": {
+    "Show_results": "Show Results",
+    "Levels": "Levels"
+  },
+  "Spesific_Course_Page": {
+    "Duration": "Duration",
+    "Rating": "Rating",
+    "Course_Description": "Course Description",
+    "Course_Overview": "Course Overview"
+  },
+  "Statistics_Page": {
+    "My_Performance": "My Performance",
+    "My_Activity": "My Activity",
+    "VIEW_ALL_ACTIVITY": "VIEW ALL ACTIVITY",
+    "Last_Year_Comparison": "Last Year Comparison"
+  },
+  "Components": {
+    "Home": "Home",
+    "Search": "Search",
+    "Courses": "Courses",
+    "Saved": "Saved",
+    "Profile": "Profile",
+    "Sales": "Sales",
+    "HR": "HR",
+    "Drawing": "Drawing",
+    "Big_Data": "Big Data",
+    "Design": "Design",
+    "Marketing": "Marketing",
+    "Astronomy": "Astronomy",
+    "Data": "Data",
+    "Completed": "Completed",
+    "Course_Overview": "Course Overview",
+    "Course_Description": "Course Description",
+    "Buy": "Buy",
+    "Preview": "Preview",
+    "This_Week": "This Week",
+    "Time_Spent": "Time Spent",
+    "Goal": "Goal",
+    "Streak": "Streak",
+    "Recommended_Courses": "Recommended_Courses",
+    "Friends": "Friends",
+    "Delete": "Delete",
+    "Find_Friends": "Find Friends",
+    "Invite_Friends": "Invite Friends",
+    "Friend_Suggestions": "Friend Suggestions",
+    "Follow": "Follow",
+    "Message": "Message",
+    "Followers": "Followers",
+    "Following": "Following"
+  }
+}
