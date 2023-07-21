@@ -24,7 +24,7 @@ const FriendsList = () => {
   return (
     <div className=" mt-12">
       <h1 className="font-bold mt-8">Friends</h1>
-      <div className="flex flex-col gap-4 bg-white w-[26rem] h-[20] p-4  rounded-xl mt-8">
+      <div className="flex flex-col gap-4 bg-white w-[26rem] dark:bg-slate-800 h-[20] p-4  rounded-xl mt-8">
         {selectedProfiles.map((selectedProfile) => (
           <div
             key={selectedProfile.id}

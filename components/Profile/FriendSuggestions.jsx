@@ -27,9 +27,9 @@ const FriendSuggestions = () => {
 
 
   return (
-    <div className="">
+    <div >
       <h1 className="font-bold mt-8">Friend Suggestions</h1>
-      <div className=" flex flex-col gap-2 mt-8 bg-white w-[26rem] p-4  rounded-xl">
+      <div className=" flex flex-col gap-2 mt-8 dark:bg-slate-800 bg-white w-[26rem] p-4  rounded-xl">
         {users.slice(0, 2).map((user) => (
           <div
             key={user.id}
