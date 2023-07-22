@@ -8,6 +8,7 @@ import ThemeSwitcher from "@/darkMode/ThemeSwitcher";
 import Providers from "@/darkMode/providers";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import  ReactCountryFlag from "react-country-flag";
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,13 +27,13 @@ const NavigationBar = () => {
     animation: `animate-pulse`,
     burgerBtnDiv: `flex flex-col h-12 w-12 justify-center items-center group`,
     hamburgerLine: `h-1 w-6 my-1 rounded-full bg-gray-400 transition ease transform duration-300`,
-    navbar2: `flex`,
-    extrabox2: `flex`,
+    navbar2: `flex md:flex md:flex-col   gap-8 items-center `,
+    extrabox2: `flex flex-col bg-white gap-2 rounded-xl  p-2  translate-y-[-10rem] translate-x-[-5rem] md:translate-y-[0] md:translate-x-[0]  `,
     extrabox: `z-[2] md:bg-slate-100 backdrop-blur-md flex flex-col justify-center items-center sticky left-0 bottom-16 gap-2 w-full h-32 md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700`,
   };
 
   return (
-    <div className="z-[2] md:bg-slate-100 backdrop-blur-md flex flex-col-reverse justify-center items-center sticky left-0 bottom-0 gap-4 w-full h-16 md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700 ">
+    <div className="z-[2] md:bg-slate-100 backdrop-blur-md flex  justify-center items-center sticky left-0 bottom-0 gap-4 w-full h-16  md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700 ">
       <div className={style.navbar2}>
         <Link href="home" className={style.button}>
           <AiFillHome size={30} />
@@ -54,6 +55,10 @@ const NavigationBar = () => {
           <CgProfile size={30} />
           <p>{t("Profile")}</p>
         </Link>
+        
+        <Providers>
+            <ThemeSwitcher  />
+          </Providers>
         <button
           className={style.burgerBtnDiv}
           onClick={() => setIsOpen(!isOpen)}
@@ -82,28 +87,26 @@ const NavigationBar = () => {
       {isOpen && (
         <div className={style.extrabox2}>
           <Link href="/" locale="en" className={style.button}>
-            <CgProfile size={30} />
+            <ReactCountryFlag countryCode="" size={30} />
             <p>English</p>
           </Link>
           <Link href="/" locale="de" className={style.button}>
-            <CgProfile size={30} />
+            <ReactCountryFlag countryCode="GB" size={30} />
             <p>German</p>
           </Link>
           <Link href="/" locale="kr" className={style.button}>
-            <CgProfile size={30} />
+            <ReactCountryFlag countryCode="KR" size={30} />
             <p>Korean</p>
           </Link>
           <Link href="/" locale="tr" className={style.button}>
-            <CgProfile size={30} />
+            <ReactCountryFlag countryCode="TR" size={30} />
             <p>Turkish</p>
           </Link>
           <Link href="/" locale="ar" className={style.button}>
-            <CgProfile size={30} />
+            <ReactCountryFlag countryCode="SA" size={30} />
             <p>Arabic</p>
           </Link>
-          <Providers>
-            <ThemeSwitcher />
-          </Providers>
+        
         </div>
       )}
     </div>
