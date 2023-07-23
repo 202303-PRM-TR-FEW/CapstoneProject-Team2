@@ -1,10 +1,15 @@
 "use client";
-
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCourses } from "@/redux/api";
-import Course from "./Course";
 import { useTranslations } from "next-intl";
+import Course from "./Course";
+import "swiper/css"; // Import Swiper base styles
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { SwiperSlide, Swiper } from "swiper/react";
+
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 
 const RecommendedCourses = ({ searchTerm }) => {
   const dispatch = useDispatch();
@@ -16,14 +21,28 @@ const RecommendedCourses = ({ searchTerm }) => {
     dispatch(fetchCourses());
   }, []);
 
+  if (!courses) {
+    return <div>Loading...</div>;
+  }
+
+  console.log(courses);
   return (
     <div>
-      <h1>{t("Recommended_Courses")}</h1>
-      <div className="flex  text-center">
+      <Swiper
+        cssMode={true}
+        navigation={true}
+        pagination={true}
+        mousewheel={true}
+        keyboard={true}
+        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+        className="mySwiper w-[20rem] h-[20rem]"
+      >
         {courses.map((course) => (
-          <Course key={course.id} course={course} />
+          <SwiperSlide className="text-center flex items-center justify-center" key={course.id} >
+            <Course course={course} />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };
