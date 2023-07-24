@@ -25,7 +25,7 @@ const Page = () => {
   };
 
   return (
-    <div className="flex flex-col gap-7 items-center justify-center ">
+    <div className="flex flex-col gap-7 items-center justify-center w-full ">
       <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
       <hr className="w-full" />
       <TopSearches />
