@@ -1,0 +1,74 @@
+{
+    "Index": {
+      "welcome_to_Mudemy": "!أهلا بكم في Mudemy",
+      "discover_passion": "اكتشف شغفك",
+      "introduction_text": " تعلم مهارة جديدة,تواصل مع من هو لديه مهارات مشتركة,ستجد كل مل تبحث عنه",
+      "get_started": "تسجيل الدخول",
+      "login": "ادخل"
+    },
+    "Courses_Page": {
+      "My_Courses": "دوراتي",
+      "Review_Course": "مراجعة الدورة",
+      "Continue_Course": "اكمال الدورة"
+    },
+    "Home_Page": {
+      "Featured_Courses": "الدورات المميزة",
+      "Categories": "الفئات",
+      "My_Learning": "تعلمي",
+      "See_All": "المزيد"
+    },
+    "Saved_Courses_Page": {
+      "Saved_Courses": "الدورات المحفوظة"
+    },
+    "Search_Page": {
+      "Show_results": "عرض النتائج",
+      "Levels": "الأسعار"
+    },
+    "Spesific_Course_Page": {
+      "Duration": "المدة",
+      "Rating": "التقييم",
+      "Course_Description": "وصف الدورة",
+      "Course_Overview": "ملخص الدورة"
+    },
+    "Statistics_Page": {
+      "My_Performance": "أدائي",
+      "My_Activity": "نشاطي",
+      "VIEW_ALL_ACTIVITY": "عرض جميع النشاطات",
+      "Last_Year_Comparison": "مقارنة السنة الماضية"
+    },
+    "Components": {
+      "Home": "الصفحة الرئيسية",
+      "Search": "البحث",
+      "Courses": "الدورات",
+      "Saved": "المحفوظات",
+      "Profile": "ملفي الشخصي",
+      "Sales": "المبيعات",
+      "HR": "الموارد البشرية",
+      "Drawing": "رسم",
+      "Big_Data": "البيانات الكبيرة",
+      "Design": "تصميم",
+      "Marketing": "تسويق",
+      "Astronomy": "الفلك",
+      "Data": "بيانات",
+      "Completed": "الدورات المكتملة",
+      "Course_Overview": "ملخص الدورة",
+      "Course_Description": "وصف الدورة",
+      "Buy": "شراء",
+      "Preview": "عرض مسبق",
+      "This_Week": "هذا الأسبوع",
+      "Time_Spent": "الوقت المقتضي",
+      "Goal": "الهدف",
+      "Streak": "سلسلة الانتصارات",
+      "Recommended_Courses": "الدورات الموصى بها",
+      "Friends": "الأصدقاء",
+      "Delete": "حذف",
+      "Find_Friends": "البحث عن أصدقاء",
+      "Invite_Friends": "دعوة الأصدقاء",
+      "Friend_Suggestions": "اقتراحات الأصدقاء",
+      "Follow": "تابع",
+      "Message": "بعث رسالة",
+      "Followers": "المتابعون",
+      "Following": ""
+    }
+  }
+  
