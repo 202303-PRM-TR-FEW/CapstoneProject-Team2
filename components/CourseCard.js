@@ -1,9 +1,10 @@
 "use client";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import coverimg from "../public/assets/course-cover.png";
-import saveIconEmpty from "../public/assets/save-icon-empty.png";
 import saveIconFull from "../public/assets/save-icon-full.png";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchCourses } from "@/redux/api";
 
 const CourseCard = () => {
   const style = {
@@ -17,40 +18,50 @@ const CourseCard = () => {
     progressInfo: `text-sm text-slate-500`,
   };
 
+  const dispatch = useDispatch();
+  const courses = useSelector((state) => state.courses.courses);
+
+  useEffect(() => {
+    dispatch(fetchCourses());
+  }, []);
+
   const t = useTranslations("Components");
 
   return (
-    <div className={style.courseCard}>
-      <Image
-        src={coverimg}
-        width={150}
-        height={150}
-        alt="cover image of course"
-        className={style.coverImg}
-        priority={true}
-      />
-      <div className={style.infoSide}>
-        <div>
-          <div className={style.courseName}>
-            <h2>Becoming a Photographer</h2>
-            <Image
-              src={saveIconFull}
-              width={25}
-              height={25}
-              alt="bookmark icon"
-              priority={true}
-            />
+    <div>
+    {courses.map((course) => (
+      <div className={style.courseCard}>
+        <img
+          src={course.image}
+          width={150}
+          height={150}
+          alt="cover image of course"
+          className={style.coverImg}
+          priority={true}
+        />
+        <div className={style.infoSide}>
+          <div>
+            <div className={style.courseName}>
+              <h2>{course.title}</h2>
+              <Image
+                src={saveIconFull}
+                width={25}
+                height={25}
+                alt="bookmark icon"
+                priority={true}
+              />
+            </div>
+            <p className={style.teacher}>{course.instructor}</p>
           </div>
-
-          <p className={style.teacher}>Clara Manning</p>
-        </div>
-        <div>
-          <div className={style.progressBar}>
-            <div className={style.progress}></div>
+          <div>
+            <div className={style.progressBar}>
+              <div className={style.progress}></div>
+            </div>
+            <p className={style.progressInfo}>{t("Completed")}: 60%</p>
           </div>
-          <p className={style.progressInfo}>{t("Completed")}: 60%</p>
         </div>
       </div>
+      ))}
     </div>
   );
 };
