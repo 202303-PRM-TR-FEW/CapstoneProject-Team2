@@ -41,7 +41,7 @@ const RecommendedCourses = ({ searchTerm }) => {
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        className="mySwiper w-[50rem] h-fit "
+        className="mySwiper w-[60rem] h-fit "
       >
         {courses.map((course) => (
           <SwiperSlide className=" bg-white rounded-2xl p-4 shadow" key={course.id}>
