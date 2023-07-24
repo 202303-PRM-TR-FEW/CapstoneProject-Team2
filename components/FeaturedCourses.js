@@ -36,7 +36,7 @@ const FeaturedCourses = () => {
   return (
     <div className={style.details}>
       {courses.slice(0,5).map((course) => (
-      <div className={style.fcCard}>
+      <div className={style.fcCard} key={course.id}>
         <img
           src={course.image}
           width={120}

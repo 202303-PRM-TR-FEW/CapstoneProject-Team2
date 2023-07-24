@@ -8,7 +8,7 @@ import { fetchCourses } from "@/redux/api";
 
 const CourseCard = () => {
   const style = {
-    courseCard: `flex rounded-2xl bg-white m-2 shadow-lg dark:bg-slate-800 w-full`,
+    courseCard: `flex rounded-2xl bg-white m-2 shadow-lg dark:bg-slate-800`,
     coverImg: `rounded-2xl m-2`,
     infoSide: `flex flex-col justify-between m-2 py-4`,
     courseName: `flex items-center`,
@@ -16,7 +16,7 @@ const CourseCard = () => {
     progressBar: `w-full bg-slate-200 rounded-full h-2.5`,
     progress: `bg-blue-600 h-2.5 rounded-full w-3/5`,
     progressInfo: `text-sm text-slate-500`,
-    container: `flex gap-4`
+    // container: `flex gap-4`
   };
 
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const CourseCard = () => {
   return (
     <div className={style.container}>
     {courses.slice(0, 2).map((course) => (
-      <div className={style.courseCard}>
+      <div className={style.courseCard} key={course.id}>
         <img
           src={course.image}
           width={150}
