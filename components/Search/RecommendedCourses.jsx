@@ -29,18 +29,23 @@ const RecommendedCourses = ({ searchTerm, isFreeChecked, isPaidChecked }) => {
 
   const filteredCourses = courses.filter((course) => {
     if (isFreeChecked && isPaidChecked) {
-      return true; 
+      return true;
     } else if (isFreeChecked && !course.price) {
-      return true; 
+      return true;
     } else if (isPaidChecked && course.price) {
-      return true; 
-    }
-      else if (!isFreeChecked && !isPaidChecked) {
-      return true; 
+      return true;
+    } else if (!isFreeChecked && !isPaidChecked) {
+      return true;
+    } else if (
+      searchTerm &&
+      course.title.toLowerCase().includes(searchTerm.toLowerCase())
+    ) {
+      return true;
+    } else {
+      return false;
     }
   });
 
-  console.log({ courses });
 
   return (
     <div>
@@ -55,8 +60,13 @@ const RecommendedCourses = ({ searchTerm, isFreeChecked, isPaidChecked }) => {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper w-[60rem]  "
       >
-        {filteredCourses.map((course) => (
-          <SwiperSlide className=" bg-white rounded-2xl p-4 shadow" key={course.id}>
+      
+        {filteredCourses
+        .filter((course) =>
+          course.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .map((course) => (
+          <SwiperSlide className='bg-white rounded-2xl p-4 shadow' key={course.id}>
             <Course course={course} />
           </SwiperSlide>
         ))}
