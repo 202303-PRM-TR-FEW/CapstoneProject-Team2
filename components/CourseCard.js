@@ -16,6 +16,7 @@ const CourseCard = () => {
     progressBar: `w-full bg-slate-200 rounded-full h-2.5`,
     progress: `bg-blue-600 h-2.5 rounded-full w-3/5`,
     progressInfo: `text-sm text-slate-500`,
+    container: `flex gap-4`
   };
 
   const dispatch = useDispatch();
@@ -28,8 +29,8 @@ const CourseCard = () => {
   const t = useTranslations("Components");
 
   return (
-    <div>
-    {courses.map((course) => (
+    <div className={style.container}>
+    {courses.slice(0, 2).map((course) => (
       <div className={style.courseCard}>
         <img
           src={course.image}

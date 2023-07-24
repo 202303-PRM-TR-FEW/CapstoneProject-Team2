@@ -19,9 +19,7 @@ const Page = () => {
   return (
     <div className={style.container}>
       <h1 className={style.title}>{t("Featured_Courses")}</h1>
-      <div className={style.featuredContainer}>
-        <FeaturedCourses />
-      </div>
+      <FeaturedCourses />
       <h1 className={style.title}>{t("Categories")}</h1>
       <Categories />
       <h1 className={style.title}>{t("My_Learning")}</h1>
