@@ -25,9 +25,6 @@ const Page = () => {
         </div>
         <div className={style.cardList}>
           <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
         </div>
       </div>
       <div className={style.rightDiv}>

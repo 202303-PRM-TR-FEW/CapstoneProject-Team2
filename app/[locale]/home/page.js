@@ -5,7 +5,7 @@ import Categories from "@/components/Categories";
 import { useTranslations } from "next-intl";
 
 const style = {
-  featuredContainer: "flex gap-4",
+  featuredContainer: "grid gap-4 grid-row",
   title: "font-bold text-2xl my-4",
   myLearning: "flex flex-wrap",
   btn: "bg-blue-500 text-white uppercase p-2 px-10 rounded-xl w-full md:w-auto",
@@ -19,17 +19,11 @@ const Page = () => {
   return (
     <div className={style.container}>
       <h1 className={style.title}>{t("Featured_Courses")}</h1>
-      <div className={style.featuredContainer}>
-        <FeaturedCourses />
-        <FeaturedCourses />
-        <FeaturedCourses />
-        <FeaturedCourses />
-      </div>
+      <FeaturedCourses />
       <h1 className={style.title}>{t("Categories")}</h1>
       <Categories />
       <h1 className={style.title}>{t("My_Learning")}</h1>
       <div className={style.myLearning}>
-        <CourseCard />
         <CourseCard />
       </div>
       <div className={style.btnDiv}>
