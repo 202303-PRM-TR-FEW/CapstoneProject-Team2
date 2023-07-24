@@ -4,7 +4,7 @@ import { useState } from "react";
 import SearchBar from "@/components/Search/SearchBar";
 import TopSearches from "@/components/Search/TopSearches";
 import Categories from "@/components/Search/Categories";
-import TopRatedCourses from "@/components/Search/TopRatedCourses";
+import TopRatedCourses from "@/components/Search/StarRating";
 import RecommendedCourses from "@/components/Search/RecommendedCourses";
 import { useTranslations } from "next-intl";
 

@@ -28,17 +28,23 @@ const RecommendedCourses = ({ searchTerm }) => {
   console.log(courses);
   return (
     <div>
+      <h1 className="text-3xl font-bold text-center mb-10">
+        {t("Recommended_Courses")}
+      </h1>
       <Swiper
+
+        slidesPerView={4}
+        spaceBetween={10}
         cssMode={true}
         navigation={true}
         pagination={true}
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        className="mySwiper w-[20rem] h-[20rem]"
+        className="mySwiper w-[50rem] h-fit "
       >
         {courses.map((course) => (
-          <SwiperSlide className="text-center flex items-center justify-center" key={course.id} >
+          <SwiperSlide className=" bg-white rounded-2xl p-4 shadow" key={course.id}>
             <Course course={course} />
           </SwiperSlide>
         ))}
