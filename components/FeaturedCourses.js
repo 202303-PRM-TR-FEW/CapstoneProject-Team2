@@ -22,7 +22,7 @@ const style = {
   randomImg: `rounded-full p-0`,
   name: `text-center pl-0 pr-2`,
   saveIcon: `float-right m-1 translate-y-[-6rem]`,
-  personImg: `rounded-full mr-2`,
+  personImg: `rounded-full mr-2 w-10 h-10`,
 };
 
 const FeaturedCourses = () => {
@@ -37,7 +37,6 @@ const FeaturedCourses = () => {
     <div className={style.details}>
       {courses.slice(0,5).map((course) => (
       <div className={style.fcCard}>
-        
         <img
           src={course.image}
           width={120}
@@ -58,8 +57,6 @@ const FeaturedCourses = () => {
         <div className={style.personInfo}>
           <img
             src={course.instructor_img}
-            width={30}
-            height={30}
             alt="image of trainer"
             className={style.personImg}
             priority={true}

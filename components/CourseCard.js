@@ -8,7 +8,7 @@ import { fetchCourses } from "@/redux/api";
 
 const CourseCard = () => {
   const style = {
-    courseCard: `flex rounded-2xl bg-white m-2 shadow-lg dark:bg-slate-800`,
+    courseCard: `flex rounded-2xl bg-white m-2 shadow-lg dark:bg-slate-800 w-full`,
     coverImg: `rounded-2xl m-2`,
     infoSide: `flex flex-col justify-between m-2 py-4`,
     courseName: `flex items-center`,
