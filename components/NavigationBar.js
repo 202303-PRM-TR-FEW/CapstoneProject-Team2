@@ -9,6 +9,8 @@ import Providers from "@/darkMode/providers";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import  ReactCountryFlag from "react-country-flag";
+import { GrLanguage } from "react-icons/gr";
+import { IconContext } from "react-icons/lib";
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,30 +61,11 @@ const NavigationBar = () => {
         <Providers>
             <ThemeSwitcher  />
           </Providers>
-        <button
-          className={style.burgerBtnDiv}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <div
-            className={`${style.hamburgerLine} ${
-              isOpen
-                ? "rotate-45 translate-y-3  group-hover:bg-[#F472B6]"
-                : "group-hover:bg-[#F472B6]"
-            }`}
-          />
-          <div
-            className={`${style.hamburgerLine} ${
-              isOpen ? "opacity-0" : "group-hover:bg-[#F472B6]"
-            }`}
-          />
-          <div
-            className={`${style.hamburgerLine} ${
-              isOpen
-                ? "-rotate-45 -translate-y-3 group-hover:bg-[#F472B6]"
-                : "group-hover:bg-[#F472B6]"
-            }`}
-          />
-        </button>
+      
+      <GrLanguage size={30}  onClick={() => setIsOpen(!isOpen)} />
+
+
+        
       </div>
       {isOpen && (
         <div className={style.extrabox2}>

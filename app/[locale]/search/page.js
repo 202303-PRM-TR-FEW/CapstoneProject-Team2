@@ -11,14 +11,14 @@ import { useTranslations } from "next-intl";
 const Page = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const t = useTranslations("Search_Page");
+  const t = useTranslations("Components");
 
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
 
   return (
-    <div className="flex flex-col gap-7 items-center">
+    <div className="flex flex-col gap-7 items-center justify-center ">
       <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
       <hr className="w-full" />
       <TopSearches />
@@ -28,20 +28,17 @@ const Page = () => {
       <div className="flex flex-col gap-4 w-full ml-36 md:flex md:flex-row">
         <TopRatedCourses />
         <div>
-          <h1>{t("Levels")}</h1>
+          <h1>{t("Prices")}</h1>
           <div className="flex gap-2">
             <label className="">
               <input type="checkbox" />
-              <span className="ml-2">Data</span>
+              <span className="ml-2">Free</span>
             </label>
             <label className="">
               <input type="checkbox" />
-              <span className="ml-2">Data</span>
+              <span className="ml-2">Paid</span>
             </label>
-            <label className="">
-              <input type="checkbox" />
-              <span className="ml-2">Data</span>
-            </label>
+          
           </div>
         </div>
       </div>
