@@ -1,21 +1,22 @@
 "use client";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { fetchCourses } from "@/redux/api";
-import { useTranslations } from "next-intl";
-import Course from "./Course";
-import "swiper/css"; // Import Swiper base styles
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { SwiperSlide, Swiper } from "swiper/react";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCourses } from '@/redux/api';
+import { useTranslations } from 'next-intl';
+import Course from './Course';
+import 'swiper/css'; 
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { SwiperSlide, Swiper } from 'swiper/react';
 
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 
-const RecommendedCourses = ({ searchTerm }) => {
+const RecommendedCourses = ({ searchTerm, isFreeChecked, isPaidChecked }) => {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses.courses);
 
-  const t = useTranslations("Components");
+  const t = useTranslations('Search');
 
   useEffect(() => {
     dispatch(fetchCourses());
@@ -25,25 +26,36 @@ const RecommendedCourses = ({ searchTerm }) => {
     return <div>Loading...</div>;
   }
 
+
+  const filteredCourses = courses.filter((course) => {
+    if (isFreeChecked && isPaidChecked) {
+      return true; 
+    } else if (isFreeChecked && !course.price) {
+      return true; 
+    } else if (isPaidChecked && course.price) {
+      return true; 
+    }
+      else if (!isFreeChecked && !isPaidChecked) {
+      return true; 
+    }
+  });
+
   console.log({ courses });
+
   return (
     <div>
-      <h1 className="text-3xl font-bold text-center mb-10">
-        {t("Top Rated Courses")}
-      </h1>
+      <h1 className="text-3xl font-bold text-center mb-10">{t('Top Rated Courses')}</h1>
       <Swiper
-
         slidesPerView={4}
         spaceBetween={10}
         cssMode={true}
         navigation={true}
-        pagination={true}
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        className="mySwiper w-[60rem] h-fit "
+        className="mySwiper w-[60rem]  "
       >
-        {courses.map((course) => (
+        {filteredCourses.map((course) => (
           <SwiperSlide className=" bg-white rounded-2xl p-4 shadow" key={course.id}>
             <Course course={course} />
           </SwiperSlide>
