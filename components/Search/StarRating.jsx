@@ -10,7 +10,7 @@ const StarRating = ({ rating }) => {
 
   console.log(rating);
 
-  // Calculate the number of filled and half stars
+
   const filledStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;
   const remainingStars = MAX_RATING - filledStars - (hasHalfStar ? 1 : 0);

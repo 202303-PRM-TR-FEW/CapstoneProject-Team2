@@ -18,7 +18,7 @@ const RecommendedCourses = ({ searchTerm, isFreeChecked, isPaidChecked }) => {
   const sortByRating = useSelector((state) => state.sorting); // Read the sorting option from the store
 
 
-  const t = useTranslations('Search');
+  const t = useTranslations('Components');
 
   useEffect(() => {
     dispatch(fetchCourses());
