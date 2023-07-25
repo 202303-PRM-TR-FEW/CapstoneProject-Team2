@@ -15,6 +15,8 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 const RecommendedCourses = ({ searchTerm, isFreeChecked, isPaidChecked }) => {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses.courses);
+  const sortByRating = useSelector((state) => state.sorting); // Read the sorting option from the store
+
 
   const t = useTranslations('Search');
 
@@ -26,8 +28,15 @@ const RecommendedCourses = ({ searchTerm, isFreeChecked, isPaidChecked }) => {
     return <div>Loading...</div>;
   }
 
-
-  const filteredCourses = courses.filter((course) => {
+  const sortedCourses = [...courses].sort((a, b) => {
+    if (!sortByRating) {
+      return b.rating - a.rating;
+    } else {
+      return 0;
+    }
+  });
+  const filteredCourses =  sortedCourses.filter((course) => {
+      
     if (isFreeChecked && isPaidChecked) {
       return true;
     } else if (isFreeChecked && !course.price) {
