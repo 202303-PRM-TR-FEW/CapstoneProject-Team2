@@ -3,8 +3,8 @@
       "welcome_to_Mudemy": "!أهلا بكم في Mudemy",
       "discover_passion": "اكتشف شغفك",
       "introduction_text": " تعلم مهارة جديدة,تواصل مع من هو لديه مهارات مشتركة,ستجد كل مل تبحث عنه",
-      "get_started": "تسجيل الدخول",
-      "login": "ادخل"
+      "get_started": " ابدأ هنا",
+      "login": "تسجيل الدخول"
     },
     "Courses_Page": {
       "My_Courses": "دوراتي",
@@ -15,7 +15,7 @@
       "Featured_Courses": "الدورات المميزة",
       "Categories": "الفئات",
       "My_Learning": "تعلمي",
-      "See_All": "المزيد"
+      "See_All": "عرض الكل"
     },
     "Saved_Courses_Page": {
       "Saved_Courses": "الدورات المحفوظة"
@@ -56,7 +56,7 @@
       "Buy": "شراء",
       "Preview": "عرض مسبق",
       "This_Week": "هذا الأسبوع",
-      "Time_Spent": "الوقت المقتضي",
+      "Time_Spent": "الوقت المقضي",
       "Goal": "الهدف",
       "Streak": "سلسلة الانتصارات",
       "Recommended_Courses": "الدورات الموصى بها",
@@ -68,7 +68,7 @@
       "Follow": "تابع",
       "Message": "بعث رسالة",
       "Followers": "المتابعون",
-      "Following": ""
+      "Following": "المتابعة"
     }
   }
   
