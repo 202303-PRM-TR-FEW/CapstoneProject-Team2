@@ -1,0 +1,74 @@
+{
+    "Index": {
+      "welcome_to_Mudemy": "Mudemy'ye Hoşgeldiniz!",
+      "discover_passion": "Tutkunuzu Keşfedin",
+      "introduction_text": "İlgi duyduğun konuları keşfet, yeni bir yetenek öğren ve benzer konulara tutkulu olan insanlarla bağlantı kur..",
+      "get_started": "Başlayın",
+      "login": "Giriş Yap"
+    },
+    "Courses_Page": {
+      "My_Courses": "Kurslarım",
+      "Review_Course": "Kursu İncele",
+      "Continue_Course": "Kursa Devam Et"
+    },
+    "Home_Page": {
+      "Featured_Courses": "Öne Çıkan Kurslar",
+      "Categories": "Kategoriler",
+      "My_Learning": "Öğrenimim",
+      "See_All": "Hepsini Gör"
+    },
+    "Saved_Courses_Page": {
+      "Saved_Courses": "Kaydedilen Kurslar"
+    },
+    "Search_Page": {
+      "Show_results": "Sonuçları Göster",
+      "Levels": "Seviyeler"
+    },
+    "Spesific_Course_Page": {
+      "Duration": "Süre",
+      "Rating": "Puanlama",
+      "Course_Description": "Kurs Açıklaması",
+      "Course_Overview": "Kursa Genel Bakış"
+    },
+    "Statistics_Page": {
+      "My_Performance": "Performansım",
+      "My_Activity": "Aktivitelerim",
+      "VIEW_ALL_ACTIVITY": "TÜM AKTİVİTELERİ GÖRÜNTÜLE",
+      "Last_Year_Comparison": "Geçen Yıl Karşılaştırması"
+    },
+    "Components": {
+      "Home": "Ana Sayfa",
+      "Search": "Ara",
+      "Courses": "Kurslar",
+      "Saved": "Kaydedilen",
+      "Profile": "Profil",
+      "Sales": "Satış",
+      "HR": "İK",
+      "Drawing": "Çizim",
+      "Big_Data": "Büyük Veri",
+      "Design": "Tasarım",
+      "Marketing": "Pazarlama",
+      "Astronomy": "Astronomi",
+      "Data": "Veri",
+      "Completed": "Tamamlanmış",
+      "Course_Overview": "Kursa Genel Bakış",
+      "Course_Description": "Kurs Açıklaması",
+      "Buy": "Satın Al",
+      "Preview": "Önizleme",
+      "This_Week": "Bu Hafta",
+      "Time_Spent": "Harcanan Zaman",
+      "Goal": "Hedef",
+      "Streak": "Serüven",
+      "Recommended_Courses": "Tavsiye Edilen Kurslar",
+      "Friends": "Arkadaşlar",
+      "Delete": "Sil",
+      "Find_Friends": "Arkadaş Bul",
+      "Invite_Friends": "Arkadaşlarını Davet Et",
+      "Friend_Suggestions": "Arkadaş Önerileri",
+      "Follow": "Takip Et",
+      "Message": "Mesaj",
+      "Followers": "Takipçi",
+      "Following": "Takip"
+    }
+  }
+  
