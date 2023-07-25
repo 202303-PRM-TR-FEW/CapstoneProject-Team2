@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { SwiperSlide, Swiper } from 'swiper/react';
 
+
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 
 const RecommendedCourses = ({ searchTerm, isFreeChecked, isPaidChecked }) => {
@@ -19,6 +20,7 @@ const RecommendedCourses = ({ searchTerm, isFreeChecked, isPaidChecked }) => {
 
 
   const t = useTranslations('Components');
+
 
   useEffect(() => {
     dispatch(fetchCourses());
