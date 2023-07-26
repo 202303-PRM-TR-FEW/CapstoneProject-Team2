@@ -77,7 +77,7 @@ const RecommendedCourses = ({ searchTerm, isFreeChecked, isPaidChecked }) => {
           course.title.toLowerCase().includes(searchTerm.toLowerCase())
         )
         .map((course) => (
-          <SwiperSlide className='bg-white rounded-2xl p-4 shadow' key={course.id}>
+          <SwiperSlide className='bg-white rounded-2xl p-4 shadow dark:bg-slate-800' key={course.id}>
             <Course course={course} />
           </SwiperSlide>
         ))}

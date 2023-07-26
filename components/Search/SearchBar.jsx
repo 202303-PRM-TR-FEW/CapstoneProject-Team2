@@ -4,9 +4,9 @@ const SearchBar = ({ searchTerm, onSearch }) => {
   };
 
   return (
-    <div className="flex gap-4 bg-white w-full shadow-md rounded px-8 pt-6 pb-8 justify-center items-center">
+    <div className="flex gap-4 bg-white w-full shadow-md rounded px-8 pt-6 pb-8 justify-center items-center dark:bg-slate-800">
       <input
-        className="text-center w-10/12 p-2 rounded border border-gray-800"
+        className="text-center w-10/12 p-2 rounded border border-gray-800 dark:bg-slate-400 dark:placeholder-white"
         type="text"
         placeholder="Search Courses"
         value={searchTerm}
