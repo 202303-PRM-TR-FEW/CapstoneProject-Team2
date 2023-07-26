@@ -1,24 +1,31 @@
 "use client";
 
-import { useState } from "react";
-import SearchBar from "@/components/Search/SearchBar";
-import TopSearches from "@/components/Search/TopSearches";
-import Categories from "@/components/Search/Categories";
-import TopRatedCourses from "@/components/Search/TopRatedCourses";
-import RecommendedCourses from "@/components/Search/RecommendedCourses";
-import { useTranslations } from "next-intl";
+import React, { useState } from 'react';
+import SearchBar from '@/components/Search/SearchBar';
+import TopSearches from '@/components/Search/TopSearches';
+import Categories from '@/components/Search/Categories';
+import RecommendedCourses from '@/components/Search/RecommendedCourses';
+import { useTranslations } from 'next-intl';
+import PaidFree from '@/components/Search/PaidFree';
 
 const Page = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isFreeChecked, setIsFreeChecked] = useState(false);
+  const [isPaidChecked, setIsPaidChecked] = useState(false);
 
-  const t = useTranslations("Search_Page");
+  const t = useTranslations('Components');
 
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
 
+  const handleCheckboxChange = (freeChecked, paidChecked) => {
+    setIsFreeChecked(freeChecked);
+    setIsPaidChecked(paidChecked);
+  };
+
   return (
-    <div className="flex flex-col gap-7 items-center">
+    <div className="flex flex-col gap-7 items-center justify-center w-full ">
       <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
       <hr className="w-full" />
       <TopSearches />
@@ -26,30 +33,10 @@ const Page = () => {
       <Categories />
       <hr className="w-full" />
       <div className="flex flex-col gap-4 w-full ml-36 md:flex md:flex-row">
-        <TopRatedCourses />
-        <div>
-          <h1>{t("Levels")}</h1>
-          <div className="flex gap-2">
-            <label className="">
-              <input type="checkbox" />
-              <span className="ml-2">Data</span>
-            </label>
-            <label className="">
-              <input type="checkbox" />
-              <span className="ml-2">Data</span>
-            </label>
-            <label className="">
-              <input type="checkbox" />
-              <span className="ml-2">Data</span>
-            </label>
-          </div>
-        </div>
+        <PaidFree onChange={handleCheckboxChange} />
       </div>
       <hr className="w-full" />
-      <RecommendedCourses searchTerm={searchTerm} />
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-10/12 rounded-2xl">
-        {t("Show_results")}
-      </button>
+      <RecommendedCourses searchTerm={searchTerm} isFreeChecked={isFreeChecked} isPaidChecked={isPaidChecked} />
     </div>
   );
 };

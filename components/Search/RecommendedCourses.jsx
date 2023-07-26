@@ -1,29 +1,87 @@
 "use client";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCourses } from '@/redux/api';
+import { useTranslations } from 'next-intl';
+import Course from './Course';
+import 'swiper/css'; 
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { SwiperSlide, Swiper } from 'swiper/react';
 
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { fetchCourses } from "@/redux/api";
-import Course from "./Course";
-import { useTranslations } from "next-intl";
 
-const RecommendedCourses = ({ searchTerm }) => {
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+
+const RecommendedCourses = ({ searchTerm, isFreeChecked, isPaidChecked }) => {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses.courses);
+  const sortByRating = useSelector((state) => state.sorting); // Read the sorting option from the store
 
-  const t = useTranslations("Components");
+
+  const t = useTranslations('Components');
+
 
   useEffect(() => {
     dispatch(fetchCourses());
   }, []);
 
+  if (!courses) {
+    return <div>Loading...</div>;
+  }
+
+  const sortedCourses = [...courses].sort((a, b) => {
+    if (!sortByRating) {
+      return b.rating - a.rating;
+    } else {
+      return 0;
+    }
+  });
+  const filteredCourses =  sortedCourses.filter((course) => {
+      
+    if (isFreeChecked && isPaidChecked) {
+      return true;
+    } else if (isFreeChecked && !course.price) {
+      return true;
+    } else if (isPaidChecked && course.price) {
+      return true;
+    } else if (!isFreeChecked && !isPaidChecked) {
+      return true;
+    } else if (
+      searchTerm &&
+      course.title.toLowerCase().includes(searchTerm.toLowerCase())
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+
   return (
     <div>
-      <h1>{t("Recommended_Courses")}</h1>
-      <div className="flex  text-center">
-        {courses.map((course) => (
-          <Course key={course.id} course={course} />
+      <h1 className="text-3xl font-bold text-center mb-10">{t('Top Rated Courses')}</h1>
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={10}
+        cssMode={true}
+        navigation={true}
+        mousewheel={true}
+        keyboard={true}
+        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+        className="mySwiper w-[60rem]  "
+      >
+      
+        {filteredCourses
+        .filter((course) =>
+          course.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .map((course) => (
+          <SwiperSlide className='bg-white rounded-2xl p-4 shadow' key={course.id}>
+            <Course course={course} />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };

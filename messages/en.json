@@ -68,6 +68,8 @@
     "Follow": "Follow",
     "Message": "Message",
     "Followers": "Followers",
-    "Following": "Following"
+    "Following": "Following",
+    "Prices" : "Prices",
+    "Top Rated Courses" : "Top Rated Courses"
   }
 }
