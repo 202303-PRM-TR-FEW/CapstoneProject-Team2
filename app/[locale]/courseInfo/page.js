@@ -6,9 +6,9 @@ import { Button } from "@material-tailwind/react";
 const style = {
   course : `flex flex-col md:flex-row w-full md:w-11/12`,
   description : `w-full p-4`,
-  overview : `flex-grow p-4 bg-white w-full flex-col justify between`,
+  overview : `flex-grow p-4 bg-white w-full flex-col justify between dark:bg-slate-800`,
   courseTitle : `font-bold mb-4`,
-  content : `w-full`,
+  content : `w-full dark:bg-slate-800`,
   buyContainer : `mt-52`,
   buyButton: `w-full h-8`,
 

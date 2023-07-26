@@ -6,7 +6,7 @@ import { AiFillStar } from "react-icons/ai";
 import { Card, CardHeader, CardBody, Typography } from "@material-tailwind/react";
 
 const style = {
-  name: `flex text-sm items-center text-slate-500 my-2 p-2 rounded-full shadow-lg w-fit`,
+  name: `flex text-sm items-center my-2 p-2 rounded-full shadow-lg w-fit dark:bg-slate-700`,
   trainerImg: `rounded-full mr-4`,
   infoPanel: `text-sm text-slate-600`,
   timeLine: `ml-1`,
@@ -18,7 +18,7 @@ const style = {
 
 export default function CourseDescription() {
   return (
-    <Card className="mt-6 bg-transparent" style={{ border: "none"}}>
+    <Card className="mt-6 bg-transparent dark:bg-slate-800" style={{ border: "none"}}>
       <CardHeader color="blue-gray" className={`relative rounded-t-3xl ${style.title}`}>
         <div className="h-full w-full relative">
           <img
