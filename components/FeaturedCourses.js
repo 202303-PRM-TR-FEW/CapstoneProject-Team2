@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
-import coverimg from "../public/assets/course-cover.png";
 import { BiSolidTimeFive } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
-import randomUser from "../public/assets/randomUser.jpg";
 import saveIconFull from "../public/assets/save-icon-full.png";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchCourses } from "@/redux/api";
 
 const style = {
   fcCard: `bg-white w-max p-1 rounded-2xl dark:bg-slate-800`,
@@ -21,54 +22,64 @@ const style = {
   randomImg: `rounded-full p-0`,
   name: `text-center pl-0 pr-2`,
   saveIcon: `float-right m-1 translate-y-[-6rem]`,
-  personImg: `rounded-full mr-2`
+  personImg: `rounded-full mr-2 w-10 h-10`,
 };
 
 const FeaturedCourses = () => {
+  const dispatch = useDispatch();
+  const courses = useSelector((state) => state.courses.courses);
+
+  useEffect(() => {
+    dispatch(fetchCourses());
+  }, []);
+
   return (
-    <div className={style.fcCard}>
-      <Image
-        src={coverimg}
-        width={120}
-        height={120}
-        alt="cover image of course"
-        style={{ width: "100%", height: "100px", objectFit: "cover" }}
-        className={style.img}
-        priority={true}
-      />
-      <Image
-        src={saveIconFull}
-        width={25}
-        height={25}
-        alt="Save Icon"
-        className={style.saveIcon}
-        priority={true}
-      />
-      <div className={style.personInfo}>
-        <Image
-          src={randomUser}
-          width={30}
-          height={30}
-          alt="image of trainer"
-          className={style.personImg}
+    <div className={style.details}>
+      {courses.slice(0,5).map((course) => (
+      <div className={style.fcCard} key={course.id}>
+        <img
+          src={course.image}
+          width={120}
+          height={120}
+          alt="cover image of course"
+          style={{ width: "100%", height: "100px", objectFit: "cover" }}
+          className={style.img}
           priority={true}
         />
-        <p>John Eames</p>
-      </div>
-      <div className={style.padding}>
-        <h3 className={style.powerTitle}>Power BI</h3>
-        <div className={style.details}>
-          <div className={style.icons}>
-            <BiSolidTimeFive size={20} className={style.iconColor} />
-            <p className={style.iconsText}>1h 53m</p>
-          </div>
-          <div className={style.icons}>
-            <AiFillStar size={20} className={style.iconColor} />
-            <p className={style.iconsText}>4.9/5</p>
-          </div>
-          <button className={style.priceBtn}>$24</button>
+        <Image
+          src={saveIconFull}
+          width={25}
+          height={25}
+          alt="Save Icon"
+          className={style.saveIcon}
+          priority={true}
+        />
+        <div className={style.personInfo}>
+          <img
+            src={course.instructor_img}
+            alt="image of trainer"
+            className={style.personImg}
+            priority={true}
+          />
+          <p>{course.instructor}</p>
         </div>
+        <div className={style.padding}>
+          <h3 className={style.powerTitle}>{course.title}</h3>
+          <div className={style.details}>
+            <div className={style.icons}>
+              <BiSolidTimeFive size={20} className={style.iconColor} />
+              <p className={style.iconsText}>{course.duration}</p>
+            </div>
+            <div className={style.icons}>
+              <AiFillStar size={20} className={style.iconColor} />
+              <p className={style.iconsText}>{course.rating}</p>
+            </div>
+            <button className={style.priceBtn}>{course.price} $</button>
+          </div>
+        </div>
+        
       </div>
+      ))}
     </div>
   );
 };
