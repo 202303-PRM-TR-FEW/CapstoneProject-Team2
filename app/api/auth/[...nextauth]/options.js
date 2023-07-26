@@ -16,8 +16,23 @@ export const options = {
           type: "text",
           placeholder: "your-username",
         },
+        password: {
+          label: "Password:",
+          type: "password",
+          placeholder: "your-password",
+        },
       },
-      async authorize(credentials) {},
+      async authorize(credentials) {
+        const user = { id: "42", name: "Joe", password: "123456" };
+        if (
+          credentials?.username === user.name &&
+          credentials?.password === user.password
+        ) {
+          return user;
+        } else {
+          return null;
+        }
+      },
     }),
   ],
   pages: {

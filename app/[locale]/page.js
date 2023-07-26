@@ -7,10 +7,20 @@ import { useState } from "react";
 import Form from "@/components/FormLogin/Form";
 import Login from "@/components/FormLogin/Login";
 import { FcGoogle } from "react-icons/fc";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
-const Page = () => {
+export default function Page() {
   const [openForm, setOpenForm] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
+
+  const sessionData = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/home");
+    },
+  });
+  const session = sessionData.data;
 
   const t = useTranslations("Index");
 
@@ -59,6 +69,4 @@ const Page = () => {
       {openLogin && <Login handleOpenLogin={handleOpenLogin} />}
     </div>
   );
-};
-
-export default Page;
+}
