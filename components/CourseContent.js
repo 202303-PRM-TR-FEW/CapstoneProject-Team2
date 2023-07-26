@@ -3,7 +3,7 @@ import { Card, CardBody, Typography } from "@material-tailwind/react";
 import { HiChevronRight } from "react-icons/hi";
 
 const style = {
-    courseCard: `mt-6 w-100 h-20`,
+    courseCard: `mt-6 w-100 h-20 dark:bg-slate-700`,
     courseInfo: `flex items-center justify-between`,
     courseTitle: `flex flex-col`,
     info:`text-sm`,
