@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Form from "@/components/FormLogin/Form";
 import Login from "@/components/FormLogin/Login";
+import { FcGoogle } from "react-icons/fc";
 
 const Page = () => {
   const [openForm, setOpenForm] = useState(false);
@@ -44,6 +45,10 @@ const Page = () => {
           >
             {t("login")}
           </button>
+          <div className="flex items-center justify-around cursor-pointer h-auto w-56 text-white bg-blue-500 p-2 w-28 rounded-2xl">
+            <FcGoogle fontSize={30} />
+            <span>Sign In with Google</span>
+          </div>
         </div>
       </div>
       <div className="flex md:w-1/2 h-screen justify-center items-center  ">
