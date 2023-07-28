@@ -10,9 +10,8 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { GrLanguage } from "react-icons/gr";
-import { IconContext } from "react-icons/lib";
 import SignIn from "./SignIn";
-
+import { useSession } from "next-auth/react";
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,19 +26,16 @@ const NavigationBar = () => {
     extrabox: `z-[2] md:bg-slate-100 backdrop-blur-md flex flex-col justify-center items-center sticky left-0 bottom-16 gap-2 w-full h-32 md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700`,
   };
   const t = useTranslations("Components");
- 
+  const { data: session, status } = useSession();
   const pathname = usePathname();
 
   if (pathname === "/") {
     return null;
-  }
-
-else {
+  } else {
     return (
       <div className="z-[2] md:bg-slate-100 backdrop-blur-md flex  justify-center items-center sticky left-0 bottom-0 gap-4 w-full h-16  md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700 ">
-         
         <div className={style.navbar2}>
-      
+          <SignIn />
           <Link href="home" className={style.button}>
             <AiFillHome size={30} />
             <p>{t("Home")}</p>
@@ -56,17 +52,16 @@ else {
             <FiSave size={30} />
             <p>{t("Saved")}</p>
           </Link>
-          <Link href="profile" className={style.button}>
-            <CgProfile size={30} />
-            <p>{t("Profile")}</p>
-          </Link>
-
+          {
+            session &&
+            <Link href="profile" className={style.button}>
+              <CgProfile size={30} />
+              <p>{t("Profile")}</p>
+            </Link>
+          }
           <Providers>
             <ThemeSwitcher />
           </Providers>
-        
-          <SignIn />
-        
 
           <GrLanguage size={30} onClick={() => setIsOpen(!isOpen)} />
         </div>
