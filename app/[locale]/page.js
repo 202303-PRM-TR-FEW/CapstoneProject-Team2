@@ -54,6 +54,9 @@ const Page = () => {
           <button onClick={() => signIn('github', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl text-white bg-slate-700">
             Sign In with Github
           </button>
+          <button onClick={() => signIn('google', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl  bg-white">
+            Sign In with Google
+          </button>
         </div>
       </div>
       <div className="flex md:w-1/2 h-screen justify-center items-center  ">
