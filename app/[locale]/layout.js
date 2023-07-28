@@ -3,6 +3,7 @@ import NavigationBar from "@/components/NavigationBar";
 import ReduxProvider from "@/redux/provider";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
+import { NextAuthProvider } from "../provider";
 
 export const metadata = {
   title: "Mudemy",
@@ -26,8 +27,10 @@ export default async function LocaleLayout({ children, params: { locale } }) {
       <body className="flex flex-col-reverse md:flex-row bg-slate-100 dark:bg-slate-700">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ReduxProvider>
+            <NextAuthProvider>
             <NavigationBar />
             {children}
+            </NextAuthProvider>
           </ReduxProvider>
         </NextIntlClientProvider>
       </body>
