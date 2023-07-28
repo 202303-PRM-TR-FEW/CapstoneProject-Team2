@@ -6,10 +6,16 @@ import Image from "next/image";
 import { useState } from "react";
 import Form from "@/components/FormLogin/Form";
 import Login from "@/components/FormLogin/Login";
+import { signIn } from "next-auth/react";
+
+
+
 
 const Page = () => {
   const [openForm, setOpenForm] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
+
+  
 
   const t = useTranslations("Index");
 
@@ -20,6 +26,7 @@ const Page = () => {
   const handleOpenLogin = () => {
     setOpenLogin(!openLogin);
   };
+
 
   return (
     <div className="sm:flex  ">
@@ -43,6 +50,9 @@ const Page = () => {
             className="text-white bg-blue-500 p-2 w-28 rounded-2xl"
           >
             {t("login")}
+          </button>
+          <button onClick={() => signIn('github', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl text-white bg-slate-700">
+            Sign In with Github
           </button>
         </div>
       </div>
