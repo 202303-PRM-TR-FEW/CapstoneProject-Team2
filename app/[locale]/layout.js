@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "de" }, { locale: "ar"}];
+  return [{ locale: "en" }, { locale: "de" }, { locale: "ar" }];
 }
 
 export default async function LocaleLayout({ children, params: { locale } }) {
@@ -25,14 +25,14 @@ export default async function LocaleLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>
       <body className="flex flex-col-reverse md:flex-row bg-slate-100 dark:bg-slate-700">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <ReduxProvider>
-            <NextAuthProvider>
-            <NavigationBar />
-            {children}
-            </NextAuthProvider>
-          </ReduxProvider>
-        </NextIntlClientProvider>
+        <NextAuthProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <ReduxProvider>
+              <NavigationBar />
+              {children}
+            </ReduxProvider>
+          </NextIntlClientProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );

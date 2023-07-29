@@ -2,9 +2,15 @@
 
 import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 const SignIn = () => {
-  const { data: session, status } = useSession();
+  const { data: session, status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect(`/`);
+    },
+  });
 
   if (status === "authenticated") {
     return (
