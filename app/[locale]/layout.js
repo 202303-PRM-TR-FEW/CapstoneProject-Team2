@@ -25,14 +25,14 @@ export default async function LocaleLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>
       <body className="flex flex-col-reverse md:flex-row bg-slate-100 dark:bg-slate-700">
-        <NextAuthProvider>
-          <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <NextAuthProvider>
             <ReduxProvider>
               <NavigationBar />
               {children}
             </ReduxProvider>
-          </NextIntlClientProvider>
-        </NextAuthProvider>
+          </NextAuthProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
