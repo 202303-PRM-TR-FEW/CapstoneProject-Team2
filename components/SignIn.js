@@ -12,6 +12,8 @@ const SignIn = () => {
     // },
   });
 
+  console.log(session.user);
+
   if (status === "authenticated") {
     return (
       <div className="flex flex-col gap-4 items-center mb-8">

@@ -8,7 +8,8 @@ import Form from "@/components/FormLogin/Form";
 import Login from "@/components/FormLogin/Login";
 import { signIn } from "next-auth/react";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { db } from "./firebase";
+import { collection, query } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Page = () => {
   const [openForm, setOpenForm] = useState(false);
