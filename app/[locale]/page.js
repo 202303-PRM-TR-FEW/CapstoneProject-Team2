@@ -7,15 +7,14 @@ import { useState } from "react";
 import Form from "@/components/FormLogin/Form";
 import Login from "@/components/FormLogin/Login";
 import { signIn } from "next-auth/react";
-
-
-
+import { useCollection } from "react-firebase-hooks/firestore";
+import { db } from "./firebase";
 
 const Page = () => {
   const [openForm, setOpenForm] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
 
-  
+  const [users, loading, error] = useCollection(query(collection(db, "users")));
 
   const t = useTranslations("Index");
 
@@ -26,7 +25,6 @@ const Page = () => {
   const handleOpenLogin = () => {
     setOpenLogin(!openLogin);
   };
-
 
   return (
     <div className="sm:flex  ">
@@ -51,10 +49,16 @@ const Page = () => {
           >
             {t("login")}
           </button>
-          <button onClick={() => signIn('github', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl text-white bg-slate-700">
+          <button
+            onClick={() => signIn("github", { callbackUrl: "/home" })}
+            className=" p-2 rounded-2xl text-white bg-slate-700"
+          >
             Sign In with Github
           </button>
-          <button onClick={() => signIn('google', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl  bg-white">
+          <button
+            onClick={() => signIn("google", { callbackUrl: "/home" })}
+            className=" p-2 rounded-2xl  bg-white"
+          >
             Sign In with Google
           </button>
         </div>
