@@ -6,10 +6,10 @@ import { redirect } from "next/navigation";
 
 const SignIn = () => {
   const { data: session, status } = useSession({
-    required: true,
-    onUnauthenticated() {
-      redirect(`/`);
-    },
+    // required: true,
+    // onUnauthenticated() {
+    //   redirect(`/`);
+    // },
   });
 
   if (status === "authenticated") {

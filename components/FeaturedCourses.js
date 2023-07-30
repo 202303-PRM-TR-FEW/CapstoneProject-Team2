@@ -6,7 +6,7 @@ import saveIconFull from "../public/assets/save-icon-full.png";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCourses } from "@/redux/api";
-
+import Link from "next/link";
 const style = {
   fcCard: `bg-white w-max p-1 rounded-2xl dark:bg-slate-800`,
   personInfo: `flex text-sm items-center my-4 p-1 pr-3 rounded-full shadow-lg w-fit bg-white 
@@ -35,50 +35,51 @@ const FeaturedCourses = () => {
 
   return (
     <div className={style.details}>
-      {courses.slice(0,5).map((course) => (
-      <div className={style.fcCard} key={course.id}>
-        <img
-          src={course.image}
-          width={120}
-          height={120}
-          alt="cover image of course"
-          style={{ width: "100%", height: "100px", objectFit: "cover" }}
-          className={style.img}
-          priority={true}
-        />
-        <Image
-          src={saveIconFull}
-          width={25}
-          height={25}
-          alt="Save Icon"
-          className={style.saveIcon}
-          priority={true}
-        />
-        <div className={style.personInfo}>
+      {courses.slice(0, 5).map((course) => (
+        <div className={style.fcCard} key={course.id}>
           <img
-            src={course.instructor_img}
-            alt="image of trainer"
-            className={style.personImg}
+            src={course.image}
+            width={120}
+            height={120}
+            alt="cover image of course"
+            style={{ width: "100%", height: "100px", objectFit: "cover" }}
+            className={style.img}
             priority={true}
           />
-          <p>{course.instructor}</p>
-        </div>
-        <div className={style.padding}>
-          <h3 className={style.powerTitle}>{course.title}</h3>
-          <div className={style.details}>
-            <div className={style.icons}>
-              <BiSolidTimeFive size={20} className={style.iconColor} />
-              <p className={style.iconsText}>{course.duration}</p>
+          <Image
+            src={saveIconFull}
+            width={25}
+            height={25}
+            alt="Save Icon"
+            className={style.saveIcon}
+            priority={true}
+          />
+          <div className={style.personInfo}>
+            <img
+              src={course.instructor_img}
+              alt="image of trainer"
+              className={style.personImg}
+              priority={true}
+            />
+            <p>{course.instructor}</p>
+          </div>
+          <div className={style.padding}>
+            <Link href={`/courseInfo/${course.id}`}>
+              <h3 className={style.powerTitle}>{course.title}</h3>
+            </Link>
+            <div className={style.details}>
+              <div className={style.icons}>
+                <BiSolidTimeFive size={20} className={style.iconColor} />
+                <p className={style.iconsText}>{course.duration}</p>
+              </div>
+              <div className={style.icons}>
+                <AiFillStar size={20} className={style.iconColor} />
+                <p className={style.iconsText}>{course.rating}</p>
+              </div>
+              <button className={style.priceBtn}>{course.price} $</button>
             </div>
-            <div className={style.icons}>
-              <AiFillStar size={20} className={style.iconColor} />
-              <p className={style.iconsText}>{course.rating}</p>
-            </div>
-            <button className={style.priceBtn}>{course.price} $</button>
           </div>
         </div>
-        
-      </div>
       ))}
     </div>
   );
