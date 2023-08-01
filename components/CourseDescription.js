@@ -1,4 +1,4 @@
-import React from "react";
+
 import Image from "next/image";
 import coverimg from "../public/assets/course-cover.png";
 import { BiSolidTimeFive } from "react-icons/bi";
@@ -10,15 +10,15 @@ const style = {
   trainerImg: `rounded-full mr-4`,
   infoPanel: `text-sm text-slate-600`,
   timeLine: `ml-1`,
-  time: `flex flex-row items-center mb-3`, 
+  time: `flex flex-row items-center mb-3`,
   iconTint: `text-gray-400`,
   details: `font-bold text-l mb-3`,
-  title: `mb-6 mt-4`, 
+  title: `mb-6 mt-4`,
 };
 
 export default function CourseDescription() {
   return (
-    <Card className="mt-6 bg-transparent dark:bg-slate-800" style={{ border: "none"}}>
+    <Card className="mt-6 bg-transparent dark:bg-slate-800" style={{ border: "none" }}>
       <CardHeader color="blue-gray" className={`relative rounded-t-3xl ${style.title}`}>
         <div className="h-full w-full relative">
           <img

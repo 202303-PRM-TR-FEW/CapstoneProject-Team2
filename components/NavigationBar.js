@@ -10,10 +10,15 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { GrLanguage } from "react-icons/gr";
-import SignIn from "./SignIn";
-import { useSession } from "next-auth/react";
+import { UserAuth } from "@/app/context/AuthContext";
+
+
 
 const NavigationBar = () => {
+
+  const { user } = userAuth();
+  console.log(user);
+
   const [isOpen, setIsOpen] = useState(false);
   const style = {
     navbar: `z-[2] md:bg-slate-100 backdrop-blur-md flex justify-center items-center sticky left-0 bottom-0 gap-4 w-full h-16 md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700`,
@@ -26,7 +31,7 @@ const NavigationBar = () => {
     extrabox: `z-[2] md:bg-slate-100 backdrop-blur-md flex flex-col justify-center items-center sticky left-0 bottom-16 gap-2 w-full h-32 md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700`,
   };
   const t = useTranslations("Components");
-  const { data: session, status } = useSession();
+
   const pathname = usePathname();
 
   if (pathname === "/") {
@@ -35,7 +40,6 @@ const NavigationBar = () => {
     return (
       <div className="z-[2] md:bg-slate-100 backdrop-blur-md flex  justify-center items-center sticky left-0 bottom-0 gap-4 w-full h-16  md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700 ">
         <div className={style.navbar2}>
-          <SignIn />
           <Link href="home" className={style.button}>
             <AiFillHome size={30} />
             <p>{t("Home")}</p>
@@ -52,44 +56,46 @@ const NavigationBar = () => {
             <FiSave size={30} />
             <p>{t("Saved")}</p>
           </Link>
-          {
-            session &&
-            <Link href="profile" className={style.button}>
-              <CgProfile size={30} />
-              <p>{t("Profile")}</p>
-            </Link>
-          }
+
+          {/*session && */}
+          < Link href="profile" className={style.button}>
+            <CgProfile size={30} />
+            <p>{t("Profile")}</p>
+          </Link>
+
           <Providers>
             <ThemeSwitcher />
           </Providers>
 
           <GrLanguage size={30} onClick={() => setIsOpen(!isOpen)} />
         </div>
-        {isOpen && (
-          <div className={style.extrabox2}>
-            <Link href="/" locale="en" className={style.button}>
-              <ReactCountryFlag countryCode="" size={30} />
-              <p>English</p>
-            </Link>
-            <Link href="/" locale="de" className={style.button}>
-              <ReactCountryFlag countryCode="GB" size={30} />
-              <p>German</p>
-            </Link>
-            <Link href="/" locale="kr" className={style.button}>
-              <ReactCountryFlag countryCode="KR" size={30} />
-              <p>Korean</p>
-            </Link>
-            <Link href="/" locale="tr" className={style.button}>
-              <ReactCountryFlag countryCode="TR" size={30} />
-              <p>Turkish</p>
-            </Link>
-            <Link href="/" locale="ar" className={style.button}>
-              <ReactCountryFlag countryCode="SA" size={30} />
-              <p>Arabic</p>
-            </Link>
-          </div>
-        )}
-      </div>
+        {
+          isOpen && (
+            <div className={style.extrabox2}>
+              <Link href="/" locale="en" className={style.button}>
+                <ReactCountryFlag countryCode="" size={30} />
+                <p>English</p>
+              </Link>
+              <Link href="/" locale="de" className={style.button}>
+                <ReactCountryFlag countryCode="GB" size={30} />
+                <p>German</p>
+              </Link>
+              <Link href="/" locale="kr" className={style.button}>
+                <ReactCountryFlag countryCode="KR" size={30} />
+                <p>Korean</p>
+              </Link>
+              <Link href="/" locale="tr" className={style.button}>
+                <ReactCountryFlag countryCode="TR" size={30} />
+                <p>Turkish</p>
+              </Link>
+              <Link href="/" locale="ar" className={style.button}>
+                <ReactCountryFlag countryCode="SA" size={30} />
+                <p>Arabic</p>
+              </Link>
+            </div>
+          )
+        }
+      </div >
     );
   }
 };

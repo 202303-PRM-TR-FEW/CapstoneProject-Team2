@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Form from "@/components/FormLogin/Form";
 import Login from "@/components/FormLogin/Login";
-import { signIn } from "next-auth/react";
+
 
 
 
@@ -15,7 +15,8 @@ const Page = () => {
   const [openForm, setOpenForm] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
 
-  
+
+  console.log("sdaad");
 
   const t = useTranslations("Index");
 
@@ -51,10 +52,10 @@ const Page = () => {
           >
             {t("login")}
           </button>
-          <button onClick={() => signIn('github', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl text-white bg-slate-700">
+          <button>
             Sign In with Github
           </button>
-          <button onClick={() => signIn('google', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl  bg-white">
+          <button>
             Sign In with Google
           </button>
         </div>

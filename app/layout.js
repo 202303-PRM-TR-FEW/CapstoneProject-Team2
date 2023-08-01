@@ -5,3 +5,8 @@ import "./globals.css";
 export default function RootLayout({ children }) {
   return children;
 }
+
+export const metadata = {
+  title: "Mudemy",
+  description: "Best Learning Platform",
+};

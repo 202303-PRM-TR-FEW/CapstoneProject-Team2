@@ -1,6 +1,4 @@
- 'use client'
-import { useSelector, useDispatch } from "react-redux";
-import { fetchCourses } from "@/redux/api";
+'use client'
 import CourseProfileDescription from "@/components/CourseDetail/CourseProfileDescription";
 import CourseContent from "@/components/CourseContent";
 import { Button } from "@material-tailwind/react";
@@ -16,17 +14,11 @@ const CoursepPage = ({ params }) => {
     buyContainer: `mt-52`,
     buyButton: `w-full h-8`,
   };
-  const dispatch = useDispatch();
-  const courses = useSelector((state) => state.courses.courses);
-
-  useEffect(() => {
-    dispatch(fetchCourses());
-  }, []);
 
   const { courseProfile } = params;
   const courseId = parseInt(courseProfile); // Convert courseProfile to a number
   const course = courses.find((course) => course.id === courseId);
-console.log(courses);
+  console.log(courses);
   console.log(course);
 
   return (

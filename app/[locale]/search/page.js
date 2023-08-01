@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SearchBar from '@/components/Search/SearchBar';
 import TopSearches from '@/components/Search/TopSearches';
 import Categories from '@/components/Search/Categories';

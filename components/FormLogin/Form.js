@@ -2,7 +2,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { db } from "../../app/lib/firebase";
+
 import { collection, addDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 

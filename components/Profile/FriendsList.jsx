@@ -1,20 +1,8 @@
 "use client";
 
-import { fetchUsers } from "../../redux/apiUsers";
-import { useSelector, useDispatch } from "react-redux";
-import { removeSelectedProfile } from "../../redux/apiUsers";
-import { useEffect } from "react";
 import Link from "next/link";
 
 const FriendsList = () => {
-  const dispatch = useDispatch();
-  const users = useSelector((state) => state.users.users);
-  const selectedProfiles = useSelector((state) => state.users.selectedProfiles);
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, []);
-
   const handleDeleteButtonClick = (selectedProfile) => {
     dispatch(removeSelectedProfile(selectedProfile));
   };

@@ -1,17 +1,15 @@
+"use client"
+
 import "../globals.css";
 import NavigationBar from "@/components/NavigationBar";
-import ReduxProvider from "@/redux/provider";
+import { AuthContextProvider } from "../context/AuthContext";
 import { NextIntlClientProvider } from "next-intl";
-import { notFound } from "next/navigation";
-import { NextAuthProvider } from "../provider";
 
-export const metadata = {
-  title: "Mudemy",
-  description: "Best Learning Platform",
-};
+
+
 
 export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "de" }, { locale: "ar" }];
+  return [{ locale: "en" }, { locale: "de" }, { locale: "ar" }, { locale: "tr" }, { locale: "kr" }];
 }
 
 export default async function LocaleLayout({ children, params: { locale } }) {
@@ -26,12 +24,10 @@ export default async function LocaleLayout({ children, params: { locale } }) {
     <html lang={locale}>
       <body className="flex flex-col-reverse md:flex-row bg-slate-100 dark:bg-slate-700">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <NextAuthProvider>
-            <ReduxProvider>
-              <NavigationBar />
-              {children}
-            </ReduxProvider>
-          </NextAuthProvider>
+          <AuthContextProvider>
+            <NavigationBar />
+            {children}
+          </AuthContextProvider>
         </NextIntlClientProvider>
       </body>
     </html>
