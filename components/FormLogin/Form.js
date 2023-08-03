@@ -100,6 +100,7 @@ export default function Form({ handleOpenForm }) {
           type="submit"
           value="Submit"
         />
+       
       </form>
     </div>
   );
