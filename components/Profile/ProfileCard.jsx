@@ -8,27 +8,27 @@ import { useSession } from "next-auth/react";
 
 const ProfileCard = () => {
   const t = useTranslations("Components");
-  const { data: session, status } = useSession();
+
 
   return (
     <div className="flex ml-4">
-      { session &&
+  
         <div className="mt-8 ">
-          <Image
+          {/* <Image
             width={100}
             height={100}
             className="rounded-full"
-            src={session.user.image}
+            src={image}
             alt="profile"
             priority={true}
-          />
+          /> */}
         </div>
-      }
+      
       <div className="flex flex-col ml-4 gap-8">
         <div className="mt-8">
-          { session &&
-          <h1 className="text-2xl font-semibold">{session.user.name}</h1>
-        }
+        
+          <h1 className="text-2xl font-semibold">{}</h1>
+        
           <div className="flex gap-2 items-center">
             <BiCurrentLocation />
             <p>London, UK</p>

@@ -5,7 +5,8 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { db } from "../../app/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
-
+import { auth } from "../../app/lib/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Form({ handleOpenForm }) {
   const {
@@ -18,20 +19,32 @@ export default function Form({ handleOpenForm }) {
 
   const onSubmit = async (data) => {
     try {
+      const { email, password } = data;
+      // Create user in Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // User is successfully registered, now add additional user data to Firestore
       const docRef = await addDoc(collection(db, "users"), {
         first: data.firstName,
         last: data.lastName,
         email: data.email,
-        password: data.password,
+        // Note: You should not store the password in Firestore. It is only used for user registration.
       });
-      console.log("Document written with ID:", docRef.id);
 
+      console.log("Document written with ID:", docRef.id);
 
       router.push("/home");
     } catch (error) {
       console.error("Error adding document:", error);
     }
   };
+
+
+
 
   return (
     <div className="flex items-center justify-center fixed top-0 left-0 bg-[#00000099] right-0 bottom-0">
@@ -64,10 +77,11 @@ export default function Form({ handleOpenForm }) {
         />
         <input
           className="bg-blue-500 p-2 rounded-2xl shadow-lg text-center text-white placeholder-white"
-          type="tel"
+          type="password"
           placeholder="Password"
-          {...register("password", {
+          {...register("Password", {
             required: true,
+
             minLength: 6,
             maxLength: 12,
           })}

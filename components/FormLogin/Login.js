@@ -1,19 +1,31 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { AiFillCloseCircle } from 'react-icons/ai';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { useRouter } from "next/navigation";
+import { auth } from "../../app/lib/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-export default function Form({ handleOpenLogin}) {
-    const {
-      register,
-      handleSubmit,
-      formState: { errors },
-    } = useForm();
-  
-    const onSubmit = async (data) => {
-        console.log(data);
-    };
-    
-  
+export default function Form({ handleOpenLogin }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const router = useRouter();
+
+  const onSubmit = async (data) => {
+    try {
+      const { email, password } = data;
+      // Sign in user using Firebase Authentication
+      await signInWithEmailAndPassword(auth, email, password);
+
+      router.push("/home");
+    } catch (error) {
+      console.error("Error signing in:", error);
+    }
+  };
+
     return (
       <div className="flex items-center justify-center fixed top-0 left-0 bg-[#00000099] right-0 bottom-0">
         <AiFillCloseCircle
