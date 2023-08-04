@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import DayNightToggle from "react-day-and-night-toggle";
+import { BsFillMoonFill } from "react-icons/bs";
+import { BsCloudSun } from "react-icons/bs";
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
@@ -17,27 +18,29 @@ const ThemeSwitcher = () => {
     return null;
   }
 
+  const handleThemeToggle = () => {
+    setTheme(currentTheme === "dark" ? "light" : "dark");
+  };
+
   return (
-    <div>
-      <div>
-        {currentTheme === "dark" ? (
-          <DayNightToggle
-            size={29}
-            checked={true}
-            onChange={() => setTheme("light")}
-            shadows={false}
-          />
-        ) : (
-          <DayNightToggle
-            size={29}
-            checked={false}
-            onChange={() => setTheme("dark")}
-            shadows={false}
-          />
-        )}
-      </div>
+    <div >
+      <input
+        type="checkbox"
+        className="checkbox  "
+        id="checkbox"
+        checked={currentTheme === "dark"}
+        onChange={handleThemeToggle}
+      />
+      <label htmlFor="checkbox" className="checkbox-label ">
+        {currentTheme === "dark" ? <BsFillMoonFill /> : <BsCloudSun size={20} className="absolute  right-0 text-white" /> }
+      
+        <span className="ball"></span>
+      </label>
+
     </div>
   );
+
+
 };
 
 export default ThemeSwitcher;

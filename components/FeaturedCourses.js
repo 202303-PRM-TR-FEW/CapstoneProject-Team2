@@ -44,7 +44,7 @@ const FeaturedCourses = () => {
             alt="cover image of course"
             style={{ width: "100%", height: "100px", objectFit: "cover" }}
             className={style.img}
-            priority={true}
+      
           />
           <Image
             src={saveIconFull}
@@ -59,7 +59,7 @@ const FeaturedCourses = () => {
               src={course.instructor_img}
               alt="image of trainer"
               className={style.personImg}
-              priority={true}
+           
             />
             <p>{course.instructor}</p>
           </div>
