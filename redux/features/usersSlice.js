@@ -11,10 +11,23 @@ const initialState = {
   selectedProfiles: [],
 };
 
+
 const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
+    setUser: (state, action) => {
+      state.user = action.payload;
+    },
+    
+
+    login: (state, action) => {
+      state.user = action.payload;
+    },
+    logout: (state) => {
+      state.user = null;
+    },
+
     addSelectedProfile(state, action) {
       state.selectedProfiles.push(action.payload);
     },
@@ -41,6 +54,13 @@ const usersSlice = createSlice({
       });
 
   },
+
+
 });
 
 export default usersSlice.reducer;
+
+export const { setUser,login , logout, removeSelectedProfile } = usersSlice.actions;
+
+export const selectUser = (state) => state.users.user;
+

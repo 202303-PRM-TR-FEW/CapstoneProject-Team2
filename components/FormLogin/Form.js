@@ -1,14 +1,16 @@
 "use client";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { db } from "../../app/lib/firebase";
+import { db, auth } from "../../app/lib/firebase"; // Import auth object from firebase
 import { collection, addDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
-import { auth } from "../../app/lib/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { login } from "../../redux/features/usersSlice";
 
 export default function Form({ handleOpenForm }) {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -22,9 +24,23 @@ export default function Form({ handleOpenForm }) {
       const { email, password } = data;
       // Create user in Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(
-        auth,
+        auth, // Pass auth object as first argument
         email,
-        password
+        password,
+      );
+
+      // Update user profile in Firebase Authentication
+      await updateProfile(userCredential.user, {
+        displayName: `${data.firstName} ${data.lastName}`,
+      });
+
+      // Send user details to Redux
+      dispatch(
+        login({
+          email: userCredential.user.email,
+          uid: userCredential.user.uid,
+          displayName: userCredential.user.displayName,
+        })
       );
 
       // User is successfully registered, now add additional user data to Firestore
@@ -42,9 +58,6 @@ export default function Form({ handleOpenForm }) {
       console.error("Error adding document:", error);
     }
   };
-
-
-
 
   return (
     <div className="flex items-center justify-center fixed top-0 left-0 bg-[#00000099] right-0 bottom-0">
@@ -79,9 +92,8 @@ export default function Form({ handleOpenForm }) {
           className="bg-blue-500 p-2 rounded-2xl shadow-lg text-center text-white placeholder-white"
           type="password"
           placeholder="Password"
-          {...register("Password", {
+          {...register("password", {
             required: true,
-
             minLength: 6,
             maxLength: 12,
           })}
@@ -100,7 +112,6 @@ export default function Form({ handleOpenForm }) {
           type="submit"
           value="Submit"
         />
-       
       </form>
     </div>
   );

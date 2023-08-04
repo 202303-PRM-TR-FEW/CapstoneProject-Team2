@@ -10,6 +10,12 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { GrLanguage } from "react-icons/gr";
+import {logout, selectUser} from "../redux/features/usersSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {auth} from "../app/lib/firebase";
+import { useRouter } from "next/navigation";
+
+
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +30,18 @@ const NavigationBar = () => {
     extrabox: `z-[2] md:bg-slate-100 backdrop-blur-md flex flex-col justify-center items-center sticky left-0 bottom-16 gap-2 w-full h-32 md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700`,
   };
   const t = useTranslations("Components");
+  const router = useRouter();
+
+  const logoutOfApp = () => {
+    dispatch(logout());
+    auth.signOut();
+
+    router.push("/");
+  };
+
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
 
   const pathname = usePathname();
 
@@ -62,6 +80,8 @@ const NavigationBar = () => {
           </Providers>
 
           <GrLanguage size={30} onClick={() => setIsOpen(!isOpen)} />
+
+          <button  className=" bg-orange-600 p-4 rounded-2xl w-full" onClick={logoutOfApp}>Logout</button>
         </div>
         {isOpen && (
           <div className={style.extrabox2}>

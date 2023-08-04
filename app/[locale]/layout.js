@@ -10,6 +10,8 @@ export const metadata = {
   description: "Best Learning Platform",
 };
 
+
+
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "de" }, { locale: "ar" }];
 }
@@ -26,12 +28,11 @@ export default async function LocaleLayout({ children, params: { locale } }) {
     <html lang={locale}>
       <body className="flex flex-col-reverse md:flex-row bg-slate-100 dark:bg-slate-700">
         <NextIntlClientProvider locale={locale} messages={messages}>
-       
-            <ReduxProvider>
-              <NavigationBar />
+          <ReduxProvider>
+            <NavigationBar />
               {children}
-            </ReduxProvider>
-       
+        
+          </ReduxProvider>
         </NextIntlClientProvider>
       </body>
     </html>

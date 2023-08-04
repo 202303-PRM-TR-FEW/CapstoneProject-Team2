@@ -1,11 +1,13 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import { auth } from "../../app/lib/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
+import { login, logout, selectUser } from "../../redux/features/usersSlice";
+
 
 export default function Form({ handleOpenLogin }) {
   const [errorText, setErrorText] = useState("");
@@ -18,11 +20,18 @@ export default function Form({ handleOpenLogin }) {
   const router = useRouter();
 
   const onSubmit = async (data) => {
+    const { email, password } = data; 
     try {
-      const { email, password } = data;
-
-      await signInWithEmailAndPassword(auth, email, password);
-
+      const userAuth = await signInWithEmailAndPassword(auth, email, password);
+      dispatch(
+        login({
+          email: userAuth.user.email,
+          uid: userAuth.user.uid,
+          displayName: userAuth.user.displayName,
+          photoUrl: userAuth.user.photoURL,
+        })
+      );
+      setErrorText(""); 
       router.push("/home");
     } catch (error) {
       if (error.code === "auth/wrong-password") {
@@ -33,6 +42,7 @@ export default function Form({ handleOpenLogin }) {
       console.error("Error signing in:", error);
     }
   };
+
   return (
     <div className="flex items-center justify-center fixed top-0 left-0 bg-[#00000099] right-0 bottom-0">
       <AiFillCloseCircle
