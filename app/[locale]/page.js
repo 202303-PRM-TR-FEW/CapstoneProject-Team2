@@ -16,11 +16,12 @@ import { onAuthStateChanged } from "firebase/auth";
 
 
 
+
 const Page = () => {
   const [openForm, setOpenForm] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
 
-  
+
 
   const t = useTranslations("Index");
 
@@ -45,8 +46,8 @@ const Page = () => {
             uid: user.uid,
             displayName: user.displayName,
             photoUrl: user.photoURL,
-            
-         
+
+
           })
         );
       } else {
@@ -57,7 +58,7 @@ const Page = () => {
 
   console.log(user);
 
-  
+
 
 
   return (
@@ -83,10 +84,10 @@ const Page = () => {
           >
             {t("login")}
           </button>
-          <button onClick={() => signIn('github', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl text-white bg-slate-700">
+          <button onClick={() => signIn('github', { callbackUrl: '/home' })} className=" p-2 rounded-2xl text-white bg-slate-700">
             Sign In with Github
           </button>
-          <button onClick={() => signIn('google', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl  bg-white">
+          <button onClick={() => signIn('google', { callbackUrl: '/home' })} className=" p-2 rounded-2xl  bg-white">
             Sign In with Google
           </button>
         </div>
