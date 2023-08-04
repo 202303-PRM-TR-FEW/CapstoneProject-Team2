@@ -7,10 +7,13 @@ import { auth } from "../../app/lib/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { login, logout, selectUser } from "../../redux/features/usersSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 
 
 export default function Form({ handleOpenLogin }) {
   const [errorText, setErrorText] = useState("");
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,

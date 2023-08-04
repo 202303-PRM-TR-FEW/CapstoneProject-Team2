@@ -3,6 +3,7 @@ import CourseCard from "@/components/CourseCard";
 import FeaturedCourses from "@/components/FeaturedCourses";
 import Categories from "@/components/Categories";
 import { useTranslations } from "next-intl";
+import PrivateRoute from "@/components/PrivateRoute";
 
 const style = {
   featuredContainer: "grid gap-4 grid-row",
@@ -17,6 +18,7 @@ const Page = () => {
   const t = useTranslations("Home_Page");
 
   return (
+    <PrivateRoute>
     <div className={style.container}>
       <h1 className={style.title}>{t("Featured_Courses")}</h1>
       <FeaturedCourses />
@@ -30,6 +32,8 @@ const Page = () => {
         <button className={style.btn}>{t("See_All")}</button>
       </div>
     </div>
+    </PrivateRoute>
+  
   );
 };
 

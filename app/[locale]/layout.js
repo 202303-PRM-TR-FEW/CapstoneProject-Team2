@@ -3,6 +3,8 @@ import NavigationBar from "@/components/NavigationBar";
 import ReduxProvider from "@/redux/provider";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
+import RouteProvider from "@/components/RouteProvider";
+
 
 
 export const metadata = {
@@ -12,7 +14,7 @@ export const metadata = {
 
 
 
-export function generateStaticParams() {
+export function generateStaticParams(  ) {
   return [{ locale: "en" }, { locale: "de" }, { locale: "ar" }];
 }
 
@@ -30,8 +32,10 @@ export default async function LocaleLayout({ children, params: { locale } }) {
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ReduxProvider>
             <NavigationBar />
+          
+            <RouteProvider>
               {children}
-        
+            </RouteProvider>
           </ReduxProvider>
         </NextIntlClientProvider>
       </body>

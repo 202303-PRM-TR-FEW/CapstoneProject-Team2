@@ -25,12 +25,14 @@ const ThemeSwitcher = () => {
             size={29}
             checked={true}
             onChange={() => setTheme("light")}
+            shadows={false}
           />
         ) : (
           <DayNightToggle
             size={29}
             checked={false}
             onChange={() => setTheme("dark")}
+            shadows={false}
           />
         )}
       </div>
