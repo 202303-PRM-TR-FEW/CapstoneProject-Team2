@@ -1,12 +1,18 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { BsFillKeyFill } from "react-icons/bs";
-import login from "@/public/assets/login.png";
+import login1 from "@/public/assets/login.png";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Form from "@/components/FormLogin/Form";
 import Login from "@/components/FormLogin/Login";
-import { signIn } from "next-auth/react";
+import { login, logout, selectUser } from "../../redux/features/usersSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../../app/lib/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+
+
+
 
 
 
@@ -15,7 +21,7 @@ const Page = () => {
   const [openForm, setOpenForm] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
 
-  
+
 
   const t = useTranslations("Index");
 
@@ -26,6 +32,33 @@ const Page = () => {
   const handleOpenLogin = () => {
     setOpenLogin(!openLogin);
   };
+
+
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(
+          login({
+            email: user.email,
+            uid: user.uid,
+            displayName: user.displayName,
+            photoUrl: user.photoURL,
+
+
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, []);
+
+  console.log(user);
+
+
 
 
   return (
@@ -51,16 +84,16 @@ const Page = () => {
           >
             {t("login")}
           </button>
-          <button onClick={() => signIn('github', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl text-white bg-slate-700">
+          <button onClick={() => signIn('github', { callbackUrl: '/home' })} className=" p-2 rounded-2xl text-white bg-slate-700">
             Sign In with Github
           </button>
-          <button onClick={() => signIn('google', { callbackUrl: '/home' }) } className=" p-2 rounded-2xl  bg-white">
+          <button onClick={() => signIn('google', { callbackUrl: '/home' })} className=" p-2 rounded-2xl  bg-white">
             Sign In with Google
           </button>
         </div>
       </div>
       <div className="flex md:w-1/2 h-screen justify-center items-center  ">
-        <Image src={login} priority={true} alt="home-image" />
+        <Image src={login1} priority={true} alt="home-image" />
       </div>
 
       {openForm && <Form handleOpenForm={handleOpenForm} />}

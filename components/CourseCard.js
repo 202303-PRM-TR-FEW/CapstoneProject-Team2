@@ -38,7 +38,7 @@ const CourseCard = () => {
           height={150}
           alt="cover image of course"
           className={style.coverImg}
-          priority={true}
+         
         />
         <div className={style.infoSide}>
           <div>
@@ -49,7 +49,7 @@ const CourseCard = () => {
                 width={25}
                 height={25}
                 alt="bookmark icon"
-                priority={true}
+             
               />
             </div>
             <p className={style.teacher}>{course.instructor}</p>

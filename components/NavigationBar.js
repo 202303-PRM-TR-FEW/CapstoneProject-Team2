@@ -10,8 +10,12 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { GrLanguage } from "react-icons/gr";
-import SignIn from "./SignIn";
-import { useSession } from "next-auth/react";
+import {logout, selectUser} from "../redux/features/usersSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {auth} from "../app/lib/firebase";
+import { useRouter } from "next/navigation";
+
+
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +30,19 @@ const NavigationBar = () => {
     extrabox: `z-[2] md:bg-slate-100 backdrop-blur-md flex flex-col justify-center items-center sticky left-0 bottom-16 gap-2 w-full h-32 md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700`,
   };
   const t = useTranslations("Components");
-  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  const logoutOfApp = () => {
+    dispatch(logout());
+    auth.signOut();
+
+    router.push("/");
+  };
+
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+
   const pathname = usePathname();
 
   if (pathname === "/") {
@@ -35,7 +51,7 @@ const NavigationBar = () => {
     return (
       <div className="z-[2] md:bg-slate-100 backdrop-blur-md flex  justify-center items-center sticky left-0 bottom-0 gap-4 w-full h-16  md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700 ">
         <div className={style.navbar2}>
-          <SignIn />
+       
           <Link href="home" className={style.button}>
             <AiFillHome size={30} />
             <p>{t("Home")}</p>
@@ -52,18 +68,20 @@ const NavigationBar = () => {
             <FiSave size={30} />
             <p>{t("Saved")}</p>
           </Link>
-          {
-            session &&
+          
+           
             <Link href="profile" className={style.button}>
               <CgProfile size={30} />
               <p>{t("Profile")}</p>
             </Link>
-          }
+          
           <Providers>
             <ThemeSwitcher />
           </Providers>
 
           <GrLanguage size={30} onClick={() => setIsOpen(!isOpen)} />
+
+          <button  className=" bg-orange-600 p-4 rounded-2xl w-full" onClick={logoutOfApp}>Logout</button>
         </div>
         {isOpen && (
           <div className={style.extrabox2}>

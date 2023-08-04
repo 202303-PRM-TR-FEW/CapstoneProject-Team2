@@ -1,13 +1,16 @@
 "use client";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { db } from "../../app/lib/firebase";
+import { db, auth } from "../../app/lib/firebase"; // Import auth object from firebase
 import { collection, addDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
-
+import { useDispatch } from "react-redux";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { login } from "../../redux/features/usersSlice";
 
 export default function Form({ handleOpenForm }) {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -18,14 +21,37 @@ export default function Form({ handleOpenForm }) {
 
   const onSubmit = async (data) => {
     try {
+      const { email, password } = data;
+      // Create user in Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(
+        auth, // Pass auth object as first argument
+        email,
+        password,
+      );
+
+      // Update user profile in Firebase Authentication
+      await updateProfile(userCredential.user, {
+        displayName: `${data.firstName} ${data.lastName}`,
+      });
+
+      // Send user details to Redux
+      dispatch(
+        login({
+          email: userCredential.user.email,
+          uid: userCredential.user.uid,
+          displayName: userCredential.user.displayName,
+        })
+      );
+
+      // User is successfully registered, now add additional user data to Firestore
       const docRef = await addDoc(collection(db, "users"), {
         first: data.firstName,
         last: data.lastName,
         email: data.email,
-        password: data.password,
+        // Note: You should not store the password in Firestore. It is only used for user registration.
       });
-      console.log("Document written with ID:", docRef.id);
 
+      console.log("Document written with ID:", docRef.id);
 
       router.push("/home");
     } catch (error) {
@@ -64,7 +90,7 @@ export default function Form({ handleOpenForm }) {
         />
         <input
           className="bg-blue-500 p-2 rounded-2xl shadow-lg text-center text-white placeholder-white"
-          type="tel"
+          type="password"
           placeholder="Password"
           {...register("password", {
             required: true,
