@@ -62,8 +62,8 @@ const Page = () => {
 
 
   return (
-    <div className="sm:flex  ">
-      <div className=" flex md:w-1/2 h-screen  w-full bg-gray-200 items-center justify-center ">
+    <div className="sm:flex ">
+      <div className=" flex md:w-1/2 h-screen  w-full  items-center justify-center ">
         <div className="flex flex-col gap-9 items-center  text-center mx-16 ">
           <span className="text-4xl font-bold">{t("welcome_to_Mudemy")}</span>
           <BsFillKeyFill

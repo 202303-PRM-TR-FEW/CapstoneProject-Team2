@@ -10,22 +10,22 @@ const style = {
   trainerImg: `rounded-full mr-4`,
   infoPanel: `text-sm text-slate-600`,
   timeLine: `ml-1`,
-  time: `flex flex-row items-center mb-3`, 
+  time: `flex flex-row items-center mb-3`,
   iconTint: `text-gray-400`,
   details: `font-bold text-l mb-3`,
-  title: `mb-6 mt-4`, 
+  title: `mb-6 mt-4`,
 };
 
 export default function CourseDescription() {
   return (
-    <Card className="mt-6 bg-transparent dark:bg-slate-800" style={{ border: "none"}}>
+    <Card className="mt-6 bg-transparent dark:bg-slate-800" style={{ border: "none" }}>
       <CardHeader color="blue-gray" className={`relative rounded-t-3xl ${style.title}`}>
         <div className="h-full w-full relative">
           <img
             src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
             alt="img-blur-shadow"
             layout="fill"
-            objectFit="cover"
+            objectfit="cover"
             className="rounded-t-3xl"
           />
         </div>

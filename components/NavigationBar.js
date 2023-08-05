@@ -10,9 +10,9 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { GrLanguage } from "react-icons/gr";
-import {logout, selectUser} from "../redux/features/usersSlice";
-import {useDispatch, useSelector} from "react-redux";
-import {auth} from "../app/lib/firebase";
+import { logout, selectUser } from "../redux/features/usersSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../app/lib/firebase";
 import { useRouter } from "next/navigation";
 
 
@@ -51,7 +51,7 @@ const NavigationBar = () => {
     return (
       <div className="z-[2] md:bg-slate-100 backdrop-blur-md flex  justify-center items-center sticky left-0 bottom-0 gap-4 w-full h-16  md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700 ">
         <div className={style.navbar2}>
-       
+
           <Link href="home" className={style.button}>
             <AiFillHome size={30} />
             <p>{t("Home")}</p>
@@ -68,20 +68,28 @@ const NavigationBar = () => {
             <FiSave size={30} />
             <p>{t("Saved")}</p>
           </Link>
-          
-           
-            <Link href="profile" className={style.button}>
-              <CgProfile size={30} />
-              <p>{t("Profile")}</p>
-            </Link>
-          
+          <Link href="courseInfo" className={style.button}>
+            <AiFillPlayCircle size={30} />
+            <p>course info</p>
+          </Link>
+          <Link href="spesificCourse" className={style.button}>
+            <FiSave size={30} />
+            <p>spsificCourse</p>
+          </Link>
+
+
+          <Link href="profile" className={style.button}>
+            <CgProfile size={30} />
+            <p>{t("Profile")}</p>
+          </Link>
+
           <Providers>
             <ThemeSwitcher />
           </Providers>
 
           <GrLanguage size={30} onClick={() => setIsOpen(!isOpen)} />
 
-          <button  className=" bg-orange-600 p-4 rounded-2xl w-full" onClick={logoutOfApp}>Logout</button>
+          <button className=" bg-orange-600 p-4 rounded-2xl w-full" onClick={logoutOfApp}>Logout</button>
         </div>
         {isOpen && (
           <div className={style.extrabox2}>

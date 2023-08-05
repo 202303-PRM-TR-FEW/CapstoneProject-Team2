@@ -1,6 +1,4 @@
 "use client";
-import React from "react";
-import Image from "next/image";
 
 import { BiSolidTimeFive } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
@@ -27,10 +25,9 @@ export default function CourseProfileDescription({ course }) {
     return null;
   }
 
-  console.log(course);
   return (
     <Card
-      className="mt-6 bg-transparent dark:bg-slate-800"
+      className="bg-transparent dark:bg-slate-800"
       style={{ border: "none" }}
     >
       <CardHeader
@@ -42,7 +39,7 @@ export default function CourseProfileDescription({ course }) {
             src={course.image}
             alt="img-blur-shadow"
             layout="fill"
-            objectFit="cover"
+            objectfit="cover"
             className="rounded-t-3xl"
           />
         </div>
