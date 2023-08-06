@@ -45,8 +45,6 @@ const Page = () => {
             email: user.email,
             uid: user.uid,
             displayName: user.displayName,
-            photoUrl: user.photoURL,
-
 
           })
         );

@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import coverimg from "../public/assets/course-cover.png";
-import saveIconFull from "../public/assets/save-icon-full.png";
 import { useTranslations } from "next-intl";
+import { useSelector } from "react-redux";
+
 
 const style = {
   courseCard: `flex rounded-2xl bg-white m-2 shadow-lg dark:bg-slate-800`,
@@ -11,41 +10,38 @@ const style = {
   infoSide: `flex flex-col justify-between m-2 py-4`,
   courseName: `flex items-center`,
   teacher: `text-sm text-slate-500`,
-  progressBar: `w-full bg-slate-200 rounded-full h-2.5`,
-  progress: `bg-blue-600 h-2.5 rounded-full w-3/5`,
-  progressInfo: `text-sm text-slate-500`,
   button: `bg-blue-500 rounded-2xl p-1 text-xs w-min px-4 text-white`,
 };
 
-const SavedCourses = () => {
+const SavedCourses = async () => {
+  const savedCourses = useSelector((state) => state.savedCourses.savedCourses);
   const t = useTranslations("Components");
-  return (
-    <div className={style.courseCard}>
-      <Image
-        src={coverimg}
-        width={150}
-        height={150}
-        alt="cover image of course"
-        className={style.coverImg}
-        priority={true}
-      />
-      <div className={style.infoSide}>
-        <div>
-          <div className={style.courseName}>
-            <h2>Becoming a Photographer</h2>
-            <Image
-              src={saveIconFull}
-              width={25}
-              height={25}
-              alt="bookmark icon"
-              priority={true}
-            />
-          </div>
 
-          <p className={style.teacher}>Clara Manning</p>
+
+
+  return (
+    <div>
+      {savedCourses.map((course) => (
+        <div className={style.courseCard} key={course.id}>
+          <img
+            src={course.image}
+            width={150}
+            height={150}
+            alt="cover image of course"
+            className={style.coverImg}
+            priority={true}
+          />
+          <div className={style.infoSide}>
+            <div>
+              <div className={style.courseName}>
+                <h2>{course.title}</h2>
+              </div>
+              <p className={style.teacher}>{course.instructor}</p>
+            </div>
+            <button className={style.button}>{t("Buy")}</button>
+          </div>
         </div>
-        <button className={style.button}>{t("Buy")}</button>
-      </div>
+      ))}
     </div>
   );
 };

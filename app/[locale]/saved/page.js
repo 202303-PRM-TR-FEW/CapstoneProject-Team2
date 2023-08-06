@@ -18,8 +18,7 @@ const Page = () => {
       <div className={style.container}>
         <div className={style.leftDiv}>
           <SavedCourses />
-          <SavedCourses />
-          <SavedCourses />
+        
         </div>
         <div className={style.card}>
           <SavedCoursesInfo />
