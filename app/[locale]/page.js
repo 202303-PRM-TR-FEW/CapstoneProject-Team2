@@ -82,12 +82,12 @@ const Page = () => {
           >
             {t("login")}
           </button>
-          <button onClick={() => signIn('github', { callbackUrl: '/home' })} className=" p-2 rounded-2xl text-white bg-slate-700">
+          {/* <button onClick={() => signIn('github', { callbackUrl: '/home' })} className=" p-2 rounded-2xl text-white bg-slate-700">
             Sign In with Github
           </button>
           <button onClick={() => signIn('google', { callbackUrl: '/home' })} className=" p-2 rounded-2xl  bg-white">
             Sign In with Google
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="flex md:w-1/2 h-screen justify-center items-center  ">
@@ -98,6 +98,6 @@ const Page = () => {
       {openLogin && <Login handleOpenLogin={handleOpenLogin} />}
     </div>
   );
-};
+}; 
 
 export default Page;
