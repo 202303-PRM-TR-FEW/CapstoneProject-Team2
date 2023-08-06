@@ -33,9 +33,9 @@ export default async function LocaleLayout({ children, params: { locale } }) {
           <ReduxProvider>
             <NavigationBar />
           
-            <RouteProvider>
               {children}
-            </RouteProvider>
+            {/* <RouteProvider>
+            </RouteProvider> */}
           </ReduxProvider>
         </NextIntlClientProvider>
       </body>
