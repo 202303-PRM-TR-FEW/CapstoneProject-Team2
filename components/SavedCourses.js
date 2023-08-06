@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+
 import { useSelector } from "react-redux";
 
 
@@ -13,9 +13,12 @@ const style = {
   button: `bg-blue-500 rounded-2xl p-1 text-xs w-min px-4 text-white`,
 };
 
-const SavedCourses = async () => {
+const SavedCourses = () => {
   const savedCourses = useSelector((state) => state.savedCourses.savedCourses);
-  const t = useTranslations("Components");
+
+  console.log(savedCourses);
+  
+
 
 
 
@@ -38,7 +41,7 @@ const SavedCourses = async () => {
               </div>
               <p className={style.teacher}>{course.instructor}</p>
             </div>
-            <button className={style.button}>{t("Buy")}</button>
+            <button className={style.button}>buy</button>
           </div>
         </div>
       ))}

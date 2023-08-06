@@ -9,8 +9,6 @@ import { fetchCourses } from "@/redux/api";
 import Link from "next/link";
 import { addCourse } from "@/redux/features/savedCoursesSlice";
 
-
-
 const style = {
   fcCard: `bg-white w-max p-1 rounded-2xl dark:bg-slate-800`,
   personInfo: `flex text-sm items-center my-4 p-1 pr-3 rounded-full shadow-lg w-fit bg-white 
@@ -33,12 +31,9 @@ const FeaturedCourses = () => {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses.courses);
 
-  const handleSave = async (course) => {
-    dispatch(addCourse(course)); 
- 
-  
+  const handleSave = (course) => {
+    dispatch(addCourse(course));
   };
-  
 
   useEffect(() => {
     dispatch(fetchCourses());
