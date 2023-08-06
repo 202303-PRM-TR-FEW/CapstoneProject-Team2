@@ -30,8 +30,6 @@ const Page = () => {
       <hr className="w-full" />
       <TopSearches />
       <hr className="w-full" />
-      <Categories />
-      <hr className="w-full" />
       <div className="flex flex-col gap-4 w-full ml-36 md:flex md:flex-row">
         <PaidFree onChange={handleCheckboxChange} />
       </div>
