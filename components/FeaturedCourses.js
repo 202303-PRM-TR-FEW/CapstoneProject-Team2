@@ -8,6 +8,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchCourses } from "@/redux/api";
 import Link from "next/link";
 import { addCourse } from "@/redux/features/savedCoursesSlice";
+import { getAuth } from "firebase/auth";
+import { addDoc, doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
+import { db } from "../app/lib/firebase";
+
 
 const style = {
   fcCard: `bg-white w-max p-1 rounded-2xl dark:bg-slate-800`,
@@ -30,15 +34,35 @@ const style = {
 const FeaturedCourses = () => {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses.courses);
+  const savedCourses = useSelector((state) => state.savedCourses.savedCourses);
 
-  const handleSave = (course) => {
-    dispatch(addCourse(course));
-  };
+  const auth = getAuth();
+  const currentUser = auth.currentUser;
 
   useEffect(() => {
     dispatch(fetchCourses());
   }, []);
 
+  useEffect(() => {
+    if (currentUser && savedCourses.length > 0) {
+      saveSavedCoursesToFirebase(currentUser.uid, savedCourses);
+    }
+  }, [savedCourses, currentUser]);
+
+  const saveSavedCoursesToFirebase = async (userId, courses) => {
+    try {
+      const savedCoursesRef = doc(db, "savedCourses", userId);
+      await setDoc(savedCoursesRef, { courses: savedCourses });
+      console.log("Saved courses data added to Firestore!");
+    } catch (error) {
+      console.error("Error saving saved courses data in Firestore: ", error);
+    }
+  };
+
+  const handleSave = (course) => {
+    dispatch(addCourse(course));
+  };
+  
   return (
     <div className={style.details}>
       {courses.slice(0, 5).map((course) => (
