@@ -53,9 +53,9 @@ const FeaturedCourses = () => {
     try {
       const savedCoursesRef = doc(db, "savedCourses", userId);
       await setDoc(savedCoursesRef, { courses: savedCourses });
-      console.log("Saved courses data added to Firestore!");
+
     } catch (error) {
-      console.error("Error saving saved courses data in Firestore: ", error);
+  
     }
   };
 
@@ -67,7 +67,7 @@ const FeaturedCourses = () => {
     <div className={style.details}>
       {courses.slice(0, 5).map((course) => (
         <div className={style.fcCard} key={course.id}>
-          <img
+          <Image
             src={course.image}
             width={120}
             height={120}
@@ -86,10 +86,13 @@ const FeaturedCourses = () => {
             />
           </button>
           <div className={style.personInfo}>
-            <img
+            <Image
               src={course.instructor_img}
               alt="image of trainer"
               className={style.personImg}
+              width={40}
+              height={40}
+              
             />
             <p>{course.instructor}</p>
           </div>

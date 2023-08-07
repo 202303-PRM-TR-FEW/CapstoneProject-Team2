@@ -54,44 +54,35 @@ const Page = () => {
     });
   }, []);
 
-  console.log(user);
-
-
-
 
   return (
     <div className="sm:flex  ">
-      <div className=" flex md:w-1/2 h-screen  w-full bg-gray-200 items-center justify-center ">
+      <div className=" flex md:w-1/2 h-screen  w-full dark:bg-gray-200 bg-gray-200 items-center justify-center ">
         <div className="flex flex-col gap-9 items-center  text-center mx-16 ">
-          <span className="text-4xl font-bold">{t("welcome_to_Mudemy")}</span>
+          <span className="text-4xl dark:text-black  font-bold">{t("welcome_to_Mudemy")}</span>
           <BsFillKeyFill
-            className=" bg-white p-2 w-16 rounded-2xl "
+            className=" dark:text-black bg-white p-2 w-16 rounded-2xl "
             size={50}
           />
-          <h1 className="text-4xl font-bold">{t("discover_passion")}</h1>
-          <p>{t("introduction_text")}</p>
+          <h1 className="text-4xl dark:text-black  font-bold">{t("discover_passion")}</h1>
+          <p  className="dark:text-black ">{t("introduction_text")}</p>
           <button
             onClick={handleOpenForm}
-            className=" text-white bg-blue-500 p-2 rounded-2xl"
+            className="  text-white bg-blue-500 p-2 rounded-2xl"
           >
             {t("get_started")}
           </button>
           <button
             onClick={handleOpenLogin}
-            className="text-white bg-blue-500 p-2 w-28 rounded-2xl"
+            className="  text-white bg-blue-500 p-2 w-28 rounded-2xl"
           >
             {t("login")}
           </button>
-          {/* <button onClick={() => signIn('github', { callbackUrl: '/home' })} className=" p-2 rounded-2xl text-white bg-slate-700">
-            Sign In with Github
-          </button>
-          <button onClick={() => signIn('google', { callbackUrl: '/home' })} className=" p-2 rounded-2xl  bg-white">
-            Sign In with Google
-          </button> */}
+    
         </div>
       </div>
-      <div className="flex md:w-1/2 h-screen justify-center items-center  ">
-        <Image src={login1} priority={true} alt="home-image" />
+      <div className="flex bg-slate-100 md:w-1/2 h-screen justify-center items-center  ">
+        <Image width={400}  height={400} src={login1} priority={true} alt="home-image" />
       </div>
 
       {openForm && <Form handleOpenForm={handleOpenForm} />}

@@ -32,7 +32,7 @@ const CourseCard = () => {
     <div className={style.container}>
     {courses.slice(0, 2).map((course) => (
       <div className={style.courseCard} key={course.id}>
-        <img
+        <Image
           src={course.image}
           width={150}
           height={150}

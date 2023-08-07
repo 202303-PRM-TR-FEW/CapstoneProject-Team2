@@ -3,7 +3,7 @@ import createMiddleware from "next-intl/middleware";
 
 const intlMiddleware = createMiddleware({
   // A list of all locales that are supported
-  locales: ["en", "de", "kr"],
+  locales: ["en", "ar", "kr", "tr"],
 
   // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
   defaultLocale: "en",

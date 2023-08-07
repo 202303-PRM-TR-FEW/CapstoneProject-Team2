@@ -1,10 +1,10 @@
 "use client";
 
-
 import { BiSolidTimeFive } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
 import { useTranslations } from "next-intl";
 import { useSelector } from "react-redux";
+import Image from "next/image";
 
 const SavedCoursesInfo = () => {
   const t = useTranslations("Components");
@@ -27,13 +27,11 @@ const SavedCoursesInfo = () => {
     btnDiv: `flex justify-center mt-4`,
   };
 
-  console.log(savedCourses);
-
   return (
     <div className={style.courseInfoCard}>
       {savedCourses.map((course) => (
         <div key={course.id}>
-          <img
+          <Image
             src={course.image}
             width={200}
             height={200}
@@ -46,7 +44,7 @@ const SavedCoursesInfo = () => {
             <div>
               <h2 className={style.description}>{course.title}</h2>
               <div className={style.teacher}>
-                <img
+                <Image
                   src={course.instructor_img}
                   width={30}
                   height={30}
@@ -65,9 +63,7 @@ const SavedCoursesInfo = () => {
                   <AiFillStar className={style.iconColor} />
                   <p className={style.descLine}>{course.rating}/5.0</p>
                 </div>
-                <h1 className={style.description}>
-                  {t("Course_Description")}
-                </h1>
+                <h1 className={style.description}>{t("Course_Description")}</h1>
                 <p className={style.descLine}>{course.description}</p>
               </div>
               <div className={style.btnDiv}>
