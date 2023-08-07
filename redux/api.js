@@ -13,7 +13,7 @@ export const fetchCourses = createAsyncThunk(
       id: doc.id,
       ...doc.data(),
     }));
-    //console.log("Fetched courses:", data); 
+
     return data;
   }
 );

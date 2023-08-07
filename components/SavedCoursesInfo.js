@@ -1,13 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import coverimg from "../public/assets/course-cover.png";
 import { BiSolidTimeFive } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
 import { useTranslations } from "next-intl";
+import { useSelector } from "react-redux";
+import Image from "next/image";
 
 const SavedCoursesInfo = () => {
   const t = useTranslations("Components");
+
+  const savedCourses = useSelector((state) => state.savedCourses.savedCourses);
 
   const style = {
     courseInfoCard: `flex flex-col rounded-2xl bg-white m-2 w-full dark:bg-slate-800`,
@@ -20,56 +22,58 @@ const SavedCoursesInfo = () => {
     info: `flex flex-row mb-3`,
     iconColor: `text-gray-400`,
     description: `font-bold text-l mb-3 dark:text-white`,
-    preview: `bg-white border border-blue-500 rounded-xl text-blue-500 uppercase p-1 px:12 md:px-20 mr:2 mr-4`,
-    buy: `bg-blue-500 rounded-xl text-white uppercase p-1 px:12 md:px-20`,
+    preview: `bg-white border border-blue-500 rounded-xl text-blue-500 uppercase p-1 px-12 md:px-20 mr-2 mr-4`,
+    buy: `bg-blue-500 rounded-xl text-white uppercase p-1 px-12 md:px-20`,
     btnDiv: `flex justify-center mt-4`,
   };
+
   return (
     <div className={style.courseInfoCard}>
-      <Image
-        src={coverimg}
-        width={200}
-        height={200}
-        style={{ width: "90%", height: "300px", objectFit: "cover" }}
-        alt="cover image of course"
-        className={style.courseImg}
-        priority={true}
-      />
-      <div className={style.infoBox}>
-        <div>
-          <h2 className={style.description}>Becoming a Photographer</h2>
-          <div className={style.teacher}>
-            <Image
-              src={coverimg}
-              width={30}
-              height={30}
-              alt="image of trainer"
-              className={style.teacherImg}
-              priority={true}
-            />
-            <p>Clara Manning</p>
-          </div>
-          <div className={style.descBox}>
-            <div className={style.info}>
-              <BiSolidTimeFive className={style.iconColor} />
-              <p className={style.descLine}>45 min</p>
+      {savedCourses.map((course) => (
+        <div key={course.id}>
+          <Image
+            src={course.image}
+            width={200}
+            height={200}
+            style={{ width: "90%", height: "300px", objectFit: "cover" }}
+            alt="cover image of course"
+            className={style.courseImg}
+            priority={true}
+          />
+          <div className={style.infoBox}>
+            <div>
+              <h2 className={style.description}>{course.title}</h2>
+              <div className={style.teacher}>
+                <Image
+                  src={course.instructor_img}
+                  width={30}
+                  height={30}
+                  alt="image of trainer"
+                  className={style.teacherImg}
+                  priority={true}
+                />
+                <p>{course.instructor}</p>
+              </div>
+              <div className={style.descBox}>
+                <div className={style.info}>
+                  <BiSolidTimeFive className={style.iconColor} />
+                  <p className={style.descLine}>{course.duration}</p>
+                </div>
+                <div className={style.info}>
+                  <AiFillStar className={style.iconColor} />
+                  <p className={style.descLine}>{course.rating}/5.0</p>
+                </div>
+                <h1 className={style.description}>{t("Course_Description")}</h1>
+                <p className={style.descLine}>{course.description}</p>
+              </div>
+              <div className={style.btnDiv}>
+                <button className={style.preview}>{t("Preview")}</button>
+                <button className={style.buy}>{t("Buy")}</button>
+              </div>
             </div>
-            <div className={style.info}>
-              <AiFillStar className={style.iconColor} />
-              <p className={style.descLine}>4.7/5.0</p>
-            </div>
-            <h1 className={style.description}>{t("Course_Description")}</h1>
-            <p className={style.descLine}>
-              This course is sooo good, you gotta purchase it and you will be
-              best photographer ever!
-            </p>
-          </div>
-          <div className={style.btnDiv}>
-            <button className={style.preview}>{t("Preview")}</button>
-            <button className={style.buy}>{t("Buy")}</button>
           </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };

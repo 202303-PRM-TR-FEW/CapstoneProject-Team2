@@ -1,12 +1,16 @@
 "use client";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { BiSolidTimeFive } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
 import saveIconFull from "../public/assets/save-icon-full.png";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
 import { fetchCourses } from "@/redux/api";
 import Link from "next/link";
+import { addCourse } from "@/redux/features/savedCoursesSlice";
+import { getAuth } from "firebase/auth";
+import { addDoc, doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
+import { db } from "../app/lib/firebase";
 
 const style = {
   fcCard: `bg-white w-max p-1 rounded-2xl dark:bg-slate-800`,
@@ -29,24 +33,64 @@ const style = {
 const FeaturedCourses = () => {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses.courses);
+  const savedCourses = useSelector((state) => state.savedCourses.savedCourses);
+
+  const auth = getAuth();
+  const currentUser = auth.currentUser;
 
   useEffect(() => {
     dispatch(fetchCourses());
   }, []);
 
+  useEffect(() => {
+    if (currentUser && savedCourses.length > 0) {
+      saveSavedCoursesToFirebase(currentUser.uid, savedCourses);
+    }
+  }, [savedCourses, currentUser]);
+
+  const saveSavedCoursesToFirebase = async (userId, courses) => {
+    try {
+      const savedCoursesRef = doc(db, "savedCourses", userId);
+      await setDoc(savedCoursesRef, { courses: savedCourses });
+
+    } catch (error) {
+  
+    }
+  };
+
+  const handleSave = (course) => {
+    dispatch(addCourse(course));
+  };
+  
   return (
     <div className={style.details}>
       {courses.slice(0, 5).map((course) => (
         <div className={style.fcCard} key={course.id}>
-          <Link href={`/courseInfo/${course.id}`}>
-            <img
-              src={course.image}
-              width={120}
-              height={120}
-              alt="cover image of course"
-              style={{ width: "100%", height: "100px", objectFit: "cover" }}
-              className={style.img}
-
+          <Image
+            src={course.image}
+            width={120}
+            height={120}
+            alt="cover image of course"
+            style={{ width: "100%", height: "100px", objectFit: "cover" }}
+            className={style.img}
+          />
+          <button onClick={() => handleSave(course)}>
+            <Image
+              src={saveIconFull}
+              width={25}
+              height={25}
+              alt="Save Icon"
+              className={style.saveIcon}
+              priority={true}
+            />
+          </button>
+          <div className={style.personInfo}>
+            <Image
+              src={course.instructor_img}
+              alt="image of trainer"
+              className={style.personImg}
+              width={40}
+              height={40}
             />
             <Image
               src={saveIconFull}

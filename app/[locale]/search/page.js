@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import SearchBar from '@/components/Search/SearchBar';
 import TopSearches from '@/components/Search/TopSearches';
-import Categories from '@/components/Search/Categories';
 import RecommendedCourses from '@/components/Search/RecommendedCourses';
 import { useTranslations } from 'next-intl';
 import PaidFree from '@/components/Search/PaidFree';
@@ -30,8 +29,6 @@ const Page = () => {
       <hr className="w-full" />
       <TopSearches />
       <hr className="w-full" />
-      <Categories />
-      <hr className="w-full" />
       <div className="flex flex-col gap-4 w-full ml-36 md:flex md:flex-row">
         <PaidFree onChange={handleCheckboxChange} />
       </div>
@@ -42,3 +39,4 @@ const Page = () => {
 };
 
 export default Page;
+  

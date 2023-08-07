@@ -9,8 +9,6 @@ import { useState } from "react";
 import { login, logout, selectUser } from "../../redux/features/usersSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-
-
 export default function Form({ handleOpenLogin }) {
   const [errorText, setErrorText] = useState("");
   const dispatch = useDispatch();
@@ -23,7 +21,7 @@ export default function Form({ handleOpenLogin }) {
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    const { email, password } = data; 
+    const { email, password } = data;
     try {
       const userAuth = await signInWithEmailAndPassword(auth, email, password);
       dispatch(
@@ -31,10 +29,9 @@ export default function Form({ handleOpenLogin }) {
           email: userAuth.user.email,
           uid: userAuth.user.uid,
           displayName: userAuth.user.displayName,
-          photoUrl: userAuth.user.photoURL,
         })
       );
-      setErrorText(""); 
+      setErrorText("");
       router.push("/home");
     } catch (error) {
       if (error.code === "auth/wrong-password") {
@@ -42,23 +39,22 @@ export default function Form({ handleOpenLogin }) {
       } else {
         setErrorText("An error occurred. Please try again.");
       }
-      console.error("Error signing in:", error);
     }
   };
 
   return (
     <div className="flex items-center justify-center fixed top-0 left-0 bg-[#00000099] right-0 bottom-0">
-      <AiFillCloseCircle
-        onClick={handleOpenLogin}
-        className="absolute hover:cursor-pointer top-0 right-0 m-4 text-white"
-        size={30}
-      />
       <form
         className="  animate-jump-in flex flex-col bg-white justify-center items-center gap-12 w-64 h-[20rem] rounded-2xl"
         onSubmit={handleSubmit(onSubmit)}
       >
+        <AiFillCloseCircle
+          onClick={handleOpenLogin}
+          className=" absolute hover:cursor-pointer top-0 right-0 m-4  text-blue-500"
+          size={30}
+        />
         <input
-          className="bg-blue-500 p-2 rounded-2xl shadow-lg text-center text-white placeholder-white"
+          className="bg-blue-500 p-2 mt-8 rounded-2xl shadow-lg text-center text-white placeholder-white"
           type="text"
           placeholder="Email"
           {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
@@ -84,5 +80,5 @@ export default function Form({ handleOpenLogin }) {
         />
       </form>
     </div>
-  );
+  ); 
 }

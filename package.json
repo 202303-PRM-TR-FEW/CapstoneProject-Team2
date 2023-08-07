@@ -20,7 +20,7 @@
     "axios": "^1.4.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
-    "firebase": "^10.0.0",
+    "firebase": "^10.1.0",
     "i18next": "^23.2.11",
     "next": "13.4.7",
     "next-auth": "^4.22.3",

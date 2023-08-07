@@ -5,13 +5,10 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import RouteProvider from "@/components/RouteProvider";
 
-
-
 export const metadata = {
   title: "Mudemy",
   description: "Best Learning Platform",
 };
-
 
 
 export function generateStaticParams() {

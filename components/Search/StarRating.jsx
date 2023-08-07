@@ -8,8 +8,6 @@ const StarRating = ({ rating }) => {
     return null;
   }
 
-  console.log(rating);
-
 
   const filledStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;

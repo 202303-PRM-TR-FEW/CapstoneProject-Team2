@@ -1,11 +1,9 @@
 import {
   Card,
-  CardHeader,
-  CardBody,
   Typography,
-  Button,
 } from "@material-tailwind/react";
-import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+
 
 export default function Activity({ title, name }) {
   return (
@@ -14,10 +12,13 @@ export default function Activity({ title, name }) {
         <Card className="flex-row w-full max-w-[36rem] shadow-none dark:bg-slate-800">
           <div className="mb-2">
             <div className="flex items-center mt-2">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
                 alt="image"
                 className="w-10 h-10 rounded-lg border border-gray-300"
+                width={40}
+                height={40}
+                
               />
               <div className="ml-2">
                 <Typography

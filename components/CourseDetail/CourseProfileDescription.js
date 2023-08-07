@@ -35,11 +35,11 @@ export default function CourseProfileDescription({ course }) {
         className={`relative rounded-t-3xl ${style.title}`}
       >
         <div className="h-full w-full relative">
-          <img
+          <Image
             src={course.image}
             alt="img-blur-shadow"
-            layout="fill"
-            objectfit="cover"
+            width={800}
+            height={400}
             className="rounded-t-3xl"
           />
         </div>
@@ -49,7 +49,7 @@ export default function CourseProfileDescription({ course }) {
           {course.title}
         </Typography>
         <div className={style.name}>
-          <img
+          <Image
             src={course.instructor_img}
             width={30}
             height={30}
@@ -69,10 +69,10 @@ export default function CourseProfileDescription({ course }) {
           </div>
         </div>
         <Typography>
-          <p className={style.details}>Course Description</p>
-          <p>{course.description}</p>
+          <div className={style.details}>Course Description</div>
+          <div>{course.description}</div>
         </Typography>
       </CardBody>
     </Card>
-  );
+  ); 
 }
