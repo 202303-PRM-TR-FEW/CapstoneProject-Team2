@@ -54,25 +54,25 @@ const NavigationBar = () => {
       <div className="z-[2] md:bg-slate-100 backdrop-blur-md flex  justify-center items-center sticky left-0 bottom-0 gap-4 w-full h-16  md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700 ">
         <div className={style.navbar2}>
        
-          <Link href="home" className={style.button}>
+          <Link href="/home" className={style.button}>
             <AiFillHome size={30} />
             <p>{t("Home")}</p>
           </Link>
-          <Link href="search" className={style.button}>
+          <Link href="/search" className={style.button}>
             <AiOutlineSearch size={30} />
             <p>{t("Search")}</p>
           </Link>
-          <Link href="courses" className={style.button}>
+          <Link href="/courses" className={style.button}>
             <AiFillPlayCircle size={30} />
             <p>{t("Courses")}</p>
           </Link>
-          <Link href="saved" className={style.button}>
+          <Link href="/saved" className={style.button}>
             <FiSave size={30} />
             <p>{t("Saved")}</p>
           </Link>
           
            
-            <Link href="profile" className={style.button}>
+            <Link href="/profile" className={style.button}>
               <CgProfile size={30} />
               <p>{t("Profile")}</p>
             </Link>
