@@ -12,6 +12,7 @@ import { getAuth } from "firebase/auth";
 import { addDoc, doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
 import { db } from "../app/lib/firebase";
 import CreditCardUi from "./CreditCardUi";
+import { useState } from "react";
 
 const style = {
   fcCard: `bg-white w-max p-1 rounded-2xl dark:bg-slate-800`,
@@ -43,6 +44,9 @@ const FeaturedCourses = () => {
   useEffect(() => {
     dispatch(fetchCourses());
   }, []);
+  const handleCloseCreditCard = () => {
+    setShowCreditCard(false);
+  };
 
   useEffect(() => {
     if (currentUser && savedCourses.length > 0) {
@@ -54,10 +58,7 @@ const FeaturedCourses = () => {
     try {
       const savedCoursesRef = doc(db, "savedCourses", userId);
       await setDoc(savedCoursesRef, { courses: savedCourses });
-
-    } catch (error) {
-
-    }
+    } catch (error) {}
   };
 
   const handleSave = (course) => {
@@ -68,37 +69,36 @@ const FeaturedCourses = () => {
     <div className={style.details}>
       {courses.slice(0, 5).map((course) => (
         <div className={style.fcCard} key={course.id}>
-        
+          <Image
+            src={course.image}
+            width={120}
+            height={120}
+            alt="cover image of course"
+            style={{ width: "100%", height: "100px", objectFit: "cover" }}
+            className={style.img}
+          />
+          <button onClick={() => handleSave(course)}>
             <Image
-              src={course.image}
-              width={120}
-              height={120}
-              alt="cover image of course"
-              style={{ width: "100%", height: "100px", objectFit: "cover" }}
-              className={style.img}
+              src={saveIconFull}
+              width={25}
+              height={25}
+              alt="Save Icon"
+              className={style.saveIcon}
+              priority={true}
             />
-            <button onClick={() => handleSave(course)}>
-              <Image
-                src={saveIconFull}
-                width={25}
-                height={25}
-                alt="Save Icon"
-                className={style.saveIcon}
-                priority={true}
-              />
-            </button>
-            <div className={style.personInfo}>
-              <Image
-                src={course.instructor_img}
-                alt="image of trainer"
-                className={style.personImg}
-                width={40}
-                height={40}
-              />
-              <p>{course.instructor}</p>
-            </div>
+          </button>
+          <div className={style.personInfo}>
+            <Image
+              src={course.instructor_img}
+              alt="image of trainer"
+              className={style.personImg}
+              width={40}
+              height={40}
+            />
+            <p>{course.instructor}</p>
+          </div>
 
-            <div className={style.padding}>
+          <div className={style.padding}>
             <Link href={`/courseInfo/${course.id}`}>
               <h3 className={style.powerTitle}>{course.title}</h3>
               <div className={style.details}>
@@ -110,13 +110,22 @@ const FeaturedCourses = () => {
                   <AiFillStar size={20} className={style.iconColor} />
                   <p className={style.iconsText}>{course.rating}</p>
                 </div>
-                </Link>
-                <button className={style.priceBtn}>{course.price} $</button>
               </div>
-            </div>
-         
+            </Link>
+            <button
+              className={style.priceBtn}
+              onClick={() => setShowCreditCard(true)}
+            >
+              {course.price} $
+            </button>
+          </div>
         </div>
       ))}
+      {showCreditCard && (
+        <div className="overlay">
+          <CreditCardUi show={showCreditCard} onClose={handleCloseCreditCard} />
+        </div>
+      )}
     </div>
   );
 };
