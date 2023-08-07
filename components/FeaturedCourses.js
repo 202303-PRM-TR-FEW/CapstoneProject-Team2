@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import { BiSolidTimeFive } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
@@ -54,65 +54,49 @@ const FeaturedCourses = () => {
       await setDoc(savedCoursesRef, { courses: savedCourses });
 
     } catch (error) {
-  
+
     }
   };
 
   const handleSave = (course) => {
     dispatch(addCourse(course));
   };
-  
+
   return (
     <div className={style.details}>
       {courses.slice(0, 5).map((course) => (
         <div className={style.fcCard} key={course.id}>
-          <Image
-            src={course.image}
-            width={120}
-            height={120}
-            alt="cover image of course"
-            style={{ width: "100%", height: "100px", objectFit: "cover" }}
-            className={style.img}
-          />
-          <button onClick={() => handleSave(course)}>
+          <Link href={`/courseInfo/${course.id}`}>
             <Image
-              src={saveIconFull}
-              width={25}
-              height={25}
-              alt="Save Icon"
-              className={style.saveIcon}
-              priority={true}
+              src={course.image}
+              width={120}
+              height={120}
+              alt="cover image of course"
+              style={{ width: "100%", height: "100px", objectFit: "cover" }}
+              className={style.img}
             />
-          </button>
-          <div className={style.personInfo}>
-            <Image
-              src={course.instructor_img}
-              alt="image of trainer"
-              className={style.personImg}
-              width={40}
-              height={40}
-            />
-            <Image
-              src={saveIconFull}
-              width={25}
-              height={25}
-              alt="Save Icon"
-              className={style.saveIcon}
-              priority={true}
-            />
+            <button onClick={() => handleSave(course)}>
+              <Image
+                src={saveIconFull}
+                width={25}
+                height={25}
+                alt="Save Icon"
+                className={style.saveIcon}
+                priority={true}
+              />
+            </button>
             <div className={style.personInfo}>
-              <img
+              <Image
                 src={course.instructor_img}
                 alt="image of trainer"
                 className={style.personImg}
-
+                width={40}
+                height={40}
               />
               <p>{course.instructor}</p>
             </div>
             <div className={style.padding}>
-              <Link href={`/courseInfo/${course.id}`}>
-                <h3 className={style.powerTitle}>{course.title}</h3>
-              </Link>
+              <h3 className={style.powerTitle}>{course.title}</h3>
               <div className={style.details}>
                 <div className={style.icons}>
                   <BiSolidTimeFive size={20} className={style.iconColor} />
