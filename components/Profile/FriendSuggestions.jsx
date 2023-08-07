@@ -36,7 +36,7 @@ const FriendSuggestions = () => {
             className=" items-center flex justify-around gap-2"
           >
             <div className="flex gap-2">
-              <img
+              <Image
                 className="w-8 rounded-full  w-[90px] h-[90px]  "
                 src={user.image}
                 alt="profile"

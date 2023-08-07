@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeSelectedProfile } from "../../redux/apiUsers";
 import { useEffect } from "react";
 import Link from "next/link";
-
+import Image from "next/image";
 const FriendsList = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.users);
@@ -29,7 +29,7 @@ const FriendsList = () => {
             className=" items-center flex justify-around gap-2"
           >
             <div className="flex gap-2 ">
-              <img
+              <Image
                 className="w-8 rounded-full  w-[90px] h-[90px]  "
                 src={selectedProfile.image}
                 alt="profile"

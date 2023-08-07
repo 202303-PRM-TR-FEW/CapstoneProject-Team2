@@ -3,7 +3,6 @@ import { AiFillHome, AiOutlineSearch, AiFillPlayCircle } from "react-icons/ai";
 import { FiSave } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import ThemeSwitcher from "@/darkMode/ThemeSwitcher";
 import Providers from "@/darkMode/providers";
 import { useTranslations } from "next-intl";
@@ -14,6 +13,7 @@ import {logout, selectUser} from "../redux/features/usersSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../app/lib/firebase";
 import { useRouter } from "next/navigation";
+import  Link from 'next-intl/link'
 
 
 
@@ -44,8 +44,9 @@ const NavigationBar = () => {
 
 
   const pathname = usePathname();
+  const  paths = ["/", "/ar", "/kr", "/tr"];
 
-  if (pathname === "/") {
+  if (paths.includes(pathname)) {
     return null;
   } else {
     return (
@@ -89,10 +90,7 @@ const NavigationBar = () => {
               <ReactCountryFlag countryCode="" size={30} />
               <p>English</p>
             </Link>
-            <Link href="/" locale="de" className={style.button}>
-              <ReactCountryFlag countryCode="GB" size={30} />
-              <p>German</p>
-            </Link>
+      
             <Link href="/" locale="kr" className={style.button}>
               <ReactCountryFlag countryCode="KR" size={30} />
               <p>Korean</p>

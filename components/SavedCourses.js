@@ -1,8 +1,7 @@
 "use client";
 
-
 import { useSelector } from "react-redux";
-
+import Image from "next/image";
 
 const style = {
   courseCard: `flex rounded-2xl bg-white m-2 shadow-lg dark:bg-slate-800`,
@@ -20,7 +19,7 @@ const SavedCourses = () => {
     <div>
       {savedCourses.map((course) => (
         <div className={style.courseCard} key={course.id}>
-          <img
+          <Image
             src={course.image}
             width={150}
             height={150}

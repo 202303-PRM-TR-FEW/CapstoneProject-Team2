@@ -86,7 +86,7 @@ const FeaturedCourses = () => {
             />
           </button>
           <div className={style.personInfo}>
-            <img
+            <Image
               src={course.instructor_img}
               alt="image of trainer"
               className={style.personImg}
