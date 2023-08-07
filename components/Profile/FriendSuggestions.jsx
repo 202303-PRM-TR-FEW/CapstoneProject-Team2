@@ -5,7 +5,6 @@ import { addSelectedProfile, removeUser } from "../../redux/apiUsers";
 import { useState } from "react";
 import EmailForm from "./EmailForm";
 
-
 const FriendSuggestions = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.users);
@@ -24,10 +23,8 @@ const FriendSuggestions = () => {
     setSelectedUser(null);
   };
 
-
-
   return (
-    <div >
+    <div>
       <h1 className="font-bold mt-8">Friend Suggestions</h1>
       <div className=" flex flex-col gap-2 mt-8 dark:bg-slate-800 bg-white w-[26rem] p-4  rounded-xl">
         {users.slice(0, 2).map((user) => (
@@ -40,7 +37,8 @@ const FriendSuggestions = () => {
                 className="w-8 rounded-full  w-[90px] h-[90px]  "
                 src={user.image}
                 alt="profile"
-                size={50}
+                width={50}
+                height={50}
               />
             </div>
             <div className=" w-16">
@@ -55,7 +53,6 @@ const FriendSuggestions = () => {
                 Add
               </button>
               <button
-            
                 onClick={() => handleMessageButtonClick(user)}
                 className="bg-indigo-400 h-16 rounded-xl p-1 text-white"
               >
@@ -65,7 +62,9 @@ const FriendSuggestions = () => {
           </div>
         ))}
       </div>
-      {selectedUser && <EmailForm user={selectedUser} onClose={handleCloseEmailForm} />}
+      {selectedUser && (
+        <EmailForm user={selectedUser} onClose={handleCloseEmailForm} />
+      )}
     </div>
   );
 };

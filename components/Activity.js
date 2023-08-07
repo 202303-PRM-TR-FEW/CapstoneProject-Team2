@@ -16,6 +16,9 @@ export default function Activity({ title, name }) {
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
                 alt="image"
                 className="w-10 h-10 rounded-lg border border-gray-300"
+                width={40}
+                height={40}
+                
               />
               <div className="ml-2">
                 <Typography

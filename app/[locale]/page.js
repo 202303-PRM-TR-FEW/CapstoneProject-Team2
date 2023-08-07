@@ -82,7 +82,7 @@ const Page = () => {
         </div>
       </div>
       <div className="flex md:w-1/2 h-screen justify-center items-center  ">
-        <Image src={login1} priority={true} alt="home-image" />
+        <Image width={400}  height={400} src={login1} priority={true} alt="home-image" />
       </div>
 
       {openForm && <Form handleOpenForm={handleOpenForm} />}

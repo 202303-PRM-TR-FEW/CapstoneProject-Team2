@@ -33,6 +33,8 @@ const FriendsList = () => {
                 className="w-8 rounded-full  w-[90px] h-[90px]  "
                 src={selectedProfile.image}
                 alt="profile"
+                width={50}
+                height={50}
               />
             </div>
             <div className=" w-16">

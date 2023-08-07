@@ -90,6 +90,9 @@ const FeaturedCourses = () => {
               src={course.instructor_img}
               alt="image of trainer"
               className={style.personImg}
+              width={40}
+              height={40}
+              
             />
             <p>{course.instructor}</p>
           </div>

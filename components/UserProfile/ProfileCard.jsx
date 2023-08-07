@@ -15,6 +15,8 @@ const ProfileCard = ({ user }) => {
             className="rounded-full w-32 h-32"
             src={user.image}
             alt="profile"
+            width={100}
+            height={100}
           />
         </div>
         <div className="flex flex-col ml-4 gap-8">
