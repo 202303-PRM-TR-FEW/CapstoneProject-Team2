@@ -27,8 +27,6 @@ const SavedCoursesInfo = () => {
     btnDiv: `flex justify-center mt-4`,
   };
 
-  console.log(savedCourses);
-
   return (
     <div className={style.courseInfoCard}>
       {savedCourses.map((course) => (

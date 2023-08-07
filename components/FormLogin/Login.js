@@ -42,7 +42,6 @@ export default function Form({ handleOpenLogin }) {
       } else {
         setErrorText("An error occurred. Please try again.");
       }
-      console.error("Error signing in:", error);
     }
   };
 

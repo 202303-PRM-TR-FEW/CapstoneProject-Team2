@@ -11,7 +11,6 @@ export const fetchUsers = createAsyncThunk(
       id: doc.id,
       ...doc.data(),
     }));
-    console.log("Fetched users:", data); 
     return data;
   }
 

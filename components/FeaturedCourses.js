@@ -53,9 +53,9 @@ const FeaturedCourses = () => {
     try {
       const savedCoursesRef = doc(db, "savedCourses", userId);
       await setDoc(savedCoursesRef, { courses: savedCourses });
-      console.log("Saved courses data added to Firestore!");
+
     } catch (error) {
-      console.error("Error saving saved courses data in Firestore: ", error);
+  
     }
   };
 

@@ -26,8 +26,7 @@ const CoursepPage = ({ params }) => {
   const { courseProfile } = params;
   const courseId = parseInt(courseProfile); // Convert courseProfile to a number
   const course = courses.find((course) => course.id === courseId);
-console.log(courses);
-  console.log(course);
+
 
   return (
     <div className={style.course}>

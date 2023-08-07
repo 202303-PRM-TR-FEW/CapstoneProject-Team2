@@ -51,11 +51,11 @@ export default function Form({ handleOpenForm }) {
         // Note: You should not store the password in Firestore. It is only used for user registration.
       });
 
-      console.log("Document written with ID:", docRef.id);
+
 
       router.push("/home");
     } catch (error) {
-      console.error("Error adding document:", error);
+
     }
   };
 

@@ -16,12 +16,6 @@ const style = {
 const SavedCourses = () => {
   const savedCourses = useSelector((state) => state.savedCourses.savedCourses);
 
-  console.log(savedCourses);
-  
-
-
-
-
   return (
     <div>
       {savedCourses.map((course) => (

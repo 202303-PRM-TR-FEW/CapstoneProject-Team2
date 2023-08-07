@@ -26,8 +26,6 @@ export default function CourseProfileDescription({ course }) {
   if (!course) {
     return null;
   }
-
-  console.log(course);
   return (
     <Card
       className="mt-6 bg-transparent dark:bg-slate-800"
