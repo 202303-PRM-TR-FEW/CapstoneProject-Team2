@@ -16,10 +16,9 @@ import { useRouter } from "next/navigation";
 import  Link from 'next-intl/link'
 import { BiLogOut } from "react-icons/bi";
 
-
-
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
   const style = {
     navbar: `z-[2] md:bg-slate-100 backdrop-blur-md flex justify-center items-center sticky left-0 bottom-0 gap-4 w-full h-16 md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700`,
     button: `flex flex-col items-center text-gray-400 hover:text-pink-400`,
@@ -30,6 +29,7 @@ const NavigationBar = () => {
     extrabox2: `  flex flex-col  bg-white gap-2 rounded-xl  p-4 md:flex md:flex-row translate-y-[-10rem] translate-x-[-8rem] md:translate-y-[-8rem] md:translate-x-[10rem]  `,
     extrabox: `z-[2] md:bg-slate-100 backdrop-blur-md flex flex-col justify-center items-center sticky left-0 bottom-16 gap-2 w-full h-32 md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700`,
   };
+  
   const t = useTranslations("Components");
   const router = useRouter();
 
@@ -43,7 +43,6 @@ const NavigationBar = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-
   const pathname = usePathname();
   const  paths = ["/", "/ar", "/kr", "/tr"];
 
@@ -53,7 +52,6 @@ const NavigationBar = () => {
     return (
       <div className="z-[2] md:bg-slate-100 backdrop-blur-md flex  justify-center items-center sticky left-0 bottom-0 gap-4 w-full h-16  md:flex-col md:w-[4rem] md:h-screen dark:bg-slate-700 ">
         <div className={style.navbar2}>
-       
           <Link href="/home" className={style.button}>
             <AiFillHome size={30} />
             <p>{t("Home")}</p>
@@ -69,34 +67,27 @@ const NavigationBar = () => {
           <Link href="/saved" className={style.button}>
             <FiSave size={30} />
             <p>{t("Saved")}</p>
-          </Link>
-          
-           
+          </Link>        
             <Link href="/profile" className={style.button}>
               <CgProfile size={30} />
               <p>{t("Profile")}</p>
-            </Link>
-          
+            </Link>      
           <Providers>
             <ThemeSwitcher />
           </Providers>
-
           <button  className=" dark:text-white">
           <MdLanguage className=" dark:text-white" size={30} onClick={() => setIsOpen(!isOpen)} />
           </button>
-
           <button  onClick={logoutOfApp}>
             <BiLogOut size={30} />
           </button>
         </div>
-        
         {isOpen && (
           <div className={style.extrabox2}>
             <Link href="/" locale="en" className={style.button}>
               <ReactCountryFlag countryCode="GB" size={30} />
               <p>English</p>
             </Link>
-      
             <Link href="/" locale="kr" className={style.button}>
               <ReactCountryFlag countryCode="KR" size={30} />
               <p>Korean</p>

@@ -16,6 +16,6 @@ export const fetchCourses = createAsyncThunk(
 
     return data;
   }
-);  
+);
 
 

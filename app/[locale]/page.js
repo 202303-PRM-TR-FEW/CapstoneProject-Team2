@@ -11,17 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../app/lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
-
-
-
-
-
-
 const Page = () => {
   const [openForm, setOpenForm] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
-
-
 
   const t = useTranslations("Index");
 

@@ -5,16 +5,13 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import RouteProvider from "@/components/RouteProvider";
 
-
-
 export const metadata = {
   title: "Mudemy",
   description: "Best Learning Platform",
 };
 
 
-
-export function generateStaticParams(  ) {
+export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "de" }, { locale: "ar" }];
 }
 
@@ -31,11 +28,10 @@ export default async function LocaleLayout({ children, params: { locale } }) {
       <body className="flex flex-col-reverse md:flex-row bg-slate-100 dark:bg-slate-700">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ReduxProvider>
+            {/* <RouteProvider> */}
             <NavigationBar />
-          
-              {children}
-            {/* <RouteProvider>
-            </RouteProvider> */}
+            {children}
+            {/* <RouteProvider> */}
           </ReduxProvider>
         </NextIntlClientProvider>
       </body>
