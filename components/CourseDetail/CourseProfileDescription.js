@@ -2,6 +2,7 @@
 
 import { BiSolidTimeFive } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
+import Image from "next/image";
 import {
   Card,
   CardHeader,
@@ -74,5 +75,5 @@ export default function CourseProfileDescription({ course }) {
         </Typography>
       </CardBody>
     </Card>
-  ); 
+  );
 }
