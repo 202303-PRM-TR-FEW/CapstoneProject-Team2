@@ -29,7 +29,6 @@ export default function Form({ handleOpenLogin }) {
           email: userAuth.user.email,
           uid: userAuth.user.uid,
           displayName: userAuth.user.displayName,
-          photoUrl: userAuth.user.photoURL,
         })
       );
       setErrorText("");
@@ -81,5 +80,5 @@ export default function Form({ handleOpenLogin }) {
         />
       </form>
     </div>
-  );
+  ); 
 }

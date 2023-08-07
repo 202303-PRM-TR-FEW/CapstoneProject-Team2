@@ -36,11 +36,11 @@ export default function CourseProfileDescription({ course }) {
         className={`relative rounded-t-3xl ${style.title}`}
       >
         <div className="h-full w-full relative">
-          <img
+          <Image
             src={course.image}
             alt="img-blur-shadow"
-            layout="fill"
-            objectFit="cover"
+            width={800}
+            height={400}
             className="rounded-t-3xl"
           />
         </div>
