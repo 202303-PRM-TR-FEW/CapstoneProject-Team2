@@ -38,33 +38,45 @@ const FeaturedCourses = () => {
   const savedCourses = useSelector((state) => state.savedCourses.savedCourses);
   const [showCreditCard, setShowCreditCard] = useState(false);
 
-  const auth = getAuth();
-  const currentUser = auth.currentUser;
-
   useEffect(() => {
     dispatch(fetchCourses());
   }, []);
   const handleCloseCreditCard = () => {
     setShowCreditCard(false);
   };
+  const auth = getAuth();
+  const currentUser = auth.currentUser;
 
-  useEffect(() => {
-    if (currentUser && savedCourses.length > 0) {
-      saveSavedCoursesToFirebase(currentUser.uid, savedCourses);
+  console.log("currentUser", currentUser);
+ 
+   
+  const handleSave = async (course) => {
+    dispatch(addCourse(course)); // Add to Redux first
+  
+    const auth = getAuth();
+    const currentUser = auth.currentUser;
+  
+    if (currentUser) {
+      try {
+        const savedCoursesRef = doc(db, "savedCourses", currentUser.uid);
+        const docSnap = await getDoc(savedCoursesRef);
+  
+        let coursesToUpdate = [];
+        if (docSnap.exists()) {
+          coursesToUpdate = docSnap.data().courses;
+        }
+  
+        coursesToUpdate.push(course); 
+  
+        await setDoc(savedCoursesRef, { courses: coursesToUpdate });
+      } catch (error) {
+        console.error("Error saving course to Firebase:", error);
+      }
     }
-  }, [savedCourses, currentUser]);
-
-  const saveSavedCoursesToFirebase = async (userId, courses) => {
-    try {
-      const savedCoursesRef = doc(db, "savedCourses", userId);
-      await setDoc(savedCoursesRef, { courses: savedCourses });
-    } catch (error) {}
   };
 
-  const handleSave = (course) => {
-    dispatch(addCourse(course));
-  };
 
+  
   return (
     <div className={style.details}>
       {courses.slice(0, 5).map((course) => (

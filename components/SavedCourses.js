@@ -2,6 +2,12 @@
 
 import { useSelector } from "react-redux";
 import Image from "next/image";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchSavedCoursesFromFirebase } from "@/app/lib/fetchSavedCourses";
+import { getAuth } from "firebase/auth";
+
+  
 
 const style = {
   courseCard: `flex rounded-2xl bg-white m-2 shadow-lg dark:bg-slate-800`,
@@ -14,6 +20,20 @@ const style = {
 
 const SavedCourses = () => {
   const savedCourses = useSelector((state) => state.savedCourses.savedCourses);
+  const dispatch = useDispatch();
+  const auth = getAuth();
+  const currentUser = auth.currentUser;
+
+  console.log("savedCourses", savedCourses);
+  console.log("currentUser", currentUser);
+
+  useEffect(() => {
+    if (currentUser) {
+      dispatch(fetchSavedCoursesFromFirebase(currentUser.uid));
+    }
+  }, [currentUser, dispatch]);
+
+  
 
   return (
     <div>
