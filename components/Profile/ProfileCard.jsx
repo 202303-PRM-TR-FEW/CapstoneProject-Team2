@@ -5,11 +5,26 @@ import { BiCurrentLocation } from "react-icons/bi";
 import profile from "@/public/assets/alper-yazagan.jpg";
 import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
+import { getAuth } from "firebase/auth";
 
 const ProfileCard = () => {
   const t = useTranslations("Components");
 
 
+  const auth = getAuth();
+  const currentUser = auth.currentUser;
+
+  if (!currentUser) {
+
+    return (
+      <div className="flex ml-4">
+        xgbdbg
+        </div>
+
+    )
+
+  }
+  
   return (
     <div className="flex ml-4">
   
@@ -27,7 +42,7 @@ const ProfileCard = () => {
       <div className="flex flex-col ml-4 gap-8">
         <div className="mt-8">
         
-          <h1 className="text-2xl font-semibold">{}</h1>
+          <h1 className="text-2xl font-semibold">{currentUser.displayName}</h1>
         
           <div className="flex gap-2 items-center">
             <BiCurrentLocation />
@@ -56,3 +71,4 @@ const ProfileCard = () => {
 };
 
 export default ProfileCard;
+  
