@@ -1,3 +1,4 @@
+'use client';
 import { AiOutlineCheck } from "react-icons/ai";
 import { GiSandsOfTime, GiTrophyCup } from "react-icons/gi";
 

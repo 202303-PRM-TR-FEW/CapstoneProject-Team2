@@ -44,13 +44,13 @@ const FriendsList = () => {
             <div className="flex gap-4">
               <button
                 onClick={() => handleDeleteButtonClick(selectedProfile)}
-                className="bg-indigo-400 h-16 rounded-xl p-1 text-white"
+                className="bg-indigo-300 h-8 rounded-xl p-1 text-white"
               >
                 Delete
               </button>
 
               <Link
-                className="flex  bg-indigo-400 h-16 rounded-xl items-center p-1 text-white"
+                className="flex  bg-indigo-300 h-8 rounded-xl items-center p-1 text-white"
                 href={`/profile/${selectedProfile.id}`}
               >
                 View

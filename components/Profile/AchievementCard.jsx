@@ -1,3 +1,5 @@
+'use client'
+
 import { GiSandsOfTime, GiTrophyCup } from "react-icons/gi";
 
 const AchievementCard = () => {

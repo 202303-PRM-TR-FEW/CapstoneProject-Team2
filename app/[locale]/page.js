@@ -29,22 +29,6 @@ const Page = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(
-          login({
-            email: user.email,
-            uid: user.uid,
-            displayName: user.displayName,
-
-          })
-        );
-      } else {
-        dispatch(logout());
-      }
-    });
-  }, []);
 
 
   return (

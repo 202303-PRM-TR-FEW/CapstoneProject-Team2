@@ -48,13 +48,13 @@ const FriendSuggestions = () => {
             <div className="flex gap-4">
               <button
                 onClick={() => handleAddButtonClick(user)}
-                className="bg-indigo-400 h-16 rounded-xl p-1 text-white"
+                className="bg-indigo-300 h-8 rounded-xl p-1 text-white"
               >
                 Add
               </button>
               <button
                 onClick={() => handleMessageButtonClick(user)}
-                className="bg-indigo-400 h-16 rounded-xl p-1 text-white"
+                className="bg-indigo-300 h-8 rounded-xl p-1 text-white"
               >
                 Message
               </button>

@@ -47,7 +47,7 @@ const FeaturedCourses = () => {
   const auth = getAuth();
   const currentUser = auth.currentUser;
 
-  console.log("currentUser", currentUser);
+
  
    
   const handleSave = async (course) => {
@@ -74,8 +74,8 @@ const FeaturedCourses = () => {
       }
     }
   };
-
-
+ 
+ 
   
   return (
     <div className={style.details}>

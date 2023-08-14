@@ -59,9 +59,9 @@ export default function Form({ handleOpenLogin }) {
           placeholder="Email"
           {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
         />
-        <input
+      <input
           className="bg-blue-500 p-2 rounded-2xl shadow-lg text-center text-white placeholder-white"
-          type="tel"
+          type="password"
           placeholder="Password"
           {...register("password", {
             required: true,
