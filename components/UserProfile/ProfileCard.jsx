@@ -32,13 +32,13 @@ const ProfileCard = ({ user }) => {
           </div>
           <div className="flex justify-center gap-2 w-64 border-4 border-indigo-300 bg-slate-400 rounded-lg p-3 text-white">
             <div className="flex flex-col items-center">
-              <h1>0</h1>
+              <h1>{user.statistics.hours_learned}</h1>
               <p className="text-xs">Total Courses</p>
             </div>
 
             <div className="flex flex-col items-center ">
-              <h1>{user.friends}</h1>
-              <h1>Friends</h1>
+              <h1>{user.statistics.finished_courses}</h1>
+              <h1 className="text-xs">Friends</h1> 
             </div>
           </div>
         </div>

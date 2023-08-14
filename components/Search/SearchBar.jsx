@@ -4,7 +4,7 @@ const SearchBar = ({ searchTerm, onSearch }) => {
   };
 
   return (
-    <div className="flex gap-4 bg-white w-full shadow-md rounded px-8 pt-6 pb-8 justify-center items-center dark:bg-slate-800">
+    <div className="flex gap-4 bg-white shadow-md w-6/12 rounded  px-4  pt-6 pb-8 justify-center items-center dark:bg-slate-800">
       <input
         className="text-center w-10/12 p-2 rounded border border-gray-800 dark:bg-slate-400 dark:placeholder-white"
         type="text"
