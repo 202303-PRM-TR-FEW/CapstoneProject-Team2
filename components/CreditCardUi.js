@@ -89,11 +89,11 @@ function CreditCardUi( { show , onClose } ) {
             </div>
           </div>
           <input type="hidden" name="issuer" value={issuer} />
-          <div className="d-grid">
+          <div className="flex justify-between mt-12">
             <button  className=" bg-blue-500 p-2 rounded-2xl text-white">
               Confirm
             </button>
-            <button onClick={onClose} className="bg-blue-500 p-2 rounded-2xl text-white ml-24">
+            <button onClick={onClose} className="bg-blue-500 p-2 rounded-2xl text-white ">
           Close
         </button>
 

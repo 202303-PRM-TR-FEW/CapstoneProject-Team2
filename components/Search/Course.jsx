@@ -7,6 +7,7 @@ const Course = ({ course }) => {
     <div className="flex flex-col gap-2 h-[20rem] " key={course.id}>
       <Link href={`/courseInfo/${course.id}`}>
         <Image className=" h-[10rem]  "src={course.image} alt={course.title} width={200} height={100} />
+        </Link>
         {course.is_paid ? null : (
           <div className=" absolute ml-4 mt-2 bg-[#ECEB98] w-14 p-2 rounded-2xl ">
             {" "}
@@ -19,7 +20,7 @@ const Course = ({ course }) => {
         <p> {course.rating} / 5 </p>
         <StarRating rating={course.rating} />
         <p className=" font-bold"> ${course.price} </p>
-      </Link>
+  
     </div>
   );
 };

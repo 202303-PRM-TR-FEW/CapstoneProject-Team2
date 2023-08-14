@@ -59,9 +59,9 @@ export default function Form({ handleOpenLogin }) {
           placeholder="Email"
           {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
         />
-        <input
+      <input
           className="bg-blue-500 p-2 rounded-2xl shadow-lg text-center text-white placeholder-white"
-          type="tel"
+          type="password"
           placeholder="Password"
           {...register("password", {
             required: true,
@@ -74,7 +74,7 @@ export default function Form({ handleOpenLogin }) {
         </h1>
 
         <input
-          className="bg-white border border-blue-500 p-2 rounded-2xl shadow-lg text-center text-[blue]"
+          className="bg-white border  cursor-pointer border-blue-500 p-2 rounded-2xl shadow-lg text-center text-[blue]"
           type="submit"
           value="Submit"
         />

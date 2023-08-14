@@ -84,19 +84,19 @@ const NavigationBar = () => {
         </div>
         {isOpen && (
           <div className={style.extrabox2}>
-            <Link href="/" locale="en" className={style.button}>
+            <Link href="/home" locale="en" className={style.button}>
               <ReactCountryFlag countryCode="GB" size={30} />
               <p>English</p>
             </Link>
-            <Link href="/" locale="kr" className={style.button}>
+            <Link href="/home" locale="kr" className={style.button}>
               <ReactCountryFlag countryCode="KR" size={30} />
               <p>Korean</p>
             </Link>
-            <Link href="/" locale="tr" className={style.button}>
+            <Link href="/home" locale="tr" className={style.button}>
               <ReactCountryFlag countryCode="TR" size={30} />
               <p>Turkish</p>
             </Link>
-            <Link href="/" locale="ar" className={style.button}>
+            <Link href="/home" locale="ar" className={style.button}>
               <ReactCountryFlag countryCode="SA" size={30} />
               <p>Arabic</p>
             </Link>

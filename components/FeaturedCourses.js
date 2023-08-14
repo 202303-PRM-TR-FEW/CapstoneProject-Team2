@@ -15,10 +15,10 @@ import CreditCardUi from "./CreditCardUi";
 import { useState } from "react";
 
 const style = {
-  fcCard: `bg-white w-max p-1 rounded-2xl dark:bg-slate-800`,
+  fcCard: `bg-white w-64 p-1 rounded-2xl dark:bg-slate-800`,
   personInfo: `flex text-sm items-center my-4 p-1 pr-3 rounded-full shadow-lg w-fit bg-white 
   -mb-10 ml-2 translate-y-[-2rem] z-20 dark:bg-slate-600`,
-  details: `flex gap-4 w-64`,
+  details: `flex gap-4 flex-wrap `,
   priceBtn: `bg-blue-500 rounded-full p-1 px-3.5 text-xs text-white`,
   iconColor: `text-gray-400`,
   icons: `flex gap-1`,
@@ -47,11 +47,11 @@ const FeaturedCourses = () => {
   const auth = getAuth();
   const currentUser = auth.currentUser;
 
-  console.log("currentUser", currentUser);
+
  
    
   const handleSave = async (course) => {
-    dispatch(addCourse(course)); // Add to Redux first
+    dispatch(addCourse(course)); 
   
     const auth = getAuth();
     const currentUser = auth.currentUser;
@@ -74,8 +74,8 @@ const FeaturedCourses = () => {
       }
     }
   };
-
-
+ 
+ 
   
   return (
     <div className={style.details}>

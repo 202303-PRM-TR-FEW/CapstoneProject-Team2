@@ -10,7 +10,7 @@ const style = {
   oneBox: `flex hover:bg-blue-100 hover:cursor-pointer border
    hover:border-blue-500 justify-center items-center bg-white w-36 
    rounded-xl px-10 p-2 flex-col text-gray-600 group hover:text-blue-500 dark:text-white dark:bg-slate-800 border dark:border-slate-700 dark:hover:text-blue-500 dark:hover:border-blue-500`,
-  container: `flex gap-4`,
+  container: `flex gap-4 flex-wrap`,
 };
 
 const Categories = () => {

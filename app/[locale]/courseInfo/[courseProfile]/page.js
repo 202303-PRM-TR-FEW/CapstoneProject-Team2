@@ -24,7 +24,7 @@ const CoursepPage = ({ params }) => {
   }, []);
 
   const { courseProfile } = params;
-  const courseId = parseInt(courseProfile); // Convert courseProfile to a number
+  const courseId = parseInt(courseProfile); 
   const course = courses.find((course) => course.id === courseId);
 
   const lectureList = course?.lectures?.map((lecture, index) => <CourseContent key={index} title={index + 1 + `. ` + lecture} />);

@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import { BiCurrentLocation } from "react-icons/bi";
-import profile from "@/public/assets/alper-yazagan.jpg";
+import profile from "@/public/assets/profile.jpg";
 import { useTranslations } from "next-intl";
-import { useSession } from "next-auth/react";
+
 import { getAuth } from "firebase/auth";
 
 const ProfileCard = () => {
-  const t = useTranslations("Components");
+  // const t = useTranslations("Components");
 
 
   const auth = getAuth();
@@ -17,9 +17,7 @@ const ProfileCard = () => {
   if (!currentUser) {
 
     return (
-      <div className="flex ml-4">
-        xgbdbg
-        </div>
+    null
 
     )
 
@@ -29,14 +27,14 @@ const ProfileCard = () => {
     <div className="flex ml-4">
   
         <div className="mt-8 ">
-          {/* <Image
+          <Image
             width={100}
             height={100}
             className="rounded-full"
-            src={image}
+            src={profile}
             alt="profile"
             priority={true}
-          /> */}
+          />
         </div>
       
       <div className="flex flex-col ml-4 gap-8">
@@ -46,11 +44,11 @@ const ProfileCard = () => {
         
           <div className="flex gap-2 items-center">
             <BiCurrentLocation />
-            <p>London, UK</p>
+        
           </div>
         </div>
       </div>
-      <div className="flex gap-2 w-64 border-4 border-indigo-300 bg-slate-400 rounded-lg p-3 text-white">
+      {/* <div className="flex gap-2 w-64 border-4 border-indigo-300 bg-slate-400 rounded-lg p-3 text-white">
         <div className="flex flex-col items-center">
           <h1>0</h1>
           <p className="text-xs">{t("Courses")}</p>
@@ -65,7 +63,7 @@ const ProfileCard = () => {
           <h1>32</h1>
           <p className="text-xs">{t("Following")}</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
